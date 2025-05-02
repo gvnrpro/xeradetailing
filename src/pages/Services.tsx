@@ -19,6 +19,15 @@ const Services = () => {
     metaDescription.setAttribute('content', 
       'Explore premium car detailing services in Kerala including interior cleaning, foam wash, ceramic coating, engine bay detailing & more at XERA.'
     );
+    
+    // Add canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', 'https://xeradetailing.in/services');
   }, []);
   
   return (
@@ -34,6 +43,56 @@ const Services = () => {
           </div>
         </div>
         <ServicesSection />
+        
+        {/* Service schema markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Car Detailing Services",
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "XERA Car Wash & Auto Detailing"
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "Ottapalam, Kerala"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Auto Detailing Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Ceramic Coating",
+                      "description": "9H+ hardness, hydrophobic layer, UV protection — the ultimate defense"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Interior Detailing",
+                      "description": "Deep vacuum, steam sanitization, dashboard polish, seat shampoo"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Express Wash",
+                      "description": "Fast, spotless cleaning with pH-balanced foam"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </main>
       <Footer />
     </div>

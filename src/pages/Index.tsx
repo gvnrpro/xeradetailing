@@ -27,6 +27,15 @@ const Index = () => {
     metaDescription.setAttribute('content', 
       "Experience the best car wash and auto detailing in Ottapalam. XERA offers expert ceramic coating, interior cleaning, and paint protection in Kerala."
     );
+
+    // Add canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', 'https://xeradetailing.in/');
   }, []);
   
   return (
@@ -44,6 +53,48 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+
+      {/* LocalBusiness Schema */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "XERA Car Wash & Auto Detailing",
+            "image": "https://xeradetailing.in/logo.png",
+            "url": "https://xeradetailing.in",
+            "telephone": "+919605858483",
+            "priceRange": "₹₹",
+            "description": "Kerala's leading car wash and auto detailing studio offering ceramic coating, interior cleaning, paint correction, and more.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Opp. NSS College, Palappuram",
+              "addressLocality": "Ottapalam",
+              "postalCode": "679103",
+              "addressRegion": "Kerala",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.980150076997278,
+              "longitude": 76.37854502536776
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "19:00"
+            },
+            "sameAs": [
+              "https://www.facebook.com/xeradetailing",
+              "https://www.instagram.com/xeradetailing"
+            ]
+          }
+        `}}
+      />
     </div>
   );
 };

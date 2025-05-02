@@ -19,6 +19,15 @@ const Contact = () => {
     metaDescription.setAttribute('content', 
       "Book your appointment or visit us opposite NSS College, Palappuram, Ottapalam. Call, WhatsApp, or drop by Kerala's best car care studio."
     );
+    
+    // Add canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', 'https://xeradetailing.in/contact');
   }, []);
   
   return (
