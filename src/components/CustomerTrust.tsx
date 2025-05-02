@@ -2,6 +2,7 @@
 import React from 'react';
 import { Star, Car, Wrench, User } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const stats = [
   {
@@ -45,6 +46,8 @@ const testimonials = [
 ];
 
 const CustomerTrust = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <section className="py-16 md:py-24 bg-xera-darkgray">
       <div className="container mx-auto px-4">
@@ -52,17 +55,17 @@ const CustomerTrust = () => {
           Why Kerala Car Owners Choose XERA
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="glass-card p-6 rounded-lg text-center"
+              className="glass-card p-4 md:p-6 rounded-lg text-center"
             >
               <div className="flex justify-center mb-3">
                 {stat.icon}
               </div>
-              <div className="text-2xl font-bold mb-1">{stat.value}</div>
-              <div className="text-white/70 text-sm">{stat.label}</div>
+              <div className="text-xl md:text-2xl font-bold mb-1">{stat.value}</div>
+              <div className="text-white/70 text-xs md:text-sm">{stat.label}</div>
             </div>
           ))}
         </div>

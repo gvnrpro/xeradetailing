@@ -5,9 +5,12 @@ import HeroSection from '@/components/HeroSection';
 import WhyDetailingMatters from '@/components/WhyDetailingMatters';
 import ServicesSection from '@/components/ServicesSection';
 import CustomerTrust from '@/components/CustomerTrust';
+import FAQSection from '@/components/FAQSection';
+import GoogleReviewInvite from '@/components/GoogleReviewInvite';
 import AboutSection from '@/components/AboutSection';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   // Update document title for SEO
@@ -22,7 +25,7 @@ const Index = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Experience the best car wash and auto detailing in Ottapalam. XERA offers expert ceramic coating, interior cleaning, and paint protection in Kerala.'
+      "Experience the best car wash and auto detailing in Ottapalam. XERA offers expert ceramic coating, interior cleaning, and paint protection in Kerala."
     );
   }, []);
   
@@ -34,10 +37,13 @@ const Index = () => {
         <WhyDetailingMatters />
         <ServicesSection />
         <CustomerTrust />
+        <FAQSection />
+        <GoogleReviewInvite />
         <AboutSection />
         <LocationSection />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
