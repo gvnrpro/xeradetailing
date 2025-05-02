@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Car, Tools, User } from 'lucide-react';
+import { Star, Car, Wrench, User } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const stats = [
@@ -15,7 +15,7 @@ const stats = [
     label: "Cars Transformed"
   },
   {
-    icon: <Tools className="h-6 w-6 text-green-500" />,
+    icon: <Wrench className="h-6 w-6 text-green-500" />,
     value: "ISO-Grade",
     label: "Products & Tools"
   },

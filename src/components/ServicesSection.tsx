@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Soap, Droplet, PaintRoller, Headlight, Engine, Car } from 'lucide-react';
+import { Droplet, PaintRoller, Car, Wrench, ShowerHead, SprayCan } from 'lucide-react';
 
 const services = [
   {
     id: "express-wash",
-    icon: <Soap className="h-6 w-6" />,
+    icon: <ShowerHead className="h-6 w-6" />,
     title: "Express Wash",
     description: "Fast, spotless cleaning with pH-balanced foam",
     pricing: [
@@ -40,14 +40,14 @@ const services = [
   },
   {
     id: "headlight-restoration",
-    icon: <Headlight className="h-6 w-6" />,
+    icon: <SprayCan className="h-6 w-6" />,
     title: "Headlight Restoration",
     description: "Clears yellowing, improves night visibility and safety",
     pricing: []
   },
   {
     id: "engine-bay",
-    icon: <Engine className="h-6 w-6" />,
+    icon: <Wrench className="h-6 w-6" />,
     title: "Engine Bay Cleaning",
     description: "Professional degreasing & detailing for a showroom-clean engine",
     pricing: []
