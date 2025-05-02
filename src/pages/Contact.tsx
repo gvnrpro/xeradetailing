@@ -17,7 +17,7 @@ const Contact = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Book your appointment or visit us opposite NSS College, Palappuram, Ottapalam. Call, WhatsApp, or drop by Kerala's best car care studio.'
+      "Book your appointment or visit us opposite NSS College, Palappuram, Ottapalam. Call, WhatsApp, or drop by Kerala's best car care studio."
     );
   }, []);
   

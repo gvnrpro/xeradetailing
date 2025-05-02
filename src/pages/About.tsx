@@ -18,7 +18,7 @@ const About = () => {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 
-      'Learn about XERA Car Wash & Auto Detailing, Kerala's leading car care studio in Ottapalam. Discover our expertise in ceramic coating and paint protection.'
+      "Learn about XERA Car Wash & Auto Detailing, Kerala's leading car care studio in Ottapalam. Discover our expertise in ceramic coating and paint protection."
     );
   }, []);
   
