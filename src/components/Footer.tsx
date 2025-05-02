@@ -26,7 +26,7 @@ const Footer = () => {
               <Link to="/services" className="text-white/70 hover:text-xera-red transition-colors">Services</Link>
               <Link to="/about" className="text-white/70 hover:text-xera-red transition-colors">About Us</Link>
               <Link to="/contact" className="text-white/70 hover:text-xera-red transition-colors">Contact</Link>
-              <Link to="/reviews" className="text-white/70 hover:text-xera-red transition-colors">Reviews</Link>
+              <Link to="/blog" className="text-white/70 hover:text-xera-red transition-colors">Blog</Link>
               <Link to="/terms" className="text-white/70 hover:text-xera-red transition-colors">Terms</Link>
             </div>
           </div>
