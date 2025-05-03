@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     rollupOptions: {
       output: {
+        format: 'es', // Ensure ES module format
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
         },
