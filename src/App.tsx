@@ -16,12 +16,10 @@ import BlogPost from "./pages/BlogPost";
 // Create a client
 const queryClient = new QueryClient();
 
-const App = () => (
-  <React.StrictMode>
+const App = () => {
+  return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -32,10 +30,12 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Toaster />
+          <Sonner />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
-  </React.StrictMode>
-);
+  );
+};
 
 export default App;
