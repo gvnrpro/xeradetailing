@@ -30,10 +30,16 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    sourcemap: true,
+    // Use terser for minification
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: false
+      }
+    },
+    // Disable sourcemaps in production to avoid the @tanstack/react-query errors
+    sourcemap: mode === 'development',
     // Ensure correct asset paths
     assetsDir: 'assets',
-    // Add this to fix potential Netlify issues
-    minify: 'terser',
   },
 }));
