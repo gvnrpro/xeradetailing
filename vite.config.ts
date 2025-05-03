@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react({
-      jsxRuntime: 'classic',  // Ensure classic JSX runtime for broader compatibility
+      // Remove the unsupported jsxRuntime option
     }),
     mode === 'development' &&
     componentTagger(),
