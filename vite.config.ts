@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/',
+  base: '/', // Ensure the base path is correct
   server: {
     host: "::",
     port: 8080,
@@ -30,6 +30,10 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    sourcemap: true,  // Enable for better debugging
+    sourcemap: true,
+    // Ensure correct asset paths
+    assetsDir: 'assets',
+    // Add this to fix potential Netlify issues
+    minify: 'terser',
   },
 }));
