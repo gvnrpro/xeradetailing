@@ -1,5 +1,5 @@
 
-import React, { Suspense } from "react";
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,27 +30,23 @@ const App = () => {
   console.log("App component rendering");
   
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <BrowserRouter>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-            <Toaster />
-            <Sonner />
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </Suspense>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Toaster />
+          <Sonner />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 
