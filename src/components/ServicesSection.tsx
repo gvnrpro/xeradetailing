@@ -66,7 +66,7 @@ const ServicesSection = () => {
         </p>
 
         <Tabs defaultValue="express-wash" value={activeTab} onValueChange={setActiveTab} className="max-w-4xl mx-auto">
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 bg-xera-darkgray mb-8">
+          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 bg-xera-darkgray mb-8 h-auto">
             {services.map(service => (
               <TabsTrigger 
                 key={service.id} 
