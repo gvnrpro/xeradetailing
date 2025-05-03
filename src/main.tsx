@@ -4,13 +4,28 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-const rootElement = document.getElementById("root");
-if (!rootElement) throw new Error("Root element not found");
+// Make sure React is available globally to avoid "React not found" errors
+window.React = React;
 
-const root = createRoot(rootElement);
+// Ensure DOM is loaded before attempting to render
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const rootElement = document.getElementById("root");
+    if (!rootElement) {
+      console.error("Root element not found");
+      return;
+    }
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    const root = createRoot(rootElement);
+
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+    
+    console.log("React app successfully mounted");
+  } catch (error) {
+    console.error("Failed to initialize React application:", error);
+  }
+});

@@ -12,7 +12,9 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'classic',  // Ensure classic JSX runtime for broader compatibility
+    }),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
@@ -20,5 +22,16 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+    sourcemap: true,  // Enable for better debugging
   },
 }));
