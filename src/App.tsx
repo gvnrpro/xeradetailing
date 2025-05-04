@@ -13,6 +13,11 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 
+// Import individual service pages
+import ExpressWash from "./pages/services/ExpressWash";
+import CeramicCoating from "./pages/services/CeramicCoating";
+import EngineBayCleaning from "./pages/services/EngineBayCleaning";
+
 // Create a client with specific error handling to avoid silent failures
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +43,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/expresswash" element={<ExpressWash />} />
+            <Route path="/services/ceramiccoating" element={<CeramicCoating />} />
+            <Route path="/services/enginebaycleaning" element={<EngineBayCleaning />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
