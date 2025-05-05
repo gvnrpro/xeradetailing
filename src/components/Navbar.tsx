@@ -39,6 +39,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-white/80 hover:text-white hover:text-xera-red transition-colors">Home</Link>
           <Link to="/services" className="text-white/80 hover:text-white hover:text-xera-red transition-colors">Services</Link>
+          <Link to="/blog" className="text-white/80 hover:text-white hover:text-xera-red transition-colors">Blog</Link>
           <Link to="/about" className="text-white/80 hover:text-white hover:text-xera-red transition-colors">About</Link>
           <Link to="/contact" className="text-white/80 hover:text-white hover:text-xera-red transition-colors">Contact</Link>
         </div>
@@ -77,6 +78,13 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Services
+            </Link>
+            <Link 
+              to="/blog" 
+              className="py-3 border-b border-gray-700 text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
             </Link>
             <Link 
               to="/about" 

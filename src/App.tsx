@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index';
 import About from './pages/About';
@@ -15,6 +15,25 @@ import EngineBayCleaning from './pages/services/EngineBayCleaning';
 import './App.css'
 
 function App() {
+  // Add web app manifest for PWA support
+  useEffect(() => {
+    // Add manifest link if it doesn't exist
+    if (!document.querySelector('link[rel="manifest"]')) {
+      const manifestLink = document.createElement('link');
+      manifestLink.setAttribute('rel', 'manifest');
+      manifestLink.setAttribute('href', '/manifest.json');
+      document.head.appendChild(manifestLink);
+    }
+    
+    // Add theme-color meta tag for mobile browser UI
+    if (!document.querySelector('meta[name="theme-color"]')) {
+      const themeColorMeta = document.createElement('meta');
+      themeColorMeta.setAttribute('name', 'theme-color');
+      themeColorMeta.setAttribute('content', '#ef4444'); // XERA red color
+      document.head.appendChild(themeColorMeta);
+    }
+  }, []);
+
   return (
     <Router>
       <Routes>
