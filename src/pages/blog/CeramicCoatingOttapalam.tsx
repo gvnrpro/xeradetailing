@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,42 +6,28 @@ import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Shield, Droplets, CheckCircle, Sun, Car, Heart } from 'lucide-react';
 import { setPageMetadata, generateBlogPostSchema, generateFaqSchema } from '@/utils/seoHelper';
-
 const CeramicCoatingOttapalam = () => {
   // SEO metadata
   const pageTitle = "Ceramic Coating In Ottapalam | Long-Lasting Car Paint Protection | XERA";
   const pageDescription = "Get the best ceramic coating in Ottapalam. XERA's nano-coating service offers unmatched shine and UV protection for your car. Serving Palakkad, Shoranur, and Pattambi.";
   const imageUrl = "/assets/ceramic-after.jpg";
-  
   useEffect(() => {
     // Set page metadata for SEO
-    setPageMetadata(
-      pageTitle,
-      pageDescription,
-      "https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection",
-      imageUrl,
-      ["ceramic coating Ottapalam", "car detailing Palakkad", "paint protection Kerala", "nano coating cars", "9H ceramic coating", "hydrophobic coating", "UV protection", "car protection Shoranur", "premium car coating Pattambi", "best ceramic coating shop"]
-    );
+    setPageMetadata(pageTitle, pageDescription, "https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection", imageUrl, ["ceramic coating Ottapalam", "car detailing Palakkad", "paint protection Kerala", "nano coating cars", "9H ceramic coating", "hydrophobic coating", "UV protection", "car protection Shoranur", "premium car coating Pattambi", "best ceramic coating shop"]);
   }, []);
 
   // FAQ data for schema markup
-  const faqItems = [
-    {
-      question: "How long does ceramic coating last?",
-      answer: "With proper care, ceramic coating can last up to 5 years or more. Regular maintenance and using ceramic-safe cleaning products will help maximize longevity."
-    },
-    {
-      question: "Is ceramic better than wax?",
-      answer: "Yes, ceramic coating is superior to wax in almost every way. It lasts significantly longer (years vs. months), offers better protection against environmental contaminants, provides stronger UV resistance, and maintains a more premium glossy finish."
-    },
-    {
-      question: "How much does ceramic coating cost in Ottapalam?",
-      answer: "Our ceramic coating packages at XERA start affordably and vary depending on the vehicle size, condition, and service level selected. We offer different packages to suit various budgets. Contact us for a personalized quote."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  const faqItems = [{
+    question: "How long does ceramic coating last?",
+    answer: "With proper care, ceramic coating can last up to 5 years or more. Regular maintenance and using ceramic-safe cleaning products will help maximize longevity."
+  }, {
+    question: "Is ceramic better than wax?",
+    answer: "Yes, ceramic coating is superior to wax in almost every way. It lasts significantly longer (years vs. months), offers better protection against environmental contaminants, provides stronger UV resistance, and maintains a more premium glossy finish."
+  }, {
+    question: "How much does ceramic coating cost in Ottapalam?",
+    answer: "Our ceramic coating packages at XERA start affordably and vary depending on the vehicle size, condition, and service level selected. We offer different packages to suit various budgets. Contact us for a personalized quote."
+  }];
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-20">
         <div className="bg-xera-darkgray py-12 md:py-16">
@@ -67,11 +52,7 @@ const CeramicCoatingOttapalam = () => {
             <div className="max-w-3xl mx-auto">
               {/* Featured image */}
               <div className="mb-10 rounded-xl overflow-hidden">
-                <img 
-                  src={imageUrl} 
-                  alt="Professional ceramic coating on car in Ottapalam showing perfect gloss and reflection"
-                  className="w-full h-auto"
-                />
+                <img src={imageUrl} alt="Professional ceramic coating on car in Ottapalam showing perfect gloss and reflection" className="w-full h-auto" />
               </div>
               
               {/* Introduction */}
@@ -194,21 +175,11 @@ const CeramicCoatingOttapalam = () => {
               {/* Before/After Images */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 <div>
-                  <img 
-                    src="/assets/ceramic-before.jpg" 
-                    alt="Car before ceramic coating in Ottapalam - dull and dirty paint surface" 
-                    className="w-full h-auto rounded-lg"
-                    loading="lazy"
-                  />
+                  <img alt="Car before ceramic coating in Ottapalam - dull and dirty paint surface" className="w-full h-auto rounded-lg" loading="lazy" src="/lovable-uploads/0ce6d940-bdf2-495a-a7ba-2da69855c3a1.jpg" />
                   <p className="text-sm text-center text-white/70 mt-2">Before: Dull, unprotected paint</p>
                 </div>
                 <div>
-                  <img 
-                    src="/assets/ceramic-after.jpg" 
-                    alt="Car after ceramic coating by XERA in Ottapalam - glossy and protected finish" 
-                    className="w-full h-auto rounded-lg"
-                    loading="lazy"
-                  />
+                  <img src="/assets/ceramic-after.jpg" alt="Car after ceramic coating by XERA in Ottapalam - glossy and protected finish" className="w-full h-auto rounded-lg" loading="lazy" />
                   <p className="text-sm text-center text-white/70 mt-2">After: Glossy, protected finish</p>
                 </div>
               </div>
@@ -220,12 +191,10 @@ const CeramicCoatingOttapalam = () => {
                 <h2 className="text-2xl font-bold mt-10 mb-6 text-gradient">Frequently Asked Questions (FAQ)</h2>
                 
                 <div className="space-y-6 mb-10">
-                  {faqItems.map((faq, index) => (
-                    <div key={index} className="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10">
+                  {faqItems.map((faq, index) => <div key={index} className="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10">
                       <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
                       <p>{faq.answer}</p>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 
                 {/* CTA Section */}
@@ -242,12 +211,7 @@ const CeramicCoatingOttapalam = () => {
                     </div>
                     <div className="space-y-2">
                       <div className="font-semibold">📍 Find us:</div>
-                      <a 
-                        href="https://www.google.com/maps/place/Xera+Car+Wash+%26+Auto+Detailing+%7C+Car+Wash+in+Ottapalam+%7C+Ceramic+Coating+%26+Interior+Cleaning/@10.7670753,76.4074051,17z/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-xera-red hover:underline"
-                      >
+                      <a href="https://www.google.com/maps/place/Xera+Car+Wash+%26+Auto+Detailing+%7C+Car+Wash+in+Ottapalam+%7C+Ceramic+Coating+%26+Interior+Cleaning/@10.7670753,76.4074051,17z/" target="_blank" rel="noopener noreferrer" className="text-xera-red hover:underline">
                         Google Maps
                       </a>
                     </div>
@@ -282,32 +246,20 @@ const CeramicCoatingOttapalam = () => {
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <h3 className="text-xl font-bold mb-4">Share This Article</h3>
                   <div className="flex gap-4">
-                    <button 
-                      onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
-                      className="bg-[#1877F2] text-white p-2 rounded-full hover:opacity-80 transition-opacity"
-                      aria-label="Share on Facebook"
-                    >
+                    <button onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')} className="bg-[#1877F2] text-white p-2 rounded-full hover:opacity-80 transition-opacity" aria-label="Share on Facebook">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                       </svg>
                     </button>
-                    <button 
-                      onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(pageTitle + ' - ' + window.location.href)}`, '_blank')}
-                      className="bg-[#25D366] text-white p-2 rounded-full hover:opacity-80 transition-opacity"
-                      aria-label="Share on WhatsApp"
-                    >
+                    <button onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(pageTitle + ' - ' + window.location.href)}`, '_blank')} className="bg-[#25D366] text-white p-2 rounded-full hover:opacity-80 transition-opacity" aria-label="Share on WhatsApp">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                       </svg>
                     </button>
-                    <button 
-                      onClick={() => {
-                        navigator.clipboard.writeText(window.location.href);
-                        alert('URL copied to clipboard!');
-                      }}
-                      className="bg-gray-700 text-white p-2 rounded-full hover:opacity-80 transition-opacity"
-                      aria-label="Copy URL"
-                    >
+                    <button onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('URL copied to clipboard!');
+                  }} className="bg-gray-700 text-white p-2 rounded-full hover:opacity-80 transition-opacity" aria-label="Copy URL">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -321,35 +273,17 @@ const CeramicCoatingOttapalam = () => {
         </article>
         
         {/* Blog post schema markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: generateBlogPostSchema(
-              "Why Ceramic Coating Is the Best Car Protection in Ottapalam",
-              pageDescription,
-              "https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection",
-              imageUrl,
-              "2024-05-05",
-              "XERA Car Wash & Auto Detailing",
-              "XERA Car Wash & Auto Detailing",
-              "https://xeradetailing.in/logo.png",
-              ["ceramic coating", "Ottapalam", "car paint protection", "Kerala", "hydrophobic coating", "9H ceramic", "nano coating"]
-            )
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: generateBlogPostSchema("Why Ceramic Coating Is the Best Car Protection in Ottapalam", pageDescription, "https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection", imageUrl, "2024-05-05", "XERA Car Wash & Auto Detailing", "XERA Car Wash & Auto Detailing", "https://xeradetailing.in/logo.png", ["ceramic coating", "Ottapalam", "car paint protection", "Kerala", "hydrophobic coating", "9H ceramic", "nano coating"])
+      }} />
         
         {/* FAQ schema markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: generateFaqSchema(faqItems)
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: generateFaqSchema(faqItems)
+      }} />
       </main>
       <Footer />
       <WhatsAppButton />
-    </div>
-  );
+    </div>;
 };
-
 export default CeramicCoatingOttapalam;
