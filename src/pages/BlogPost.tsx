@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { getImageAlt } from '@/utils/imageOptimization';
 
 // Blog content for each post
 const blogContents = {
@@ -12,7 +13,7 @@ const blogContents = {
     title: "5 Reasons Kerala Cars Need Ceramic Coating",
     date: "May 1, 2024",
     readTime: "4 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
     content: `
       <p class="mb-6">Owning a car in Kerala means dealing with blazing sun, heavy rain, muddy roads, and humidity — all of which can ruin your vehicle's paint. That's where ceramic coating comes in.</p>
       
@@ -41,7 +42,7 @@ const blogContents = {
     title: "How Often Should You Get a Car Wash in Kerala?",
     date: "May 1, 2024",
     readTime: "3 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/assets/express-wash-after.jpg",
     content: `
       <p class="mb-6">With our tropical climate and traffic-packed roads, cars in Kerala get dirty fast. But how often should you actually wash your vehicle?</p>
       
@@ -71,7 +72,7 @@ const blogContents = {
     title: "Bike Detailing Checklist for Monsoon Season",
     date: "May 1, 2024",
     readTime: "5 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/lovable-uploads/588a7319-b8dc-4e0c-99dd-909134350e51.png",
     content: `
       <p class="mb-6">Rainy season in Kerala is beautiful — but for your bike, it's a nightmare. Follow this checklist to keep your ride rust-free and shiny.</p>
       
@@ -107,7 +108,7 @@ const blogContents = {
     title: "5 Mistakes to Avoid After Ceramic Coating",
     date: "May 1, 2024",
     readTime: "4 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/assets/ceramic-after.jpg",
     content: `
       <p class="mb-6">You've invested in ceramic coating — great! But don't let a few small mistakes ruin its performance.</p>
       
@@ -136,7 +137,7 @@ const blogContents = {
     title: "Is Anti-Rust Underbody Coating Worth It in Palakkad?",
     date: "May 1, 2024",
     readTime: "3 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png",
     content: `
       <p class="mb-6">Short answer: YES. Kerala's roads are full of moisture, mud, and salt — the perfect recipe for underbody rust.</p>
       
@@ -167,7 +168,7 @@ const blogContents = {
     title: "Foam Wash vs Pressure Wash: What's Better for Your Car in Kerala?",
     date: "May 1, 2024",
     readTime: "3 min read",
-    imageUrl: "https://lovable.dev/placeholder.svg", // Replace with actual image
+    imageUrl: "/assets/express-wash-before.jpg",
     content: `
       <p class="mb-6">Both clean your car — but they're not the same. Which one should you choose?</p>
       
@@ -194,12 +195,230 @@ const blogContents = {
         <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Book a precision foam wash with XERA today.</a>
       </div>
     `
+  },
+  "paint-protection-comparison": {
+    title: "Ceramic vs PPF vs Wax: Complete Paint Protection Comparison",
+    date: "May 3, 2024",
+    readTime: "6 min read",
+    imageUrl: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+    content: `
+      <p class="mb-6">With so many paint protection options available, which one should you choose? Let's compare ceramic coating, paint protection film (PPF), and traditional waxes.</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">Ceramic Coating: The Modern Shield</h2>
+      <p class="mb-6">Ceramic coating creates a semi-permanent bond with your paint that can last 2-5 years when properly maintained.</p>
+      <p class="mb-6">✅ <strong>Pros:</strong> Exceptional gloss, hydrophobic properties, UV protection, chemical resistance</p>
+      <p class="mb-6">⚠️ <strong>Cons:</strong> Higher upfront cost, professional application required, no physical impact protection</p>
+      <p class="mb-6"><strong>Best for:</strong> Daily drivers wanting low maintenance and high shine in Kerala's challenging climate</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">PPF (Paint Protection Film): The Physical Barrier</h2>
+      <p class="mb-6">PPF is a clear urethane film that's physically applied to your car's paint, providing the highest level of protection.</p>
+      <p class="mb-6">✅ <strong>Pros:</strong> Self-healing properties, impact protection from rocks and debris, prevents scratches</p>
+      <p class="mb-6">⚠️ <strong>Cons:</strong> Highest cost, potential for yellowing over time if low quality film is used</p>
+      <p class="mb-6"><strong>Best for:</strong> Luxury vehicles, cars driven on highways or construction areas with flying debris</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">Traditional Wax: The Classic Choice</h2>
+      <p class="mb-6">Carnauba or synthetic wax provides temporary protection that needs frequent reapplication.</p>
+      <p class="mb-6">✅ <strong>Pros:</strong> Affordable, DIY-friendly, gentle on paint, subtle shine</p>
+      <p class="mb-6">⚠️ <strong>Cons:</strong> Short lifespan (1-3 months), limited protection, requires frequent reapplication</p>
+      <p class="mb-6"><strong>Best for:</strong> Vintage cars, weekend vehicles, tight budgets</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">XERA's Recommendation</h2>
+      <p class="mb-6">For most Kerala drivers, our premium ceramic coating offers the best balance of protection, longevity, and value. For ultimate protection, consider our ceramic + PPF combo package for high-impact areas.</p>
+      
+      <div class="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10 mt-8">
+        <p class="font-bold mb-2">Not sure which protection is right for your vehicle?</p>
+        <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Book a free consultation with our protection specialists today.</a>
+      </div>
+    `
+  },
+  "interior-detailing-benefits": {
+    title: "Why Professional Interior Detailing Is Worth Every Rupee",
+    date: "May 5, 2024",
+    readTime: "5 min read", 
+    imageUrl: "/assets/interior-after.jpg",
+    content: `
+      <p class="mb-6">Your car's interior is where you spend most of your time. Here's why professional interior detailing is an investment in both your vehicle and your health.</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">Beyond What You Can See</h2>
+      <p class="mb-6">While DIY cleaning might remove visible dirt, professional detailing tackles what you can't see: bacteria, allergens, and deep-seated grime that accumulates in Kerala's humid climate.</p>
+      
+      <div class="mb-8">
+        <img src="/assets/interior-before.jpg" alt="Car interior before professional detailing showing dirt and stains in Kerala vehicle" class="rounded-lg mb-2 w-full" loading="lazy" />
+        <p class="text-sm text-center text-white/70">Before: Accumulated dirt and stains that regular cleaning misses</p>
+      </div>
+      
+      <div class="mb-8">
+        <img src="/assets/interior-after.jpg" alt="Car interior after XERA professional detailing looking fresh and sanitized" class="rounded-lg mb-2 w-full" loading="lazy" />
+        <p class="text-sm text-center text-white/70">After: Clean, sanitized, and protected surfaces</p>
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">Health Benefits You Can't Ignore</h2>
+      <p class="mb-6">Kerala's high humidity creates the perfect environment for mold and mildew growth in your car. Professional detailing includes:</p>
+      
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">HVAC system cleaning to remove mold spores and improve air quality</li>
+        <li class="mb-2">Antimicrobial treatments for all surfaces</li>
+        <li class="mb-2">Deep extraction of allergens from upholstery and carpets</li>
+        <li class="mb-2">Treatment of hidden areas where moisture accumulates</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">Preserving Value</h2>
+      <p class="mb-6">Regular interior detailing preserves your car's resale value by preventing permanent staining, fading, and material deterioration that's common in Kerala's intense sun and humidity.</p>
+      
+      <div class="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10 mt-8">
+        <p class="font-bold mb-2">Breathe easier and drive in a cleaner environment.</p>
+        <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Book XERA's professional interior detailing service today.</a>
+      </div>
+    `
+  },
+  "headlight-restoration-guide": {
+    title: "Headlight Restoration: Improving Night Visibility and Safety",
+    date: "May 7, 2024",
+    readTime: "4 min read",
+    imageUrl: "/assets/headlight-after.jpg",  
+    content: `
+      <p class="mb-6">Yellowed, foggy headlights aren't just unsightly—they're dangerous. Here's why headlight restoration is essential for safe driving in Kerala.</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">The Danger of Degraded Headlights</h2>
+      <p class="mb-6">Over time, UV rays and Kerala's weather conditions cause headlight lenses to oxidize and yellow, reducing light output by up to 70%. This significantly impairs your night visibility and reaction time.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div>
+          <img src="/assets/headlight-before.jpg" alt="Yellowed and oxidized headlight before professional restoration in Kerala" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">Before: Severely oxidized headlight with limited light output</p>
+        </div>
+        <div>
+          <img src="/assets/headlight-after.jpg" alt="Crystal clear headlight after professional restoration by XERA detailing" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">After: Restored clarity for maximum visibility</p>
+        </div>
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">The XERA Restoration Process</h2>
+      <ol class="list-decimal pl-6 mb-6">
+        <li class="mb-2"><strong>Surface cleaning</strong> - Removing all dirt and contaminants</li>
+        <li class="mb-2"><strong>Multi-stage sanding</strong> - Progressive removal of the damaged layer</li>
+        <li class="mb-2"><strong>Polishing</strong> - Machine polishing to restore clarity</li>
+        <li class="mb-2"><strong>UV sealant application</strong> - Protection from future damage</li>
+      </ol>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">When to Restore Your Headlights</h2>
+      <p class="mb-6">Consider professional headlight restoration if:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">Your headlights appear yellow, cloudy, or hazy</li>
+        <li class="mb-2">Night visibility seems reduced compared to when your car was new</li>
+        <li class="mb-2">Your headlights look dull even after washing</li>
+        <li class="mb-2">Your vehicle is more than 3 years old (especially if parked outdoors)</li>
+      </ul>
+      
+      <div class="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10 mt-8">
+        <p class="font-bold mb-2">Don't compromise on safety during Kerala's monsoon nights.</p>
+        <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Schedule your headlight restoration at XERA today.</a>
+      </div>
+    `
+  },
+  "engine-bay-cleaning-benefits": {
+    title: "Engine Bay Detailing: The Maintenance Most Kerala Drivers Overlook",
+    date: "May 9, 2024",
+    readTime: "5 min read",
+    imageUrl: "/assets/engine-after.jpg",
+    content: `
+      <p class="mb-6">A clean engine bay isn't just about aesthetics—it's about preventing costly repairs and making maintenance easier. Here's why engine bay cleaning should be part of your car care routine in Kerala.</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">The Hidden Problems of a Dirty Engine</h2>
+      <p class="mb-6">Kerala's combination of high humidity, frequent rain, and dusty conditions creates a perfect storm for engine bay contamination. Oil, grime, and mud accumulate and can cause:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">Overheating due to trapped heat</li>
+        <li class="mb-2">Electrical issues from moisture and corrosion</li>
+        <li class="mb-2">Faster deterioration of rubber hoses and belts</li>
+        <li class="mb-2">Difficulty identifying fluid leaks</li>
+      </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div>
+          <img src="/assets/engine-before.jpg" alt="Engine bay before professional cleaning showing dirt and grime buildup in Kerala humidity" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">Before: Accumulated dirt masks potential issues</p>
+        </div>
+        <div>
+          <img src="/assets/engine-after.jpg" alt="Engine bay after professional cleaning by XERA detailing showing spotless components" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">After: Clean components for better performance and easier maintenance</p>
+        </div>
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">The XERA Difference</h2>
+      <p class="mb-6">Our engine bay detailing isn't just a simple wash. We use specialized equipment and techniques:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">Low-pressure steam cleaning for sensitive components</li>
+        <li class="mb-2">Biodegradable degreasers safe for all engine components</li>
+        <li class="mb-2">Careful protection of electrical components</li>
+        <li class="mb-2">Silicone-free dressing for hoses and plastics that won't attract dust</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">More Than Just Clean</h2>
+      <p class="mb-6">A professionally detailed engine bay makes regular maintenance easier and more effective. Your mechanic will thank you, and small issues can be spotted before they become expensive repairs.</p>
+      
+      <div class="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10 mt-8">
+        <p class="font-bold mb-2">Protect your engine from Kerala's harsh elements.</p>
+        <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Book XERA's professional engine bay detailing today.</a>
+      </div>
+    `
+  },
+  "paint-correction-explained": {
+    title: "Paint Correction: Restoring Your Car's Perfect Finish",
+    date: "May 10, 2024",
+    readTime: "6 min read",
+    imageUrl: "/assets/paint-correction-after.jpg",
+    content: `
+      <p class="mb-6">Even new vehicles often have imperfections in their paint. Paint correction is the transformative process that restores your car's finish to better-than-showroom condition.</p>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">What Is Paint Correction?</h2>
+      <p class="mb-6">Paint correction is a multi-stage polishing process that removes surface imperfections from your vehicle's clear coat and paint, including:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">Swirl marks from improper washing</li>
+        <li class="mb-2">Fine scratches from everyday use</li>
+        <li class="mb-2">Water spots and etching</li>
+        <li class="mb-2">Oxidation and fading from sun exposure</li>
+      </ul>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div>
+          <img src="/assets/paint-correction-before.jpg" alt="Car paint before correction showing swirl marks and scratches from improper washing in Kerala" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">Before: Swirl marks and minor scratches visible under light</p>
+        </div>
+        <div>
+          <img src="/assets/paint-correction-after.jpg" alt="Car paint after professional correction by XERA detailing showing flawless mirror finish" class="rounded-lg mb-2 w-full h-auto" loading="lazy" />
+          <p class="text-sm text-center text-white/70">After: Flawless, mirror-like finish</p>
+        </div>
+      </div>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">The XERA Paint Correction Process</h2>
+      <ol class="list-decimal pl-6 mb-6">
+        <li class="mb-2"><strong>Paint assessment</strong> - Measuring paint thickness and identifying imperfections</li>
+        <li class="mb-2"><strong>Thorough decontamination</strong> - Removing bonded contaminants</li>
+        <li class="mb-2"><strong>Multi-stage correction</strong> - Progressive polishing with diminishing abrasives</li>
+        <li class="mb-2"><strong>Refinement polishing</strong> - Creating maximum gloss and clarity</li>
+        <li class="mb-2"><strong>Protection application</strong> - Sealing with ceramic coating or premium wax</li>
+      </ol>
+      
+      <h2 class="text-2xl font-bold mb-4 text-gradient">When to Consider Paint Correction</h2>
+      <p class="mb-6">Paint correction is ideal before applying any long-term protection like ceramic coating. It's also beneficial if:</p>
+      <ul class="list-disc pl-6 mb-6">
+        <li class="mb-2">Your car's paint looks dull despite regular washing</li>
+        <li class="mb-2">You notice swirl marks under direct sunlight</li>
+        <li class="mb-2">You've purchased a used vehicle</li>
+        <li class="mb-2">You want to restore your vehicle's original luster</li>
+      </ul>
+      
+      <div class="bg-xera-darkgray/30 p-6 rounded-lg border border-white/10 mt-8">
+        <p class="font-bold mb-2">Ready to see your car's true potential?</p>
+        <a href="/contact" class="inline-block text-xera-red font-semibold hover:underline">Schedule a paint correction consultation at XERA today.</a>
+      </div>
+    `
   }
 };
 
 const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const post = slug ? blogContents[slug as keyof typeof blogContents] : null;
+  const { id } = useParams<{ id: string }>();
+  const post = id ? blogContents[id as keyof typeof blogContents] : null;
   
   // Update document title for SEO
   useEffect(() => {
@@ -227,9 +446,9 @@ const BlogPost = () => {
         canonicalLink.setAttribute('rel', 'canonical');
         document.head.appendChild(canonicalLink);
       }
-      canonicalLink.setAttribute('href', `https://xeradetailing.in/blog/${slug}`);
+      canonicalLink.setAttribute('href', `https://xeradetailing.in/blog/${id}`);
     }
-  }, [post, slug]);
+  }, [post, id]);
 
   if (!post) {
     return (
@@ -292,6 +511,7 @@ const BlogPost = () => {
                   src={post.imageUrl} 
                   alt={post.title}
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </div>
               
@@ -361,7 +581,7 @@ const BlogPost = () => {
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": `https://xeradetailing.in/blog/${slug}`
+                "@id": `https://xeradetailing.in/blog/${id}`
               }
             })
           }}

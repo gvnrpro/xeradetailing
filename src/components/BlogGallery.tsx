@@ -11,7 +11,52 @@ import { getImageAlt } from '@/utils/imageOptimization';
 // Sample blog post data with SEO-optimized images
 const blogPosts = [
   {
-    id: 'ceramic-coating-benefits',
+    id: 'paint-correction-explained',
+    title: 'Paint Correction: Restoring Your Car\'s Perfect Finish',
+    excerpt: 'Learn how professional paint correction removes swirls, scratches and imperfections to restore your vehicle\'s finish to better-than-showroom condition.',
+    category: 'Paint Correction',
+    date: '2024-05-10',
+    image: '/assets/paint-correction-after.jpg',
+    alt: getImageAlt('Car paint after professional correction showing flawless mirror finish', 'Ottapalam')
+  },
+  {
+    id: 'engine-bay-cleaning-benefits',
+    title: 'Engine Bay Detailing: The Maintenance Most Kerala Drivers Overlook',
+    excerpt: 'Discover why engine bay cleaning prevents costly repairs and makes maintenance easier, especially important in Kerala\'s humid climate.',
+    category: 'Engine Detailing',
+    date: '2024-05-09',
+    image: '/assets/engine-after.jpg',
+    alt: getImageAlt('Engine bay after professional cleaning by XERA detailing', 'Ottapalam')
+  },
+  {
+    id: 'headlight-restoration-guide',
+    title: 'Headlight Restoration: Improving Night Visibility and Safety',
+    excerpt: 'Yellowed headlights reduce visibility by up to 70%. Learn how professional restoration improves safety during Kerala\'s monsoon nights.',
+    category: 'Safety',
+    date: '2024-05-07',
+    image: '/assets/headlight-after.jpg',
+    alt: getImageAlt('Crystal clear headlight after professional restoration by XERA', 'Ottapalam')
+  },
+  {
+    id: 'interior-detailing-benefits',
+    title: 'Why Professional Interior Detailing Is Worth Every Rupee',
+    excerpt: 'Professional interior detailing isn\'t just about aesthetics—it\'s about removing allergens and bacteria that thrive in Kerala\'s humid climate.',
+    category: 'Interior Care',
+    date: '2024-05-05',
+    image: '/assets/interior-after.jpg',
+    alt: getImageAlt('Car interior after professional detailing looking fresh and clean', 'Ottapalam')
+  },
+  {
+    id: 'paint-protection-comparison',
+    title: 'Ceramic vs PPF vs Wax: Complete Paint Protection Comparison',
+    excerpt: 'Confused about paint protection options? This comprehensive guide compares ceramic coating, PPF and wax to help you choose the right option.',
+    category: 'Paint Protection',
+    date: '2024-05-03',
+    image: '/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
+    alt: getImageAlt('Black sport sedan with perfect paint finish and ceramic coating', 'Ottapalam')
+  },
+  {
+    id: 'why-kerala-cars-need-ceramic-coating',
     title: 'The Ultimate Guide to Ceramic Coating in Kerala',
     excerpt: 'Learn why ceramic coating is essential for protecting your car against Kerala\'s harsh climate conditions, from monsoon rains to intense sun exposure.',
     category: 'Ceramic Coating',
@@ -20,67 +65,49 @@ const blogPosts = [
     alt: getImageAlt('Kerala car protected with ceramic coating during monsoon', 'Ottapalam')
   },
   {
-    id: 'interior-detailing-guide',
-    title: 'Interior Detailing for Kerala Climate: Protection Guide',
-    excerpt: 'Discover how professional interior detailing can protect your car from humidity damage and keep your family safe from allergens.',
-    category: 'Interior Detailing',
+    id: 'car-wash-frequency-kerala',
+    title: 'How Often Should You Get a Car Wash in Kerala?',
+    excerpt: 'With our tropical climate and dusty roads, cars in Kerala get dirty fast. Find out how often you should wash your vehicle based on your driving conditions.',
+    category: 'Car Wash',
+    date: '2024-05-01',
+    image: '/assets/express-wash-after.jpg',
+    alt: getImageAlt('Clean car exterior after express wash service by XERA', 'Ottapalam')
+  },
+  {
+    id: 'foam-vs-pressure-wash-kerala',
+    title: 'Foam Wash vs Pressure Wash: What\'s Better for Your Car in Kerala?',
+    excerpt: 'Compare different washing methods and discover why XERA\'s hybrid approach provides the safest and most effective clean for Kerala\'s road conditions.',
+    category: 'Car Wash',
+    date: '2024-04-28',
+    image: '/assets/express-wash-before.jpg',
+    alt: getImageAlt('Dirty car exterior before express wash service showing Kerala dust buildup', 'Ottapalam')
+  },
+  {
+    id: 'ceramic-coating-care-tips',
+    title: '5 Mistakes to Avoid After Ceramic Coating',
+    excerpt: 'Invested in ceramic coating? Don\'t let simple mistakes ruin its performance. Learn the proper care routine to maintain protection for years.',
+    category: 'Ceramic Coating',
     date: '2024-04-25',
-    image: '/lovable-uploads/6554b31e-7ba5-48d8-8f31-2ac905a4f88f.png',
-    alt: getImageAlt('Premium car interior after XERA professional detailing', 'Ottapalam')
+    image: '/assets/ceramic-after.jpg',
+    alt: getImageAlt('Car paint after ceramic coating application showing glossy protected finish', 'Ottapalam')
   },
   {
-    id: 'professional-detailing-studio',
-    title: 'Why Choose a Professional Detailing Studio Over DIY',
-    excerpt: 'The benefits of professional equipment, controlled environments and expert techniques for superior results that last longer.',
-    category: 'Professional Detailing',
-    date: '2024-04-18',
-    image: '/lovable-uploads/7dbc3f0f-1641-4d72-a5df-75f309fe9aab.png',
-    alt: getImageAlt('XERA professional detailing studio with controlled environment', 'Ottapalam')
-  },
-  {
-    id: 'paint-protection-options',
-    title: 'Paint Protection Options for Kerala\'s Climate Challenges',
-    excerpt: 'Compare ceramic coatings, PPF, waxes and other protection methods to find what works best for your vehicle in Kerala.',
-    category: 'Paint Protection',
-    date: '2024-04-10',
-    image: '/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png',
-    alt: getImageAlt('Black luxury car with premium ceramic coating shine', 'Ottapalam')
-  },
-  {
-    id: 'headlight-restoration',
-    title: 'Headlight Restoration: Improving Safety and Appearance',
-    excerpt: 'Why yellowed headlights are dangerous during Kerala monsoons and how professional restoration can restore visibility.',
-    category: 'Safety',
-    date: '2024-04-05',
-    image: '/lovable-uploads/d4676f3a-b30c-4c07-8484-0598b007bd16.png',
-    alt: getImageAlt('Headlight restoration before and after by XERA detailing', 'Ottapalam')
-  },
-  {
-    id: 'mobile-detailing-services',
-    title: 'Mobile Detailing Services Near Me in Ottapalam',
-    excerpt: 'Discover XERA\'s premium mobile detailing options bringing professional studio quality to your doorstep.',
-    category: 'Mobile Services',
-    date: '2024-03-28',
-    image: '/lovable-uploads/5c6772f8-70d4-496c-9c31-291686cf603e.png',
-    alt: getImageAlt('XERA technician applying ceramic coating to car exterior', 'Ottapalam')
-  },
-  {
-    id: 'car-care-monsoon-tips',
-    title: 'Essential Car Care Tips for Kerala Monsoon Season',
-    excerpt: 'Protect your vehicle from the damaging effects of heavy rainfall and humidity during Kerala\'s intense monsoon season.',
-    category: 'Seasonal Care',
-    date: '2024-03-20',
+    id: 'bike-detailing-kerala-monsoon',
+    title: 'Bike Detailing Checklist for Monsoon Season',
+    excerpt: 'Protect your two-wheeler from Kerala\'s heavy rains with this comprehensive maintenance guide for before, during and after monsoon season.',
+    category: 'Bike Care',
+    date: '2024-04-20',
     image: '/lovable-uploads/588a7319-b8dc-4e0c-99dd-909134350e51.png',
-    alt: getImageAlt('Water beading on ceramic coated car surface in rain', 'Ottapalam')
+    alt: getImageAlt('Water beading on hydrophobic ceramic coated surface showing protection', 'Ottapalam')
   },
   {
-    id: 'luxury-detailing-packages',
-    title: 'Premium Detailing Packages for Luxury Vehicles',
-    excerpt: 'Specialized care and maintenance options for high-end vehicles that preserve their value and enhance their appearance.',
-    category: 'Luxury',
-    date: '2024-03-12',
-    image: '/lovable-uploads/93e1be41-e185-4b92-9ccf-b53e4dfd75e0.png',
-    alt: getImageAlt('Luxury SUV with premium detailing in studio lighting', 'Ottapalam')
+    id: 'underbody-coating-palakkad-value',
+    title: 'Is Anti-Rust Underbody Coating Worth It in Palakkad?',
+    excerpt: 'Discover why underbody protection is essential for vehicles in Palakkad\'s climate and how it prevents expensive repairs from corrosion damage.',
+    category: 'Underbody Protection',
+    date: '2024-04-15',
+    image: '/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png',
+    alt: getImageAlt('Luxury car with comprehensive protection including underbody coating', 'Ottapalam')
   },
   {
     id: 'interior-sanitization',
@@ -159,7 +186,7 @@ const BlogGallery = () => {
       <div className="mt-16 text-center">
         <h2 className="text-2xl font-bold mb-4">More Car Care Resources</h2>
         <div className="flex flex-wrap justify-center gap-3">
-          {['Ceramic Coating', 'Paint Protection', 'Interior Detailing', 'Headlight Restoration', 'Express Wash'].map((tag) => (
+          {['Ceramic Coating', 'Paint Protection', 'Interior Detailing', 'Headlight Restoration', 'Express Wash', 'Engine Bay', 'Bike Care'].map((tag) => (
             <Link to={`/blog/category/${tag.toLowerCase().replace(' ', '-')}`} key={tag}>
               <motion.span 
                 className="bg-xera-darkgray border border-xera-lightgray rounded-full px-4 py-2 text-sm hover:bg-xera-red/10 hover:border-xera-red transition-colors"
@@ -185,28 +212,28 @@ const BlogGallery = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             {
-              src: '/lovable-uploads/20fa2a68-f3d0-4ad1-b35f-f1a8b1378c1e.png',
-              alt: getImageAlt('XERA staff applying ceramic coating to car exterior', 'Ottapalam')
+              src: '/assets/ceramic-after.jpg',
+              alt: getImageAlt('Car paint after ceramic coating application showing glossy protected finish', 'Ottapalam')
             },
             {
-              src: '/lovable-uploads/c9c32a28-bc86-481a-8eff-6cc44b442248.png',
-              alt: getImageAlt('Water beading on hydrophobic ceramic coated surface', 'Ottapalam')
+              src: '/assets/engine-after.jpg',
+              alt: getImageAlt('Engine bay after professional cleaning showing spotless components', 'Ottapalam')
             },
             {
-              src: '/lovable-uploads/a660543a-ab72-4dcf-a45c-eaa17732fee6.png',
-              alt: getImageAlt('Professional interior leather care and protection', 'Ottapalam')
+              src: '/assets/headlight-after.jpg',
+              alt: getImageAlt('Crystal clear headlight after professional restoration by XERA', 'Ottapalam')
             },
             {
-              src: '/lovable-uploads/b47f3168-6434-4bb5-b063-5ca151a41e7b.png',
-              alt: getImageAlt('Premium car dashboard after interior detailing', 'Ottapalam')
+              src: '/assets/interior-after.jpg',
+              alt: getImageAlt('Car interior after professional detailing looking fresh and clean', 'Ottapalam')
             },
             {
-              src: '/lovable-uploads/b6128b34-f51e-46bf-aafb-23fdc89086b6.png',
-              alt: getImageAlt('Luxury SUV in XERA detailing studio with red accents', 'Ottapalam')
+              src: '/assets/paint-correction-after.jpg',
+              alt: getImageAlt('Car paint after professional correction showing flawless mirror finish', 'Ottapalam')
             },
             {
-              src: '/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-              alt: getImageAlt('Sport sedan with custom red line detailing by XERA', 'Ottapalam')
+              src: '/assets/express-wash-after.jpg',
+              alt: getImageAlt('Clean car exterior after express wash service by XERA', 'Ottapalam')
             },
             {
               src: '/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png', 

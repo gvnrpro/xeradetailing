@@ -85,6 +85,45 @@ export const setPageMetadata = (
   });
 };
 
+// Generate schema markup for blog posts
+export const generateBlogPostSchema = (
+  title: string,
+  description: string,
+  url: string,
+  imageUrl: string,
+  datePublished: string,
+  authorName: string = "XERA Car Wash & Auto Detailing",
+  publisherName: string = "XERA Car Wash & Auto Detailing",
+  publisherLogo: string = "https://xeradetailing.in/logo.png"
+) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "image": imageUrl,
+    "datePublished": datePublished,
+    "author": {
+      "@type": "Organization",
+      "name": authorName
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": publisherName,
+      "logo": {
+        "@type": "ImageObject",
+        "url": publisherLogo
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": url
+    }
+  };
+
+  return JSON.stringify(schema);
+};
+
 // Generate schema markup for various content types
 export const generateSchemaMarkup = (
   type: 'LocalBusiness' | 'Service' | 'Article' | 'BreadcrumbList' | 'Product',
@@ -97,6 +136,24 @@ export const generateSchemaMarkup = (
     ...data
   };
   
+  return JSON.stringify(schema);
+};
+
+// Generate breadcrumb schema markup
+export const generateBreadcrumbSchema = (breadcrumbs: Array<{name: string, url: string}>) => {
+  const itemListElement = breadcrumbs.map((breadcrumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": breadcrumb.name,
+    "item": breadcrumb.url
+  }));
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": itemListElement
+  };
+
   return JSON.stringify(schema);
 };
 
