@@ -1,63 +1,36 @@
 
-import React from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Services from "./pages/Services";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Services from './pages/Services';
+import NotFound from './pages/NotFound';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import CeramicCoating from './pages/services/CeramicCoating';
+import ExpressWash from './pages/services/ExpressWash';
+import EngineBayCleaning from './pages/services/EngineBayCleaning';
 
-// Import individual service pages
-import ExpressWash from "./pages/services/ExpressWash";
-import CeramicCoating from "./pages/services/CeramicCoating";
-import EngineBayCleaning from "./pages/services/EngineBayCleaning";
+import './App.css'
 
-// Create a client with specific error handling to avoid silent failures
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
-      // This is important for deployed apps
-      staleTime: 5 * 60 * 1000, // 5 minutes
-    },
-  }
-});
-
-// Simple fallback for lazy-loaded components
-const LoadingFallback = () => <div className="flex items-center justify-center min-h-screen">Loading...</div>;
-
-const App = () => {
-  console.log("App component rendering");
-  
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/expresswash" element={<ExpressWash />} />
-            <Route path="/services/ceramiccoating" element={<CeramicCoating />} />
-            <Route path="/services/enginebaycleaning" element={<EngineBayCleaning />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Toaster />
-          <Sonner />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
+        <Route path="/services/express-wash" element={<ExpressWash />} />
+        <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  )
+}
 
-export default App;
+export default App
