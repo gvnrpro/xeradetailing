@@ -11,6 +11,7 @@ import AboutSection from '@/components/AboutSection';
 import LocationSection from '@/components/LocationSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import AnimatedGallery from '@/components/AnimatedGallery';
 import HomeGallery from '@/components/HomeGallery';
 import ServiceAreas from '@/components/ServiceAreas';
 import { setPageMetadata, generateSchemaMarkup } from '@/utils/seoHelper';
@@ -36,6 +37,7 @@ const Index = () => {
         <HomeGallery />
         <WhyDetailingMatters />
         <ServicesSection />
+        <AnimatedGallery />
         <ServiceAreas />
         <CustomerTrust />
         <FAQSection />

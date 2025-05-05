@@ -49,7 +49,9 @@ const Navbar = () => {
             <Phone size={18} className="mr-2 text-xera-red" />
             <span>+91 9605858483</span>
           </a>
-          <Button className="ml-6 bg-xera-red hover:bg-red-700 text-white font-medium">Book Now</Button>
+          <Link to="/contact">
+            <Button className="ml-6 bg-xera-red hover:bg-red-700 text-white font-medium">Book Now</Button>
+          </Link>
         </div>
         
         {/* Mobile Menu Button */}
@@ -105,7 +107,9 @@ const Navbar = () => {
                 <Phone size={18} className="mr-2 text-xera-red" />
                 <span>+91 9605858483</span>
               </a>
-              <Button className="w-full bg-xera-red hover:bg-red-700 text-white font-medium">Book Now</Button>
+              <Link to="/contact">
+                <Button className="w-full bg-xera-red hover:bg-red-700 text-white font-medium">Book Now</Button>
+              </Link>
             </div>
           </div>
         </div>

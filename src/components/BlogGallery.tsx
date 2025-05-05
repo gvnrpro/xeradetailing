@@ -11,6 +11,16 @@ import { getImageAlt } from '@/utils/imageOptimization';
 // Sample blog post data with SEO-optimized images
 const blogPosts = [
   {
+    id: 'ceramic-coating-ottapalam-car-protection',
+    title: 'Why Ceramic Coating Is the Best Car Protection in Ottapalam',
+    excerpt: 'Learn why ceramic coating is essential for protecting your car against Kerala\'s harsh climate conditions, from monsoon rains to intense sun exposure.',
+    category: 'Ceramic Coating',
+    date: '2024-05-05',
+    image: '/assets/ceramic-after.jpg',
+    alt: getImageAlt('Professional ceramic coating on car in Ottapalam showing perfect gloss and reflection', 'Ottapalam'),
+    featured: true
+  },
+  {
     id: 'paint-correction-explained',
     title: 'Paint Correction: Restoring Your Car\'s Perfect Finish',
     excerpt: 'Learn how professional paint correction removes swirls, scratches and imperfections to restore your vehicle\'s finish to better-than-showroom condition.',
@@ -121,6 +131,10 @@ const blogPosts = [
 ];
 
 const BlogGallery = () => {
+  // Separate featured posts from regular posts
+  const featuredPosts = blogPosts.filter(post => post.featured);
+  const regularPosts = blogPosts.filter(post => !post.featured);
+
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
@@ -130,8 +144,55 @@ const BlogGallery = () => {
         </p>
       </div>
       
+      {/* Featured post section */}
+      {featuredPosts.length > 0 && (
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6 text-gradient">Featured Article</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="bg-gradient-to-br from-xera-darkgray to-xera-gray border border-white/10 rounded-xl overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="relative h-72 md:h-full">
+                  <img 
+                    src={featuredPosts[0].image}
+                    alt={featuredPosts[0].alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col">
+                  <div className="flex items-center text-white/50 text-sm mb-2">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {featuredPosts[0].date}
+                    <span className="ml-3 bg-xera-red px-3 py-1 rounded-full text-xs font-semibold text-white inline-flex items-center gap-1">
+                      <Tag className="w-3 h-3" />
+                      {featuredPosts[0].category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{featuredPosts[0].title}</h3>
+                  <p className="text-white/70 mb-6 flex-grow">{featuredPosts[0].excerpt}</p>
+                  
+                  <Link to={`/blog/${featuredPosts[0].id}`} className="mt-auto">
+                    <Button className="bg-xera-red hover:bg-red-700 text-white w-full md:w-auto">
+                      Read Full Article
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+      )}
+      
+      <h2 className="text-2xl font-bold mb-6">All Articles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map((post, index) => (
+        {regularPosts.map((post, index) => (
           <motion.div
             key={post.id}
             initial={{ opacity: 0, y: 20 }}
@@ -184,7 +245,7 @@ const BlogGallery = () => {
       </div>
       
       <div className="mt-16 text-center">
-        <h2 className="text-2xl font-bold mb-4">More Car Care Resources</h2>
+        <h2 className="text-2xl font-bold mb-4">Popular Topics</h2>
         <div className="flex flex-wrap justify-center gap-3">
           {['Ceramic Coating', 'Paint Protection', 'Interior Detailing', 'Headlight Restoration', 'Express Wash', 'Engine Bay', 'Bike Care'].map((tag) => (
             <Link to={`/blog/category/${tag.toLowerCase().replace(' ', '-')}`} key={tag}>
@@ -264,6 +325,24 @@ const BlogGallery = () => {
               </AspectRatio>
             </motion.div>
           ))}
+        </div>
+      </div>
+      
+      {/* Local SEO section */}
+      <div className="mt-16 bg-xera-darkgray/50 rounded-lg p-6 md:p-8 border border-white/10">
+        <h3 className="text-xl font-bold mb-4">Ceramic Coating Services in Kerala</h3>
+        <p className="mb-4">
+          XERA provides premium ceramic coating services across Ottapalam, Palakkad, Shoranur, Pattambi, and surrounding areas.
+          Our specialized detailing studio offers professional car paint protection, hydrophobic coatings, and long-lasting shine.
+        </p>
+        <div className="flex flex-wrap gap-2 mt-6">
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Ceramic Coating Ottapalam</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Car Detailing Palakkad</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Paint Protection Kerala</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Auto Detailing Shoranur</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Premium Car Coating Pattambi</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">9H Ceramic Coating Service</span>
+          <span className="bg-xera-darkgray px-2 py-1 rounded text-sm text-white/70">Best Detailing Shop Near Me</span>
         </div>
       </div>
     </div>

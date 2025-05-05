@@ -57,7 +57,8 @@ export const imageRegistry: RegisteredImage[] = [
     title: "Crystal Clear Vision",
     description: "Headlight restoration for enhanced visibility and safety",
     category: "Headlight Restoration",
-    tags: ["safety", "visibility", "restoration"]
+    tags: ["safety", "visibility", "restoration"],
+    featured: true
   },
   {
     id: "vintage-car",
@@ -66,7 +67,8 @@ export const imageRegistry: RegisteredImage[] = [
     title: "Classic Car Care",
     description: "Specialized detailing for vintage and classic cars",
     category: "Specialized Care",
-    tags: ["vintage", "classic car", "specialized"]
+    tags: ["vintage", "classic car", "specialized"],
+    featured: true
   },
   {
     id: "expert-technician",
@@ -75,7 +77,8 @@ export const imageRegistry: RegisteredImage[] = [
     title: "Expert Technicians",
     description: "Our trained specialists use only premium products and techniques",
     category: "Team",
-    tags: ["technicians", "expert care", "professional"]
+    tags: ["technicians", "expert care", "professional"],
+    featured: true
   },
   
   // New images
@@ -94,7 +97,8 @@ export const imageRegistry: RegisteredImage[] = [
     alt: getImageAlt("Black premium SUV with professional detailing in XERA studio", "Ottapalam"),
     title: "Premium SUV Specialists",
     category: "SUV Detailing",
-    tags: ["SUV", "luxury vehicle", "premium care"]
+    tags: ["SUV", "luxury vehicle", "premium care"],
+    featured: true
   },
   {
     id: "black-sedan",
@@ -102,7 +106,8 @@ export const imageRegistry: RegisteredImage[] = [
     alt: getImageAlt("Black sport sedan with red accents in professional XERA studio", "Ottapalam"),
     title: "Showroom Finish",
     category: "Paint Protection",
-    tags: ["ceramic coating", "paint correction", "showroom finish"]
+    tags: ["ceramic coating", "paint correction", "showroom finish"],
+    featured: true
   },
   {
     id: "ceramic-technician-1",
@@ -110,7 +115,8 @@ export const imageRegistry: RegisteredImage[] = [
     alt: getImageAlt("XERA technician applying ceramic coating to vehicle exterior", "Ottapalam"),
     title: "Expert Application",
     category: "Ceramic Coating",
-    tags: ["ceramic coating", "professional application", "expertise"]
+    tags: ["ceramic coating", "professional application", "expertise"],
+    featured: true
   },
   {
     id: "water-beading",
@@ -118,8 +124,11 @@ export const imageRegistry: RegisteredImage[] = [
     alt: getImageAlt("Water beading on hydrophobic ceramic coated surface showing protection", "Ottapalam"),
     title: "Hydrophobic Protection",
     category: "Ceramic Coating",
-    tags: ["hydrophobic", "water beading", "protection"]
+    tags: ["hydrophobic", "water beading", "protection"],
+    featured: true
   },
+  
+  // More images but not all marked as featured
   {
     id: "ceramic-technician-2",
     src: "/lovable-uploads/20fa2a68-f3d0-4ad1-b35f-f1a8b1378c1e.png",
@@ -166,73 +175,110 @@ export const imageRegistry: RegisteredImage[] = [
     id: "ceramic-before",
     src: "/assets/ceramic-before.jpg",
     alt: getImageAlt("Car paint before ceramic coating application showing dull finish", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Ceramic Coating",
+    description: "Vehicle paint before our premium ceramic coating application",
+    category: "Before/After",
+    tags: ["ceramic coating", "before after", "paint protection"]
   },
   {
     id: "ceramic-after",
     src: "/assets/ceramic-after.jpg",
     alt: getImageAlt("Car paint after ceramic coating application showing glossy protected finish", "Ottapalam"),
-    category: "Before/After"
+    title: "After Ceramic Coating",
+    description: "Vehicle paint after our premium ceramic coating application with mirror-like finish",
+    category: "Before/After",
+    tags: ["ceramic coating", "before after", "paint protection"],
+    featured: true
   },
   {
     id: "engine-before",
     src: "/assets/engine-before.jpg",
     alt: getImageAlt("Engine bay before professional cleaning showing dirt and grime buildup", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Engine Detailing",
+    description: "Engine bay with typical dirt and grime buildup",
+    category: "Before/After",
+    tags: ["engine bay", "detailing", "cleaning"]
   },
   {
     id: "engine-after",
     src: "/assets/engine-after.jpg",
     alt: getImageAlt("Engine bay after professional cleaning showing spotless components", "Ottapalam"),
-    category: "Before/After"
+    title: "After Engine Detailing",
+    description: "Clean engine bay after our comprehensive cleaning process",
+    category: "Before/After",
+    tags: ["engine bay", "detailing", "cleaning"]
   },
   {
     id: "headlight-before",
     src: "/assets/headlight-before.jpg",
     alt: getImageAlt("Yellowed and oxidized headlight before professional restoration", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Headlight Restoration",
+    description: "Oxidized and yellowed headlights reducing visibility",
+    category: "Before/After",
+    tags: ["headlight", "restoration", "safety"]
   },
   {
     id: "headlight-after",
     src: "/assets/headlight-after.jpg",
     alt: getImageAlt("Crystal clear headlight after professional restoration by XERA", "Ottapalam"),
-    category: "Before/After"
+    title: "After Headlight Restoration",
+    description: "Perfectly clear headlights after our restoration process",
+    category: "Before/After",
+    tags: ["headlight", "restoration", "safety"]
   },
   {
     id: "interior-before",
     src: "/assets/interior-before.jpg",
     alt: getImageAlt("Car interior before deep cleaning showing dirt and stains", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Interior Detailing",
+    description: "Vehicle interior with typical dirt, stains, and wear",
+    category: "Before/After",
+    tags: ["interior", "detailing", "cleaning"]
   },
   {
     id: "interior-after",
     src: "/assets/interior-after.jpg",
     alt: getImageAlt("Car interior after professional detailing looking fresh and clean", "Ottapalam"),
-    category: "Before/After"
+    title: "After Interior Detailing",
+    description: "Fresh and sanitized interior after our professional detailing",
+    category: "Before/After",
+    tags: ["interior", "detailing", "cleaning"]
   },
   {
     id: "paint-correction-before",
     src: "/assets/paint-correction-before.jpg",
     alt: getImageAlt("Car paint before correction showing swirl marks and scratches", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Paint Correction",
+    description: "Vehicle paint with swirl marks, scratches and imperfections",
+    category: "Before/After",
+    tags: ["paint correction", "detailing", "swirl removal"]
   },
   {
     id: "paint-correction-after",
     src: "/assets/paint-correction-after.jpg",
     alt: getImageAlt("Car paint after professional correction showing flawless mirror finish", "Ottapalam"),
-    category: "Before/After"
+    title: "After Paint Correction",
+    description: "Flawless paint finish after our professional correction process",
+    category: "Before/After",
+    tags: ["paint correction", "detailing", "swirl removal"]
   },
   {
     id: "express-wash-before",
     src: "/assets/express-wash-before.jpg",
     alt: getImageAlt("Dirty car exterior before express wash service", "Ottapalam"),
-    category: "Before/After"
+    title: "Before Express Wash",
+    description: "Vehicle with typical road dirt and environmental contaminants",
+    category: "Before/After",
+    tags: ["express wash", "car wash", "cleaning"]
   },
   {
     id: "express-wash-after",
     src: "/assets/express-wash-after.jpg",
     alt: getImageAlt("Clean car exterior after express wash service by XERA", "Ottapalam"),
-    category: "Before/After"
+    title: "After Express Wash",
+    description: "Sparkling clean vehicle after our express washing service",
+    category: "Before/After",
+    tags: ["express wash", "car wash", "cleaning"]
   }
 ];
 

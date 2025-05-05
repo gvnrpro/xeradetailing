@@ -11,6 +11,7 @@ import BlogPost from './pages/BlogPost';
 import CeramicCoating from './pages/services/CeramicCoating';
 import ExpressWash from './pages/services/ExpressWash';
 import EngineBayCleaning from './pages/services/EngineBayCleaning';
+import CeramicCoatingOttapalam from './pages/blog/CeramicCoatingOttapalam';
 
 import './App.css'
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/blog/ceramic-coating-ottapalam-car-protection" element={<CeramicCoatingOttapalam />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
