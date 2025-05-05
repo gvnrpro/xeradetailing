@@ -12,7 +12,7 @@ const FeaturedGallery = () => {
       src: '/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png',
       alt: 'Ceramic coating protection for car in Kerala rain',
       title: 'Kerala Monsoon Protection',
-      description: 'Our ceramic coating creates a hydrophobic shield against Kerala's heavy rainfall'
+      description: 'Our ceramic coating creates a hydrophobic shield against Kerala\'s heavy rainfall'
     },
     {
       src: '/lovable-uploads/7dbc3f0f-1641-4d72-a5df-75f309fe9aab.png',
@@ -24,7 +24,7 @@ const FeaturedGallery = () => {
       src: '/lovable-uploads/6554b31e-7ba5-48d8-8f31-2ac905a4f88f.png',
       alt: 'Interior detailing showcasing clean luxury seats with XERA branding',
       title: 'Interior Transformation',
-      description: 'Meticulous interior cleaning and protection for your family's health'
+      description: 'Meticulous interior cleaning and protection for your family\'s health'
     },
     {
       src: '/lovable-uploads/d4676f3a-b30c-4c07-8484-0598b007bd16.png',
