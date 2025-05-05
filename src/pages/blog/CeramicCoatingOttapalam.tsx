@@ -179,7 +179,7 @@ const CeramicCoatingOttapalam = () => {
                   <p className="text-sm text-center text-white/70 mt-2">Before: Dull, unprotected paint</p>
                 </div>
                 <div>
-                  <img src="/assets/ceramic-after.jpg" alt="Car after ceramic coating by XERA in Ottapalam - glossy and protected finish" className="w-full h-auto rounded-lg" loading="lazy" />
+                  <img alt="Car after ceramic coating by XERA in Ottapalam - glossy and protected finish" className="w-full h-auto rounded-lg" loading="lazy" src="/lovable-uploads/d22925e7-845c-4cad-8326-03fe61c5b2f8.jpg" />
                   <p className="text-sm text-center text-white/70 mt-2">After: Glossy, protected finish</p>
                 </div>
               </div>
