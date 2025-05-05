@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -39,6 +39,7 @@ const ServiceCard = ({ id, title, description, imageUrl, icon }: ServiceCardProp
               transition={{ duration: 0.7 }}
             />
           </AspectRatio>
+          
           <motion.div 
             className="absolute top-3 left-3 p-2 rounded-full bg-xera-red/90 text-white"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -51,6 +52,37 @@ const ServiceCard = ({ id, title, description, imageUrl, icon }: ServiceCardProp
             }}
           >
             {icon}
+          </motion.div>
+          
+          {/* NEW: Added shimmering effect overlay */}
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            initial={{ x: "-100%" }}
+            animate={{ x: "100%" }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2, 
+              ease: "linear",
+              repeatDelay: 5
+            }}
+          />
+          
+          {/* NEW: Added Sparkle effect */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400/80"
+            initial={{ opacity: 0, scale: 0.5, rotate: 0 }}
+            animate={{ 
+              opacity: [0, 1, 0], 
+              scale: [0.5, 1.5, 0.5],
+              rotate: [0, 90, 180]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 3,
+              repeatDelay: 7
+            }}
+          >
+            <Sparkles className="w-12 h-12" />
           </motion.div>
         </div>
         
@@ -85,6 +117,7 @@ const ServiceCard = ({ id, title, description, imageUrl, icon }: ServiceCardProp
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
+              className="relative overflow-hidden"
             >
               <Button 
                 variant="outline" 
@@ -93,6 +126,19 @@ const ServiceCard = ({ id, title, description, imageUrl, icon }: ServiceCardProp
                 <span>View Details</span>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
+              
+              {/* NEW: Added button glow effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-xera-red/0 via-xera-red/30 to-xera-red/0"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 1.5, 
+                  ease: "easeInOut",
+                  repeatDelay: 3
+                }}
+              />
             </motion.div>
           </Link>
         </motion.div>
