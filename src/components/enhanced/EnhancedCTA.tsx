@@ -90,9 +90,9 @@ const EnhancedCTA = ({
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={animateEntrance ? { opacity: 0, y: 20 } : false}
-          animate={animateEntrance ? { opacity: 1, y: 0 } : false}
-          exit={showOnScroll ? { opacity: 0, y: 10 } : false}
+          initial={animateEntrance ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={showOnScroll ? { opacity: 0, y: 10 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
           <a href={href} onClick={handleClick}>

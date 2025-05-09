@@ -122,7 +122,7 @@ const Blog = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: generateSchemaMarkup('Blog', {
+            __html: generateSchemaMarkup('Article', {
               "headline": "Auto Detailing Blog & Resources",
               "description": "Expert auto care tips, ceramic coating guides, and Kerala-specific car protection articles.",
               "keywords": "ceramic coating blog, car detailing tips ottapalam, kerala car care guide, xera detailing blog, auto detailing resources",
