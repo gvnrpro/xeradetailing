@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,6 +76,13 @@
   /* Focus style for better accessibility */
   a:focus, button:focus {
     @apply outline-none ring-2 ring-xera-red/50;
+  }
+  
+  /* Improve touch targets for mobile */
+  @media (max-width: 768px) {
+    a, button, [role="button"] {
+      @apply min-h-[44px] min-w-[44px];
+    }
   }
 }
 
@@ -242,4 +248,36 @@
 /* Make sure modals and dialogs are visible */
 .dialog-content {
   @apply bg-xera-darkgray border border-xera-lightgray rounded-lg shadow-xl z-50;
+}
+
+/* Enhanced button hover effects */
+button, a, [role="button"] {
+  @apply transition-all duration-200;
+}
+
+button:hover, a:hover, [role="button"]:hover {
+  @apply transform scale-[1.02];
+}
+
+button:active, a:active, [role="button"]:active {
+  @apply transform scale-[0.98];
+}
+
+/* Page transition effects */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

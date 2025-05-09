@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { trackEvent } from './tracking/AnalyticsProvider';
+import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
   const isMobile = useIsMobile();
@@ -19,23 +21,37 @@ const WhatsAppButton = () => {
   
   const whatsappUrl = "https://wa.me/919605858483?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20a%20car%20wash%20or%20detailing%20appointment.";
   
+  const handleWhatsAppClick = () => {
+    trackEvent('whatsapp_button_click', {
+      location: window.location.pathname,
+      device_type: isMobile ? 'mobile' : 'desktop'
+    });
+  };
+  
   return (
-    <a
+    <motion.a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with XERA on WhatsApp"
       className={`
         fixed z-50 flex items-center justify-center
-        rounded-full shadow-lg transition-all duration-300
+        rounded-full shadow-lg 
         ${isMobile ? 'bottom-4 right-4 h-14 w-14' : 'bottom-6 right-6 h-16 w-16'}
         bg-gradient-to-r from-gray-200 to-white
-        hover:scale-110 hover:shadow-xl
-        animate-pulse hover:animate-none
       `}
-      style={{
-        animationDuration: '10s',
-        boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)'
+      onClick={handleWhatsAppClick}
+      whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(255, 255, 255, 0.2)" }}
+      whileTap={{ scale: 0.95 }}
+      animate={{ 
+        boxShadow: ["0 0 10px rgba(255, 255, 255, 0.1)", "0 0 20px rgba(255, 255, 255, 0.2)", "0 0 10px rgba(255, 255, 255, 0.1)"]
+      }}
+      transition={{
+        boxShadow: {
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }
       }}
     >
       <svg width="60%" height="60%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +60,7 @@ const WhatsAppButton = () => {
           fill="#25D366"
         />
       </svg>
-    </a>
+    </motion.a>
   );
 };
 
