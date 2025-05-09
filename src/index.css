@@ -42,12 +42,41 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground font-inter;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-rajdhani font-bold;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Optimize images and prevent layout shifts */
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Focus style for better accessibility */
+  a:focus, button:focus {
+    @apply outline-none ring-2 ring-xera-red/50;
   }
 }
 
@@ -72,4 +101,145 @@
     content: '';
     @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer;
   }
+  
+  /* Enhanced card hover effect */
+  .hover-card {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-card:hover {
+    @apply transform -translate-y-1 shadow-lg shadow-xera-red/20;
+  }
+  
+  /* Premium button effect */
+  .premium-button {
+    @apply relative overflow-hidden bg-gradient-to-r from-xera-red to-red-700 text-white font-bold py-3 px-6 rounded-md transition-transform duration-300 transform hover:scale-105;
+  }
+  
+  .premium-button::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-white/20 opacity-0 transition-opacity duration-300;
+  }
+  
+  .premium-button:hover::after {
+    @apply opacity-100;
+  }
+  
+  /* Metallic effect for premium elements */
+  .metallic-effect {
+    @apply relative bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900;
+  }
+  
+  .metallic-effect::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-tr from-white/5 to-white/0 opacity-80;
+  }
+  
+  /* Service card hover effect */
+  .service-card {
+    @apply transition-all duration-300;
+  }
+  
+  .service-card:hover {
+    @apply transform scale-[1.02] shadow-xl;
+  }
+  
+  /* Hero cta button */
+  .hero-cta {
+    @apply relative bg-xera-red text-white font-bold py-3 px-6 rounded-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-xera-red/30;
+  }
+  
+  .hero-cta::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-700;
+  }
+  
+  .hero-cta:hover::before {
+    @apply translate-x-full;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+    
+    h1 {
+      @apply text-3xl;
+    }
+    
+    h2 {
+      @apply text-2xl;
+    }
+    
+    .hero-section {
+      @apply min-h-[80vh];
+    }
+  }
+  
+  /* Animated car effect */
+  .animate-car-move {
+    animation: car-move 10s linear infinite;
+  }
+  
+  @keyframes car-move {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+  
+  /* Floating animation for call-to-action elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+/* Animation keyframes */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px theme('colors.xera.red');
+  }
+  50% {
+    box-shadow: 0 0 15px theme('colors.xera.red');
+  }
+}
+
+/* Utility animations */
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Ensures dropdown menus are visible */
+.dropdown-menu {
+  @apply bg-xera-darkgray border border-xera-lightgray rounded-md shadow-lg py-2 z-50;
+}
+
+/* Make sure modals and dialogs are visible */
+.dialog-content {
+  @apply bg-xera-darkgray border border-xera-lightgray rounded-lg shadow-xl z-50;
 }

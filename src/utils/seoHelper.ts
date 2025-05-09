@@ -102,6 +102,25 @@ export const setPageMetadata = (
     manifest.setAttribute('href', '/manifest.json');
     document.head.appendChild(manifest);
   }
+  
+  // Add preload for critical resources
+  const criticalResources = [
+    { href: '/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png', as: 'image', type: 'image/png' },
+    { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap', as: 'style' }
+  ];
+  
+  criticalResources.forEach(resource => {
+    if (!document.querySelector(`link[rel="preload"][href="${resource.href}"]`)) {
+      const preload = document.createElement('link');
+      preload.setAttribute('rel', 'preload');
+      preload.setAttribute('href', resource.href);
+      preload.setAttribute('as', resource.as);
+      if (resource.type) {
+        preload.setAttribute('type', resource.type);
+      }
+      document.head.appendChild(preload);
+    }
+  });
 };
 
 // Generate blog post schema markup
@@ -114,7 +133,8 @@ export const generateBlogPostSchema = (
   authorName: string = "XERA Car Wash & Auto Detailing",
   publisherName: string = "XERA Car Wash & Auto Detailing",
   publisherLogo: string = "https://xeradetailing.in/logo.png",
-  keywords: string[] = []
+  keywords: string[] = [],
+  articleBody: string = ""
 ) => {
   const schema = {
     "@context": "https://schema.org",
@@ -140,7 +160,8 @@ export const generateBlogPostSchema = (
       "@type": "WebPage",
       "@id": url
     },
-    "keywords": keywords.join(', ')
+    "keywords": keywords.join(', '),
+    "articleBody": articleBody.substring(0, 5000) // Limit to reasonable length for schema
   };
 
   return JSON.stringify(schema);
@@ -243,7 +264,8 @@ export const generateProductSchema = (
       "price": price,
       "priceCurrency": currency,
       "availability": availability,
-      "url": url
+      "url": url,
+      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
     },
     "brand": {
       "@type": "Brand",
@@ -306,19 +328,190 @@ export const addReviewStructuredData = (reviews: Array<{name: string, rating: nu
   return JSON.stringify(reviewSchema);
 };
 
-// Example usage for LocalBusiness:
-// generateSchemaMarkup('LocalBusiness', {
-//   name: "XERA Car Wash & Auto Detailing",
-//   image: "https://xeradetailing.in/logo.png",
-//   url: "https://xeradetailing.in",
-//   telephone: "+919605858483",
-//   priceRange: "₹₹",
-//   address: {
-//     "@type": "PostalAddress",
-//     "streetAddress": "Opp. NSS College, Palappuram",
-//     "addressLocality": "Ottapalam",
-//     "postalCode": "679103",
-//     "addressRegion": "Kerala",
-//     "addressCountry": "IN"
-//   }
-// })
+// Generate service schema for specific services
+export const generateServiceSchema = (
+  name: string,
+  description: string,
+  imageUrl: string,
+  url: string,
+  price: string,
+  areaServed: string[] = ["Ottapalam", "Palakkad", "Shoranur", "Pattambi"]
+) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": name,
+    "description": description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "XERA Car Wash & Auto Detailing",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Opp. NSS College, Palappuram",
+        "addressLocality": "Ottapalam",
+        "postalCode": "679103",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "telephone": "+919605858483"
+    },
+    "areaServed": areaServed,
+    "image": imageUrl,
+    "url": url,
+    "offers": {
+      "@type": "Offer",
+      "price": price,
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  return JSON.stringify(schema);
+};
+
+// Generate open graph tags for social sharing
+export const generateOpenGraphTags = (
+  title: string,
+  description: string,
+  url: string,
+  imageUrl: string,
+  type: 'website' | 'article' | 'profile' | 'book' = 'website'
+) => {
+  return {
+    "og:title": title,
+    "og:description": description,
+    "og:url": url,
+    "og:image": imageUrl,
+    "og:type": type,
+    "og:site_name": "XERA Car Wash & Auto Detailing"
+  };
+};
+
+// Generate Twitter card tags
+export const generateTwitterCardTags = (
+  title: string,
+  description: string,
+  imageUrl: string,
+  twitterHandle: string = "@xeradetailing"
+) => {
+  return {
+    "twitter:card": "summary_large_image",
+    "twitter:site": twitterHandle,
+    "twitter:title": title,
+    "twitter:description": description,
+    "twitter:image": imageUrl
+  };
+};
+
+// Set all meta tags for a specific service page
+export const setServicePageMetadata = (
+  serviceName: string,
+  serviceDescription: string,
+  serviceUrl: string,
+  imageUrl: string,
+  location: string = "Ottapalam",
+  keywords: string[] = []
+) => {
+  // Create optimized title and description
+  const title = `${serviceName} in ${location} | XERA Auto Detailing`;
+  const description = `Professional ${serviceDescription} in ${location} and surrounding areas. XERA offers premium ${serviceName.toLowerCase()} services with guaranteed satisfaction.`;
+  
+  // Set basic meta tags
+  setPageMetadata(title, description, serviceUrl, imageUrl, keywords);
+  
+  // Add service schema
+  const serviceSchema = generateServiceSchema(
+    `${serviceName} in ${location}`,
+    description,
+    imageUrl,
+    serviceUrl,
+    "Contact for Price"
+  );
+  
+  // Add schema to document
+  addSchemaToDocument(serviceSchema);
+};
+
+// Add schema to document
+export const addSchemaToDocument = (schemaJson: string) => {
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = schemaJson;
+  document.head.appendChild(script);
+};
+
+// Add multiple schema to document
+export const addMultipleSchemasToDocument = (schemas: Array<{type: string, data: any}>) => {
+  schemas.forEach(schema => {
+    const schemaJson = generateSchemaMarkup(
+      schema.type as 'LocalBusiness' | 'Service' | 'Article' | 'BreadcrumbList' | 'Product' | 'WebSite' | 'FAQPage',
+      schema.data
+    );
+    addSchemaToDocument(schemaJson);
+  });
+};
+
+// Generate rich meta tags for local SEO
+export const generateLocalBusinessMetaTags = (
+  businessName: string,
+  description: string,
+  phone: string,
+  address: string,
+  city: string,
+  state: string,
+  zipCode: string,
+  country: string,
+  latitude: number,
+  longitude: number,
+  websiteUrl: string,
+  logoUrl: string
+) => {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": businessName,
+    "description": description,
+    "telephone": phone,
+    "image": logoUrl,
+    "url": websiteUrl,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": address,
+      "addressLocality": city,
+      "addressRegion": state,
+      "postalCode": zipCode,
+      "addressCountry": country
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": latitude,
+      "longitude": longitude
+    }
+  };
+
+  return JSON.stringify(localBusinessSchema);
+};
+
+// Helper for meta link tags
+export const addLinkTags = (links: Array<{rel: string, href: string, type?: string}>) => {
+  links.forEach(link => {
+    let linkElement = document.querySelector(`link[rel="${link.rel}"][href="${link.href}"]`);
+    if (!linkElement) {
+      linkElement = document.createElement('link');
+      linkElement.setAttribute('rel', link.rel);
+      linkElement.setAttribute('href', link.href);
+      if (link.type) {
+        linkElement.setAttribute('type', link.type);
+      }
+      document.head.appendChild(linkElement);
+    }
+  });
+};
+
+// Add JSON-LD script for Google search optimization
+export const addJsonLdScript = (script: any) => {
+  const jsonLdScript = document.createElement('script');
+  jsonLdScript.type = 'application/ld+json';
+  jsonLdScript.text = JSON.stringify(script);
+  document.head.appendChild(jsonLdScript);
+};

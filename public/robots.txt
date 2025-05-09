@@ -2,17 +2,36 @@
 # Website: XERA Car Wash & Auto Detailing
 # https://xeradetailing.in/
 
-# Allow all crawlers
+# Allow all web crawlers
 User-agent: *
 Allow: /
 
 # Important SEO directories
 Allow: /services/
 Allow: /blog/
+Allow: /contact/
+Allow: /about/
 Allow: /assets/
+Allow: /lovable-uploads/
 
 # Sitemap location
 Sitemap: https://xeradetailing.in/sitemap.xml
 
 # Optimize crawl rate
 Crawl-delay: 1
+
+# Special directives for specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Prevent duplicate content indexing
+Disallow: /*?*

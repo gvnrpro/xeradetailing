@@ -40,7 +40,10 @@ export const getImageAlt = (baseAlt: string, location: string = locationKeywords
     'premium service',
     'ceramic coating',
     'paint protection',
-    'auto detailing'
+    'auto detailing',
+    '9H coating',
+    'hydrophobic protection',
+    'automotive care'
   ];
   
   // Add one random SEO term if none are present
@@ -72,6 +75,9 @@ export interface OptimizedImage {
   description?: string;
   loading?: 'lazy' | 'eager';
   seoFilename?: string;
+  width?: number;
+  height?: number;
+  format?: 'jpg' | 'png' | 'webp';
 }
 
 // Convert paths to optimized image objects with enhanced SEO metadata
@@ -88,13 +94,25 @@ export const getOptimizedImages = (
     // Add location keywords for local SEO
     const localizedAlt = getImageAlt(serviceSpecificAlt, location);
     
+    // Determine if this is a WebP image based on path
+    const format = path.toLowerCase().includes('.webp') ? 'webp' : 
+                  path.toLowerCase().includes('.png') ? 'png' : 'jpg';
+    
+    // Default dimensions - these should ideally come from actual image metadata
+    const defaultDimensions = {
+      width: 1200,
+      height: 800
+    };
+    
     return {
       src: path,
       alt: localizedAlt,
       title: `XERA ${service} in ${location} - Professional auto detailing`,
       description: `Professional ${service} by XERA in ${location}, ${locationKeywords.state}`,
       loading: 'lazy',
-      seoFilename: getSeoImageName(path, location)
+      seoFilename: getSeoImageName(path, location),
+      format: format,
+      ...defaultDimensions
     };
   });
 };
@@ -111,7 +129,11 @@ export const generateServiceAltText = (
     'professional results',
     'expert application',
     'showroom shine',
-    'enhanced appearance'
+    'enhanced appearance',
+    'UV protection',
+    'scratch resistance',
+    'hydrophobic properties',
+    'advanced nano-coating'
   ];
   
   const selectedBenefit = benefit || benefits[Math.floor(Math.random() * benefits.length)];
@@ -131,6 +153,59 @@ export const getStructuredImageData = (
     "name": image.title || image.alt.split(' - ')[0],
     "caption": image.alt,
     "representativeOfPage": true,
-    "url": pageUrl
+    "url": pageUrl,
+    ...(image.width && image.height ? {
+      "width": image.width,
+      "height": image.height
+    } : {})
   };
+};
+
+// Generate WebP version filename for a given image path
+export const getWebPVersion = (imagePath: string): string => {
+  const parts = imagePath.split('.');
+  if (parts.length > 1) {
+    parts[parts.length - 1] = 'webp';
+    return parts.join('.');
+  }
+  return imagePath + '.webp';
+};
+
+// Generate responsive image srcset
+export const generateSrcSet = (
+  basePath: string, 
+  widths: number[] = [320, 640, 960, 1280]
+): string => {
+  const parts = basePath.split('.');
+  const ext = parts.pop();
+  const base = parts.join('.');
+  
+  return widths
+    .map(width => `${base}-${width}.${ext} ${width}w`)
+    .join(', ');
+};
+
+// Generate picture element markup for responsive images with WebP support
+export const getPictureElementMarkup = (
+  image: OptimizedImage, 
+  className: string = '',
+  sizes: string = '100vw'
+): string => {
+  const webpSrc = getWebPVersion(image.src);
+  
+  return `
+    <picture>
+      <source srcset="${webpSrc}" type="image/webp" />
+      <source srcset="${image.src}" type="${image.format === 'png' ? 'image/png' : 'image/jpeg'}" />
+      <img 
+        src="${image.src}" 
+        alt="${image.alt}" 
+        loading="${image.loading || 'lazy'}" 
+        class="${className}"
+        width="${image.width || ''}"
+        height="${image.height || ''}"
+        title="${image.title || ''}"
+      />
+    </picture>
+  `;
 };
