@@ -15,17 +15,40 @@ import AnimatedGallery from '@/components/AnimatedGallery';
 import HomeGallery from '@/components/HomeGallery';
 import ServiceAreas from '@/components/ServiceAreas';
 import { setPageMetadata, generateSchemaMarkup } from '@/utils/seoHelper';
+import { serviceKeywords, locationKeywords } from '@/utils/seoKeywords';
 
 const Index = () => {
-  // Update document metadata for SEO
+  // Update document metadata for SEO with enhanced keywords
   useEffect(() => {
-    // Comprehensive SEO setup for homepage
+    // Enhanced SEO setup for homepage with aggressive keyword targeting
     setPageMetadata(
-      "XERA Car Wash & Auto Detailing | Ceramic Coating in Ottapalam, Palakkad", 
-      "Kerala's premier car ceramic coating and auto detailing studio in Ottapalam. Professional paint protection, interior detailing, and car care services across Palakkad district.",
+      "Best Ceramic Coating & Car Detailing in Ottapalam | XERA Auto Detailing", 
+      "Kerala's premier ceramic coating and auto detailing studio in Ottapalam. Professional paint protection, interior detailing, and 9H ceramic coating services across Palakkad district including Shoranur and Pattambi.",
       "https://xeradetailing.in/",
-      "https://xeradetailing.in/logo.png",
-      ["ceramic coating Ottapalam", "car detailing Palakkad", "paint protection services", "auto detailing Kerala", "car wash near me", "best ceramic coating shop"]
+      "https://xeradetailing.in/assets/ceramic-after.jpg",
+      [
+        // Primary keywords
+        "ceramic coating ottapalam",
+        "car detailing ottapalam", 
+        "paint protection services ottapalam",
+        "auto detailing services ottapalam",
+        "best ceramic coating near me",
+        // Secondary keywords
+        "9H ceramic coating palakkad",
+        "interior car cleaning ottapalam",
+        "exterior car polishing ottapalam",
+        "headlight restoration ottapalam",
+        "car wash services ottapalam",
+        // Long-tail keywords
+        "affordable ceramic coating services in ottapalam",
+        "professional car detailing experts ottapalam",
+        "top-rated auto detailing near ottapalam",
+        "ceramic coating for SUVs in ottapalam",
+        "eco-friendly car wash ottapalam",
+        // Brand keywords
+        "XERA detailing",
+        "premium car care kerala"
+      ]
     );
   }, []);
   
@@ -48,17 +71,23 @@ const Index = () => {
       <Footer />
       <WhatsAppButton />
 
-      {/* LocalBusiness Schema */}
+      {/* Enhanced LocalBusiness Schema with more details */}
       <script 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('LocalBusiness', {
           name: "XERA Car Wash & Auto Detailing",
-          image: "https://xeradetailing.in/logo.png",
+          image: "https://xeradetailing.in/assets/ceramic-after.jpg",
           url: "https://xeradetailing.in",
           telephone: "+919605858483",
           priceRange: "₹₹",
           description: "Kerala's leading car wash and auto detailing studio offering ceramic coating, interior cleaning, paint correction, and more in Ottapalam, Palakkad.",
-          keywords: "ceramic coating Ottapalam, car detailing Palakkad, paint protection services Kerala, best ceramic coating shop, mobile ceramic coating experts",
+          keywords: [
+            "ceramic coating ottapalam", 
+            "car detailing palakkad", 
+            "paint protection services kerala", 
+            "best ceramic coating shop", 
+            "mobile ceramic coating experts"
+          ].join(", "),
           address: {
             "@type": "PostalAddress",
             "streetAddress": "Opp. NSS College, Palappuram",
@@ -84,7 +113,7 @@ const Index = () => {
             "https://www.facebook.com/xeradetailing",
             "https://www.instagram.com/xeradetailing"
           ],
-          areaServed: ["Ottapalam", "Palakkad", "Shoranur", "Pattambi", "Perinthalmanna", "Thrissur", "Cherpulassery"],
+          areaServed: locationKeywords.nearby.concat([locationKeywords.primary, locationKeywords.district]),
           serviceArea: {
             "@type": "GeoCircle",
             "geoMidpoint": {
@@ -97,11 +126,12 @@ const Index = () => {
         }) }}
       />
 
-      {/* Service Schema */}
+      {/* Enhanced Service Schema with more details */}
       <script 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('Service', {
           serviceType: "Ceramic Coating",
+          name: "Premium Ceramic Coating Service in Ottapalam",
           provider: {
             "@type": "LocalBusiness",
             "name": "XERA Car Wash & Auto Detailing",
@@ -114,7 +144,7 @@ const Index = () => {
               "addressCountry": "IN"
             }
           },
-          areaServed: ["Ottapalam", "Palakkad", "Shoranur", "Pattambi", "Perinthalmanna"],
+          areaServed: locationKeywords.nearby.concat([locationKeywords.primary, locationKeywords.district]),
           description: "Premium 9H+ ceramic coating that protects your vehicle's paint from Kerala's harsh climate conditions, providing extreme hydrophobic properties and UV resistance.",
           offers: {
             "@type": "Offer",
@@ -125,7 +155,7 @@ const Index = () => {
         }) }}
       />
 
-      {/* Breadcrumb Schema */}
+      {/* Breadcrumb Schema for improved navigation */}
       <script 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('BreadcrumbList', {
@@ -140,7 +170,7 @@ const Index = () => {
         }) }}
       />
       
-      {/* WebSite Schema */}
+      {/* Enhanced WebSite Schema */}
       <script 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('WebSite', {
@@ -151,6 +181,47 @@ const Index = () => {
             "target": "https://xeradetailing.in/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
           }
+        }) }}
+      />
+      
+      {/* FAQ Schema for homepage */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('FAQPage', {
+          mainEntity: [
+            {
+              "@type": "Question",
+              "name": "What ceramic coating services does XERA offer in Ottapalam?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "XERA offers premium 9H+ ceramic coating services in Ottapalam with hydrophobic properties, UV protection, and 3-5 year durability. We serve all vehicles from hatchbacks to luxury cars."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does ceramic coating cost at XERA Ottapalam?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our ceramic coating packages start at ₹7,999, with pricing depending on vehicle size and condition. We offer competitive rates with premium quality materials and professional application."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer mobile ceramic coating services in Palakkad district?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, XERA provides mobile ceramic coating services across Palakkad district, including Ottapalam, Shoranur, Pattambi, and nearby areas, bringing our professional equipment to your location."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What makes XERA's ceramic coating better than others in Kerala?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "XERA uses advanced 9H+ ceramic coating technology specifically formulated for Kerala's climate, offering superior protection against UV rays, harsh rains, and environmental contaminants with certified application techniques."
+              }
+            }
+          ]
         }) }}
       />
     </div>

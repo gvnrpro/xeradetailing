@@ -10,18 +10,18 @@ import { CarFront, Shield, Clock, Sparkles, Award, CheckCircle } from 'lucide-re
 import { setPageMetadata, generateSchemaMarkup } from '@/utils/seoHelper';
 
 const CeramicCoating = () => {
-  // SEO content for this page
-  const pageTitle = "Professional Ceramic Coating in Ottapalam | XERA Detailing";
-  const pageDescription = "Get the best ceramic coating in Ottapalam, Kerala. Long-lasting paint protection, hydrophobic properties and UV resistance. Now serving Palakkad, Shoranur and Pattambi areas.";
+  // Enhanced SEO content for this page with more focused keywords
+  const pageTitle = "Best Ceramic Coating in Ottapalam | Car Paint Protection | XERA Detailing";
+  const pageDescription = "Professional ceramic coating services in Ottapalam, Kerala. Long-lasting paint protection with 9H hardness, hydrophobic properties and UV resistance. Serving Palakkad, Shoranur and Pattambi areas.";
 
   useEffect(() => {
-    // Set page metadata for SEO
+    // Set page metadata for SEO with expanded keyword set
     setPageMetadata(
       pageTitle,
       pageDescription,
       "https://xeradetailing.in/services/ceramic-coating",
       "/assets/ceramic-after.jpg",
-      ["ceramic coating Ottapalam", "best ceramic coating Kerala", "car paint protection", "hydrophobic coating", "UV protection cars", "9H ceramic coating Palakkad"]
+      ["ceramic coating ottapalam", "best ceramic coating kerala", "car paint protection ottapalam", "hydrophobic coating", "UV protection cars", "9H ceramic coating palakkad", "auto detailing services ottapalam", "ceramic coating near me", "professional car detailing experts ottapalam"]
     );
   }, []);
 
@@ -72,16 +72,28 @@ const CeramicCoating = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">See The Difference</h2>
               <p className="text-lg text-white/70 max-w-2xl mx-auto">
-                Our ceramic coating creates a stunning transformation that protects your vehicle for years. Swipe to see the before and after results.
+                Our ceramic coating creates a stunning transformation that protects your vehicle for years. Compare our before and after results.
               </p>
             </div>
             
-            <BeforeAfterShowcase
-              beforeImage="/assets/ceramic-before.jpg"
-              afterImage="/assets/ceramic-after.jpg"
-              beforeAlt="Car before ceramic coating application in Ottapalam - dull and unprotected"
-              afterAlt="Car after ceramic coating by XERA - glossy and protected from Kerala climate"
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <img 
+                  src="/assets/ceramic-before.jpg" 
+                  alt="Car before ceramic coating application in Ottapalam - dull and unprotected paint surface" 
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <p className="mt-3 text-center text-white/70">Before: Unprotected paint</p>
+              </div>
+              <div>
+                <img 
+                  src="/assets/ceramic-after.jpg" 
+                  alt="Car after ceramic coating by XERA in Ottapalam - glossy and protected finish with hydrophobic properties" 
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <p className="mt-3 text-center text-white/70">After: Ceramic coated finish</p>
+              </div>
+            </div>
             
             <div className="mt-12 text-center">
               <Link to="/blog/ceramic-coating-ottapalam-car-protection" className="text-xera-red hover:underline">
@@ -205,6 +217,48 @@ const CeramicCoating = () => {
             }
           }) }}
         />
+
+        {/* FAQ Schema for Rich Results */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: generateSchemaMarkup('FAQPage', {
+            mainEntity: [
+              {
+                "@type": "Question",
+                "name": "How long does ceramic coating last in Kerala's climate?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With proper maintenance, our premium ceramic coating can last 3-5 years in Kerala's climate, providing continuous protection against UV rays, rain, and environmental contaminants."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is ceramic coating worth it for cars in Ottapalam?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! Ceramic coating is particularly valuable in Ottapalam due to the region's mix of sun, rain, and dust. It protects against environmental damage, maintains your car's appearance, and increases its resale value."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does ceramic coating cost at XERA in Ottapalam?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our ceramic coating packages start from ₹7,999 for smaller vehicles, with options for different vehicle sizes and additional services like interior protection. We offer competitive pricing with premium quality materials."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide mobile ceramic coating services in Palakkad district?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, XERA offers mobile ceramic coating services throughout Palakkad district, including Ottapalam, Shoranur, Pattambi, and surrounding areas. Our mobile unit brings professional-grade equipment to your location."
+                }
+              }
+            ]
+          }) }}
+        />
+
       </main>
       <Footer />
       <WhatsAppButton />

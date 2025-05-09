@@ -1,59 +1,137 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  <!-- Homepage -->
   <url>
     <loc>https://xeradetailing.in/</loc>
-    <lastmod>2024-05-01</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/ceramic-after.jpg</image:loc>
+      <image:title>Premium Ceramic Coating by XERA in Ottapalam</image:title>
+      <image:caption>Professional ceramic coating service in Ottapalam</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Service Pages -->
   <url>
     <loc>https://xeradetailing.in/services</loc>
-    <lastmod>2024-05-01</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://xeradetailing.in/services/ceramic-coating</loc>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/ceramic-after.jpg</image:loc>
+      <image:title>Ceramic Coating Services in Ottapalam</image:title>
+      <image:caption>Premium 9H ceramic coating for cars in Ottapalam</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/ceramic-before.jpg</image:loc>
+      <image:title>Before Ceramic Coating Application</image:title>
+      <image:caption>Vehicle before ceramic coating treatment</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xeradetailing.in/services/express-wash</loc>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/express-wash-after.jpg</image:loc>
+      <image:title>Express Car Wash Services in Ottapalam</image:title>
+      <image:caption>Professional express car wash in Ottapalam</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://xeradetailing.in/services/engine-bay-cleaning</loc>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/engine-after.jpg</image:loc>
+      <image:title>Engine Bay Cleaning Services in Ottapalam</image:title>
+      <image:caption>Professional engine detailing in Ottapalam</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Content Pages -->
+  <url>
     <loc>https://xeradetailing.in/about</loc>
-    <lastmod>2024-05-01</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/contact</loc>
-    <lastmod>2024-05-01</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
   </url>
+  
+  <!-- Blog Pages -->
   <url>
     <loc>https://xeradetailing.in/blog</loc>
-    <lastmod>2024-05-02</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection</loc>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/assets/ceramic-after.jpg</image:loc>
+      <image:title>Ceramic Coating Benefits for Cars in Ottapalam</image:title>
+      <image:caption>Professional ceramic coating results in Ottapalam</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/why-kerala-cars-need-ceramic-coating</loc>
-    <lastmod>2024-05-02</lastmod>
-    <priority>0.70</priority>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/car-wash-frequency-kerala</loc>
-    <lastmod>2024-05-02</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/bike-detailing-kerala-monsoon</loc>
-    <lastmod>2024-05-02</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/ceramic-coating-care-tips</loc>
-    <lastmod>2024-05-02</lastmod>
-    <priority>0.70</priority>
+    <lastmod>2024-05-09</lastmod>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/underbody-coating-palakkad-value</loc>
-    <lastmod>2024-05-02</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/foam-vs-pressure-wash-kerala</loc>
-    <lastmod>2024-05-02</lastmod>
+    <lastmod>2024-05-09</lastmod>
     <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
