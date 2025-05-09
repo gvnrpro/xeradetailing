@@ -1,77 +1,59 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { trackEvent } from '../tracking/AnalyticsProvider';
+import { Badge } from '@/components/ui/badge';
+import { BlogPost } from '@/data/blogPosts';
+import { trackEvent } from '@/components/tracking/AnalyticsProvider';
 
 interface RelatedContentProps {
-  title?: string;
-  type?: 'services' | 'blog' | 'mixed';
-  items: Array<{
-    title: string;
-    description?: string;
-    image?: string;
-    imageAlt?: string;
-    link: string;
-  }>;
-  className?: string;
+  relatedPosts: BlogPost[];
 }
 
-const RelatedContent = ({
-  title = "You May Also Like",
-  type = 'mixed',
-  items,
-  className
-}: RelatedContentProps) => {
-  
-  const trackContentClick = (item: string, index: number) => {
-    trackEvent('related_content_click', {
-      content_type: type,
-      content_title: item,
-      content_position: index,
-      page: window.location.pathname
-    });
-  };
-  
-  if (!items.length) return null;
+const RelatedContent = ({ relatedPosts }: RelatedContentProps) => {
+  if (!relatedPosts || relatedPosts.length === 0) {
+    return null;
+  }
   
   return (
-    <div className={`my-8 ${className}`}>
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {items.map((item, index) => (
+    <div>
+      <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {relatedPosts.map((post) => (
           <Link
-            to={item.link}
-            key={index}
-            onClick={() => trackContentClick(item.title, index)}
+            key={post.slug}
+            to={`/car-care-tips/${post.slug}`}
+            className="group"
+            onClick={() => trackEvent('related_post_click', { post_title: post.title })}
           >
-            <Card className="overflow-hidden bg-xera-darkgray border-xera-lightgray hover:border-xera-red/30 hover:shadow-lg transition-all h-full">
-              {item.image && (
-                <AspectRatio ratio={16/9}>
-                  <img 
-                    src={item.image} 
-                    alt={item.imageAlt || item.title}
-                    className="w-full h-full object-cover" 
-                  />
-                </AspectRatio>
-              )}
-              
-              <CardContent className="p-4">
-                <h4 className="font-bold text-base mb-2">{item.title}</h4>
-                
-                {item.description && (
-                  <p className="text-white/70 text-sm mb-3 line-clamp-2">{item.description}</p>
-                )}
-                
-                <div className="flex items-center text-xera-red text-sm font-medium mt-auto">
-                  <span>Learn more</span>
-                  <ArrowRight className="ml-1 w-3 h-3" />
+            <div className="bg-xera-darkgray border border-xera-lightgray overflow-hidden rounded-lg transition-all duration-300 group-hover:border-xera-red h-full flex flex-col">
+              <div className="aspect-video overflow-hidden relative">
+                <img 
+                  src={post.image} 
+                  alt={post.imageAlt || post.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-4 flex flex-col flex-grow">
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {post.categories.slice(0, 2).map((category) => (
+                    <Badge 
+                      key={category} 
+                      variant="outline" 
+                      className="text-xs text-white/80 border-white/30"
+                    >
+                      {category}
+                    </Badge>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
+                <h4 className="text-lg font-bold mb-2 group-hover:text-xera-red transition-colors">
+                  {post.title}
+                </h4>
+                <p className="text-white/60 text-sm line-clamp-2">
+                  {post.excerpt}
+                </p>
+              </div>
+            </div>
           </Link>
         ))}
       </div>

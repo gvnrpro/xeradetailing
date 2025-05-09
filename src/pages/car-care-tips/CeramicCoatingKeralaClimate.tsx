@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -109,9 +108,9 @@ const CeramicCoatingKeralaClimate = () => {
       
       <BreadcrumbNav 
         items={[
-          { name: 'Home', href: '/' },
-          { name: 'Car Care Tips', href: '/car-care-tips' },
-          { name: post.title, href: `/car-care-tips/${post.slug}` }
+          { label: 'Home', href: '/' },
+          { label: 'Car Care Tips', href: '/car-care-tips' },
+          { label: post.title, href: `/car-care-tips/${post.slug}` }
         ]}
       />
       
@@ -158,7 +157,7 @@ const CeramicCoatingKeralaClimate = () => {
             {/* Sidebar with TOC */}
             <div className="hidden lg:block lg:col-span-3 relative">
               <div className="sticky top-24">
-                <TableOfContents items={getTableOfContents()} />
+                <TableOfContents headings={getTableOfContents()} />
                 <div className="mt-8">
                   <EnhancedCTA
                     text="Book Ceramic Coating"
@@ -252,7 +251,7 @@ const CeramicCoatingKeralaClimate = () => {
               
               {/* Related Posts */}
               <div className="mt-12">
-                <RelatedContent posts={relatedPosts} />
+                <RelatedContent relatedPosts={relatedPosts} />
               </div>
             </div>
             

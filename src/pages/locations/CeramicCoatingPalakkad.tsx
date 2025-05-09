@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -64,11 +63,11 @@ const CeramicCoatingPalakkad = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <BreadcrumbNav
+      <BreadcrumbNav 
         items={[
-          { name: 'Home', href: '/' },
-          { name: 'Services', href: '/services' },
-          { name: 'Ceramic Coating in Palakkad', href: '/ceramic-coating-palakkad' }
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: 'Ceramic Coating in Palakkad', href: '/ceramic-coating-palakkad' }
         ]}
       />
       
