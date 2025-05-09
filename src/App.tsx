@@ -13,7 +13,10 @@ import ExpressWash from './pages/services/ExpressWash';
 import EngineBayCleaning from './pages/services/EngineBayCleaning';
 import CeramicCoatingOttapalam from './pages/blog/CeramicCoatingOttapalam';
 import { Toaster } from '@/components/ui/toaster';
-import './App.css'
+import AnalyticsProvider from './components/tracking/AnalyticsProvider';
+import ExitIntent from './components/tracking/ExitIntent';
+import StickyCTA from './components/enhanced/StickyCTA';
+import './App.css';
 
 function App() {
   // Add web app manifest for PWA support and enhanced SEO metadata
@@ -76,26 +79,47 @@ function App() {
         document.head.appendChild(ogTag);
       }
     });
+    
+    // Add Google Analytics snippet (replace with your actual GA ID)
+    if (!document.querySelector('script[src*="googletagmanager"]')) {
+      const gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID';
+      document.head.appendChild(gaScript);
+      
+      const gaConfig = document.createElement('script');
+      gaConfig.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MEASUREMENT_ID');
+      `;
+      document.head.appendChild(gaConfig);
+    }
   }, []);
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
-        <Route path="/services/express-wash" element={<ExpressWash />} />
-        <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-        <Route path="/blog/ceramic-coating-ottapalam-car-protection" element={<CeramicCoatingOttapalam />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Toaster />
+      <AnalyticsProvider>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
+          <Route path="/services/express-wash" element={<ExpressWash />} />
+          <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/blog/ceramic-coating-ottapalam-car-protection" element={<CeramicCoatingOttapalam />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
+        <ExitIntent />
+        <StickyCTA />
+      </AnalyticsProvider>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

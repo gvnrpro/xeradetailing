@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -19,6 +18,10 @@ import { serviceKeywords, locationKeywords } from '@/utils/seoKeywords';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BreadcrumbNav from '@/components/ui/breadcrumb-nav';
+import LeadMagnetForm from '@/components/enhanced/LeadMagnetForm';
+import TrustSignals from '@/components/enhanced/TrustSignals';
+import { trackEvent } from '@/components/tracking/AnalyticsProvider';
 
 const Index = () => {
   // Update document metadata for SEO with enhanced keywords
@@ -53,11 +56,15 @@ const Index = () => {
         "premium car care kerala"
       ]
     );
+    
+    // Track page view
+    trackEvent('view_homepage');
   }, []);
   
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <BreadcrumbNav />
       <main>
         <HeroSection />
         <HomeGallery />
@@ -70,13 +77,13 @@ const Index = () => {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link to="/services/ceramic-coating">
-                  <Button className="bg-xera-red hover:bg-red-700 text-white flex items-center group">
+                  <Button className="bg-xera-red hover:bg-red-700 text-white flex items-center group" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Explore Ceramic Coating Services' })}>
                     Explore Ceramic Coating Services
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
                 <Link to="/blog/ceramic-coating-ottapalam-car-protection">
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Read About Ceramic Coating Benefits' })}>
                     Read About Ceramic Coating Benefits
                   </Button>
                 </Link>
@@ -96,13 +103,13 @@ const Index = () => {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link to="/contact">
-                  <Button className="bg-xera-red hover:bg-red-700 text-white flex items-center group">
+                  <Button className="bg-xera-red hover:bg-red-700 text-white flex items-center group" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Book Your Appointment Now' })}>
                     Book Your Appointment Now
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
                 <a href="tel:+919605858483">
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Call: +91 9605858483' })}>
                     Call: +91 9605858483
                   </Button>
                 </a>
@@ -113,6 +120,10 @@ const Index = () => {
         <ServiceAreas />
         <CustomerTrust />
         <FAQSection />
+        <LeadMagnetForm className="my-12" />
+        <TrustSignals variant="customer-photos" className="my-16" />
+        <TrustSignals variant="as-seen-on" className="my-16" />
+        <TrustSignals variant="certification" className="my-16" />
         <GoogleReviewInvite />
         <AboutSection />
         <LocationSection />

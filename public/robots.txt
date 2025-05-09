@@ -6,7 +6,7 @@
 User-agent: *
 Allow: /
 
-# Important SEO directories
+# Important SEO directories - explicitly allow them for all crawlers
 Allow: /services/
 Allow: /blog/
 Allow: /contact/
@@ -17,21 +17,38 @@ Allow: /lovable-uploads/
 # Sitemap location
 Sitemap: https://xeradetailing.in/sitemap.xml
 
-# Optimize crawl rate
-Crawl-delay: 1
+# Optimize crawl rate - reduced from 1 to 0.5 for faster indexing
+Crawl-delay: 0.5
 
 # Special directives for specific bots
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.1
 
 User-agent: Googlebot-Image
 Allow: /
+Crawl-delay: 0.2
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0.5
 
 User-agent: Slurp
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Special directives for social media bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
 Allow: /
 
 # Prevent duplicate content indexing
 Disallow: /*?*
+Disallow: /*?sort=*
+Disallow: /*?filter=*
+Disallow: /*utm_*
