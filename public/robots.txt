@@ -9,10 +9,18 @@ Allow: /
 # Important SEO directories - explicitly allow them for all crawlers
 Allow: /services/
 Allow: /blog/
+Allow: /car-care-tips/
 Allow: /contact/
 Allow: /about/
 Allow: /assets/
 Allow: /lovable-uploads/
+
+# Location pages
+Allow: /ceramic-coating-palakkad
+Allow: /car-detailing-shoranur
+Allow: /car-wash-pattambi
+Allow: /paint-protection-perinthalmanna
+Allow: /interior-cleaning-mannarkkad
 
 # Sitemap location
 Sitemap: https://xeradetailing.in/sitemap.xml

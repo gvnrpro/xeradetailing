@@ -1,211 +1,187 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-import { Phone, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { trackEvent } from './tracking/AnalyticsProvider';
+import { useMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
+  const isMobile = useMobile();
+  
+  // Handle scrolling effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 10);
     };
-
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   // Close menu when route changes
   useEffect(() => {
-    setIsOpen(false);
+    setIsMenuOpen(false);
   }, [location.pathname]);
-
-  // Check if link is active
-  const isActive = (path: string) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
+  
+  const handleNavClick = (label: string) => {
+    trackEvent('nav_click', { label });
   };
-
+  
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md shadow-md' : 'bg-transparent'
+    <nav 
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'py-2 bg-black/90 backdrop-blur-md shadow-lg' : 'py-4 bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-gradient">XERA</span>
-            <span className="ml-2 text-sm font-medium text-white/80">CAR WASH & DETAILING</span>
-          </Link>
-        </div>
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link 
+          to="/" 
+          className="text-white text-2xl font-bold"
+          onClick={() => handleNavClick('logo')}
+        >
+          <span className="text-gradient">XERA</span> Detailing
+        </Link>
         
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8">
           <Link 
             to="/" 
-            className={`transition-colors ${
-              isActive('/') 
-                ? 'text-xera-red font-medium' 
-                : 'text-white/80 hover:text-xera-red'
+            className={`text-white hover:text-xera-red transition-colors ${
+              location.pathname === '/' ? 'text-xera-red' : ''
             }`}
+            onClick={() => handleNavClick('home')}
           >
             Home
           </Link>
           <Link 
             to="/services" 
-            className={`transition-colors ${
-              isActive('/services') 
-                ? 'text-xera-red font-medium' 
-                : 'text-white/80 hover:text-xera-red'
+            className={`text-white hover:text-xera-red transition-colors ${
+              location.pathname.includes('/services') ? 'text-xera-red' : ''
             }`}
+            onClick={() => handleNavClick('services')}
           >
             Services
           </Link>
           <Link 
-            to="/blog" 
-            className={`transition-colors ${
-              isActive('/blog') 
-                ? 'text-xera-red font-medium' 
-                : 'text-white/80 hover:text-xera-red'
+            to="/car-care-tips" 
+            className={`text-white hover:text-xera-red transition-colors ${
+              location.pathname.includes('/car-care-tips') ? 'text-xera-red' : ''
             }`}
+            onClick={() => handleNavClick('car_care_tips')}
+          >
+            Car Care Tips
+          </Link>
+          <Link 
+            to="/blog" 
+            className={`text-white hover:text-xera-red transition-colors ${
+              location.pathname.includes('/blog') ? 'text-xera-red' : ''
+            }`}
+            onClick={() => handleNavClick('blog')}
           >
             Blog
           </Link>
           <Link 
             to="/about" 
-            className={`transition-colors ${
-              isActive('/about') 
-                ? 'text-xera-red font-medium' 
-                : 'text-white/80 hover:text-xera-red'
+            className={`text-white hover:text-xera-red transition-colors ${
+              location.pathname === '/about' ? 'text-xera-red' : ''
             }`}
+            onClick={() => handleNavClick('about')}
           >
             About
           </Link>
           <Link 
             to="/contact" 
-            className={`transition-colors ${
-              isActive('/contact') 
-                ? 'text-xera-red font-medium' 
-                : 'text-white/80 hover:text-xera-red'
-            }`}
+            className="bg-xera-red hover:bg-red-700 text-white px-4 py-2 rounded transition-colors"
+            onClick={() => handleNavClick('contact_button')}
           >
-            Contact
+            Contact Us
           </Link>
         </div>
         
-        <div className="hidden md:flex items-center">
-          <a href="tel:+919605858483" className="flex items-center text-white group">
-            <Phone size={18} className="mr-2 text-xera-red group-hover:animate-pulse" />
-            <span className="group-hover:text-xera-red transition-colors">+91 9605858483</span>
-          </a>
-          <Link to="/contact">
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <Button className="ml-6 bg-xera-red hover:bg-red-700 text-white font-medium red-glow">
-                Book Now
-              </Button>
-            </motion.div>
-          </Link>
-        </div>
-        
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-4">
-          <a href="tel:+919605858483" className="flex items-center text-white mr-2">
-            <Phone size={18} className="text-xera-red" />
-          </a>
-          <button 
-            className="text-white p-2" 
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </nav>
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="md:hidden text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          )}
+        </button>
+      </div>
       
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-xera-darkgray/95 backdrop-blur-lg border-t border-xera-lightgray animate-fade-in">
-          <div className="container mx-auto px-4 py-4 flex flex-col">
-            <Link 
-              to="/" 
-              className={`py-3 border-b border-gray-700 ${
-                isActive('/') ? 'text-xera-red font-medium' : 'text-white'
-              }`}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/services" 
-              className={`py-3 border-b border-gray-700 ${
-                isActive('/services') ? 'text-xera-red font-medium' : 'text-white'
-              }`}
-            >
-              Services
-            </Link>
-            <Link 
-              to="/blog" 
-              className={`py-3 border-b border-gray-700 ${
-                isActive('/blog') ? 'text-xera-red font-medium' : 'text-white'
-              }`}
-            >
-              Blog
-            </Link>
-            <Link 
-              to="/about" 
-              className={`py-3 border-b border-gray-700 ${
-                isActive('/about') ? 'text-xera-red font-medium' : 'text-white'
-              }`}
-            >
-              About
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`py-3 border-b border-gray-700 ${
-                isActive('/contact') ? 'text-xera-red font-medium' : 'text-white'
-              }`}
-            >
-              Contact
-            </Link>
-            <div className="flex flex-col gap-4 mt-6">
-              <Link to="/contact">
-                <Button className="w-full bg-xera-red hover:bg-red-700 text-white font-medium">
-                  Book Your Service Now
-                </Button>
+      {isMenuOpen && isMobile && (
+        <div className="md:hidden bg-black/95 backdrop-blur-md">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex flex-col space-y-4">
+              <Link 
+                to="/" 
+                className={`text-white hover:text-xera-red transition-colors ${
+                  location.pathname === '/' ? 'text-xera-red' : ''
+                }`}
+                onClick={() => handleNavClick('home_mobile')}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/services" 
+                className={`text-white hover:text-xera-red transition-colors ${
+                  location.pathname.includes('/services') ? 'text-xera-red' : ''
+                }`}
+                onClick={() => handleNavClick('services_mobile')}
+              >
+                Services
+              </Link>
+              <Link 
+                to="/car-care-tips" 
+                className={`text-white hover:text-xera-red transition-colors ${
+                  location.pathname.includes('/car-care-tips') ? 'text-xera-red' : ''
+                }`}
+                onClick={() => handleNavClick('car_care_tips_mobile')}
+              >
+                Car Care Tips
+              </Link>
+              <Link 
+                to="/blog" 
+                className={`text-white hover:text-xera-red transition-colors ${
+                  location.pathname.includes('/blog') ? 'text-xera-red' : ''
+                }`}
+                onClick={() => handleNavClick('blog_mobile')}
+              >
+                Blog
+              </Link>
+              <Link 
+                to="/about" 
+                className={`text-white hover:text-xera-red transition-colors ${
+                  location.pathname === '/about' ? 'text-xera-red' : ''
+                }`}
+                onClick={() => handleNavClick('about_mobile')}
+              >
+                About
+              </Link>
+              <Link 
+                to="/contact" 
+                className="bg-xera-red hover:bg-red-700 text-white px-4 py-2 rounded transition-colors text-center"
+                onClick={() => handleNavClick('contact_button_mobile')}
+              >
+                Contact Us
               </Link>
             </div>
           </div>
         </div>
       )}
-
-      {/* Sticky Book Now button for mobile */}
-      <div className="fixed bottom-4 right-4 md:hidden z-50">
-        <Link to="/contact">
-          <motion.div 
-            whileTap={{ scale: 0.95 }}
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            <Button className="bg-xera-red hover:bg-red-700 text-white font-bold py-3 px-5 rounded-full shadow-lg red-glow">
-              Book Now
-            </Button>
-          </motion.div>
-        </Link>
-      </div>
-    </header>
+    </nav>
   );
 };
 
