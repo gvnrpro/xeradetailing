@@ -22,6 +22,10 @@ import BreadcrumbNav from '@/components/ui/breadcrumb-nav';
 import LeadMagnetForm from '@/components/enhanced/LeadMagnetForm';
 import TrustSignals from '@/components/enhanced/TrustSignals';
 import { trackEvent } from '@/components/tracking/AnalyticsProvider';
+import BlogPreviewSection from '@/components/BlogPreviewSection';
+import LimitedOfferModal from '@/components/enhanced/LimitedOfferModal';
+import EnhancedCTA from '@/components/enhanced/EnhancedCTA';
+import ReviewButton from '@/components/enhanced/ReviewButton';
 
 const Index = () => {
   // Update document metadata for SEO with enhanced keywords
@@ -71,7 +75,9 @@ const Index = () => {
         <section className="py-12 bg-black/50 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Experience the XERA Difference</h2>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
+                Kerala's Top Ceramic Coating and Car Detailing Studio – XERA
+              </h1>
               <p className="text-white/70 max-w-2xl mb-8">
                 Our premium ceramic coating service protects your vehicle from Kerala's harsh climate while delivering a showroom finish that lasts for years.
               </p>
@@ -108,9 +114,9 @@ const Index = () => {
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
-                <a href="tel:+919605858483">
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Call: +91 9605858483' })}>
-                    Call: +91 9605858483
+                <a href="tel:+917559999366">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" onClick={() => trackEvent('homepage_cta_click', { cta_text: 'Call: +91 75599 99366' })}>
+                    Call: +91 75599 99366
                   </Button>
                 </a>
               </div>
@@ -119,6 +125,7 @@ const Index = () => {
         </section>
         <ServiceAreas />
         <CustomerTrust />
+        <BlogPreviewSection />
         <FAQSection />
         <LeadMagnetForm className="my-12" />
         <TrustSignals variant="customer-photos" className="my-16" />
@@ -130,6 +137,8 @@ const Index = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <LimitedOfferModal />
+      <ReviewButton />
 
       {/* Enhanced LocalBusiness Schema with more details */}
       <script 
@@ -139,7 +148,7 @@ const Index = () => {
           "name": "XERA Car Wash & Auto Detailing",
           "image": "https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
           "url": "https://xeradetailing.in",
-          "telephone": "+919605858483",
+          "telephone": "+917559999366",
           "email": "contact@xeradetailing.in",
           "priceRange": "₹₹",
           "description": "Kerala's leading car wash and auto detailing studio offering ceramic coating, interior cleaning, paint correction, and more in Ottapalam, Palakkad.",
@@ -180,7 +189,8 @@ const Index = () => {
           "sameAs": [
             "https://www.facebook.com/xeradetailing",
             "https://www.instagram.com/xeradetailing",
-            "https://www.youtube.com/channel/xeradetailing"
+            "https://www.youtube.com/channel/xeradetailing",
+            "https://www.justdial.com/Ottapalam/Xera-Car-Wash-Auto-Detailing-Opposite-NSS-College-Palappuram/9999PX466-X466-220511172236-E4Y1_BZDET"
           ],
           "areaServed": locationKeywords.nearby.concat([locationKeywords.primary, locationKeywords.district]),
           "serviceArea": {

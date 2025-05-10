@@ -10,6 +10,8 @@ import TrustSignals, { CustomerPhotos } from '@/components/enhanced/TrustSignals
 import { trackEvent } from '@/components/tracking/AnalyticsProvider';
 import { setPageMetadata, generateSchemaMarkup } from '@/utils/seoHelper';
 import { locationKeywords } from '@/utils/seoKeywords';
+import StickyCTA from '@/components/enhanced/StickyCTA';
+import ReviewButton from '@/components/enhanced/ReviewButton';
 
 const Blog = () => {
   // Update SEO metadata when component mounts
@@ -142,7 +144,9 @@ const Blog = () => {
               "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://xeradetailing.in/blog"
-              }
+              },
+              "datePublished": "2025-05-05T08:00:00+05:30",
+              "dateModified": "2025-05-10T12:00:00+05:30"
             })
           }}
         />
@@ -172,6 +176,8 @@ const Blog = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <StickyCTA />
+      <ReviewButton />
     </div>
   );
 };

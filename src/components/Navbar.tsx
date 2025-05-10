@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { trackEvent } from './tracking/AnalyticsProvider';
@@ -174,7 +175,7 @@ const Navbar = () => {
                 className="bg-xera-red hover:bg-red-700 text-white px-4 py-2 rounded transition-colors text-center"
                 onClick={() => handleNavClick('contact_button_mobile')}
               >
-                Contact Us
+                Book Now
               </Link>
             </div>
           </div>

@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "How long does ceramic coating last on Kerala roads?",
-    answer: "Up to 2–3 years when maintained well — especially effective against Kerala's UV, dust, and monsoon damage."
+    answer: "Typically 2–5 years when maintained well — especially effective against Kerala's UV, dust, and monsoon damage. XERA offers free inspections every 6 months to ensure longevity."
   },
   {
     question: "Is XERA's foam wash safe for ceramic-coated vehicles?",
@@ -44,6 +44,22 @@ const faqs = [
   {
     question: "Do you provide pick-up and drop service?",
     answer: "Yes, within Ottapalam, Palappuram, and nearby areas (subject to availability and service type)."
+  },
+  {
+    question: "Is bike detailing available in Ottapalam?",
+    answer: "Yes. We offer deep cleaning, polishing, and ceramic coat packages for bikes and scooters at our Ottapalam studio."
+  },
+  {
+    question: "What's the benefit of engine bay cleaning?",
+    answer: "Prevents rust, corrosion, and rodent issues – especially in Kerala's humid conditions. It also makes spotting leaks and maintenance issues easier."
+  },
+  {
+    question: "How often should I wash my car in Kerala?",
+    answer: "Every 7–10 days during monsoon and dusty months. Foam wash is safest for paint protection and preserving your car's finish."
+  },
+  {
+    question: "Do you offer doorstep services?",
+    answer: "For certain premium packages and nearby zones like Palappuram and Shoranur, yes. Contact us to check availability for your location."
   },
   {
     question: "ഡീറ്റെയിലിംഗ് എത്ര സമയം എടുക്കും?",

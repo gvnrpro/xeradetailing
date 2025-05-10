@@ -19,7 +19,7 @@ const WhatsAppButton = () => {
   
   if (!isVisible) return null;
   
-  const whatsappUrl = "https://wa.me/919605858483?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20a%20car%20wash%20or%20detailing%20appointment.";
+  const whatsappUrl = "https://wa.me/917559999366?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20a%20car%20wash%20or%20detailing%20appointment.";
   
   const handleWhatsAppClick = () => {
     trackEvent('whatsapp_button_click', {

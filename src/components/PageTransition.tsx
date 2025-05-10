@@ -18,17 +18,38 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     }
   }, [isInitialRender]);
 
+  // Different animation variants for smoother transitions
+  const variants = {
+    hidden: { 
+      opacity: 0,
+      y: 10
+    },
+    enter: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.61, 1, 0.88, 1]
+      }
+    },
+    exit: { 
+      opacity: 0,
+      y: 20,
+      transition: {
+        duration: 0.2,
+        ease: [0.61, 1, 0.88, 1]
+      }
+    }
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={location.pathname}
-        initial={isInitialRender ? { opacity: 1 } : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ 
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
+        initial={isInitialRender ? { opacity: 1, y: 0 } : "hidden"}
+        animate="enter"
+        exit="exit"
+        variants={variants}
         className="w-full"
       >
         {children}

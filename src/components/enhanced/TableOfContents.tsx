@@ -11,12 +11,30 @@ interface TableOfContentsProps {
   headings?: TableOfContentsItem[];
   containerSelector?: string;
   headingSelectors?: string;
+  items?: TableOfContentsItem[];
 }
 
-const TableOfContents = ({ headings, containerSelector, headingSelectors }: TableOfContentsProps) => {
-  const [toc, setToc] = useState<TableOfContentsItem[]>(headings || []);
+const TableOfContents = ({ 
+  headings, 
+  containerSelector, 
+  headingSelectors,
+  items
+}: TableOfContentsProps) => {
+  const [toc, setToc] = useState<TableOfContentsItem[]>(headings || items || []);
 
   useEffect(() => {
+    // If items are provided directly, use them
+    if (items && items.length > 0) {
+      setToc(items);
+      return;
+    }
+    
+    // If headings are provided directly, use them
+    if (headings && headings.length > 0) {
+      setToc(headings);
+      return;
+    }
+    
     if (!containerSelector || !headingSelectors) {
       return;
     }
@@ -27,7 +45,7 @@ const TableOfContents = ({ headings, containerSelector, headingSelectors }: Tabl
     
     const headingElements = container.querySelectorAll(headingSelectors);
     
-    const items: TableOfContentsItem[] = Array.from(headingElements).map((heading, index) => {
+    const generatedItems: TableOfContentsItem[] = Array.from(headingElements).map((heading, index) => {
       const id = heading.id || `heading-${index}`;
       if (!heading.id) {
         heading.id = id;
@@ -40,8 +58,8 @@ const TableOfContents = ({ headings, containerSelector, headingSelectors }: Tabl
       };
     });
     
-    setToc(items);
-  }, [containerSelector, headingSelectors]);
+    setToc(generatedItems);
+  }, [containerSelector, headingSelectors, headings, items]);
 
   if (!toc || toc.length === 0) {
     return null;

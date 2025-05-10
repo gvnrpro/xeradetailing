@@ -10,7 +10,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://xeradetailing.in/</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -28,13 +28,13 @@
   <!-- Service Pages -->
   <url>
     <loc>https://xeradetailing.in/services</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/services/ceramic-coating</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/services/express-wash</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -61,7 +61,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/services/engine-bay-cleaning</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -74,7 +74,7 @@
   <!-- Location Pages -->
   <url>
     <loc>https://xeradetailing.in/ceramic-coating-palakkad</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -85,25 +85,25 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/car-detailing-shoranur</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/car-wash-pattambi</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/paint-protection-perinthalmanna</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/interior-cleaning-mannarkkad</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -111,7 +111,7 @@
   <!-- Content Hub and Car Care Tips -->
   <url>
     <loc>https://xeradetailing.in/car-care-tips</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-kerala-climate</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.90</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -133,7 +133,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/car-care-tips/car-wash-kerala-monsoon</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -144,7 +144,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-mistakes</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -157,13 +157,13 @@
   <!-- Content Pages -->
   <url>
     <loc>https://xeradetailing.in/about</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/contact</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -171,13 +171,13 @@
   <!-- Blog Pages -->
   <url>
     <loc>https://xeradetailing.in/blog</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.90</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -193,7 +193,7 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/why-kerala-cars-need-ceramic-coating</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -204,19 +204,19 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/car-wash-frequency-kerala</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/bike-detailing-kerala-monsoon</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/ceramic-coating-care-tips</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>
     <image:image>
@@ -227,13 +227,13 @@
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/underbody-coating-palakkad-value</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://xeradetailing.in/blog/foam-vs-pressure-wash-kerala</loc>
-    <lastmod>2025-05-09</lastmod>
+    <lastmod>2025-05-10</lastmod>
     <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>

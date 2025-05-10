@@ -15,8 +15,8 @@ interface StickyCTAProps {
 const StickyCTA = ({ 
   showOnScroll = true,
   scrollThreshold = 300,
-  whatsappUrl = "https://wa.me/919605858483?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20a%20car%20wash%20or%20detailing%20appointment.",
-  phoneNumber = "tel:+919605858483"
+  whatsappUrl = "https://wa.me/917559999366?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20a%20car%20wash%20or%20detailing%20appointment.",
+  phoneNumber = "tel:+917559999366"
 }: StickyCTAProps) => {
   const [isVisible, setIsVisible] = useState(!showOnScroll);
   const isMobile = useIsMobile();

@@ -25,9 +25,6 @@ Allow: /interior-cleaning-mannarkkad
 # Sitemap location
 Sitemap: https://xeradetailing.in/sitemap.xml
 
-# Optimize crawl rate - reduced from 1 to 0.5 for faster indexing
-Crawl-delay: 0.5
-
 # Special directives for specific bots
 User-agent: Googlebot
 Allow: /
