@@ -13,16 +13,20 @@ import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 import CeramicCoatingOttapalam from './pages/blog/CeramicCoatingOttapalam';
 import AnalyticsProvider from './components/tracking/AnalyticsProvider';
-import PageTransition from './components/PageTransition';
+import AppLikePageTransition from './components/transitions/AppLikePageTransition';
 import MobileNavBar from './components/mobile/MobileNavBar';
 import FloatingCallButton from './components/mobile/FloatingCallButton';
 import TrustNudge from './components/mobile/TrustNudge';
 import LeadCapturePopup from './components/mobile/LeadCapturePopup';
 import RealTimeActivity from './components/mobile/RealTimeActivity';
 import { useIsMobile } from './hooks/use-mobile';
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import CountdownBanner from './components/mobile/CountdownBanner';
+import { Toast } from '@/components/ui/toast';
+import { Toaster } from '@/components/ui/toaster';
+import { Button } from '@/components/ui/button';
+import { ArrowUp } from 'lucide-react';
 
 // Content Hub Pages
 import CarCareTips from './pages/CarCareTips';
@@ -35,10 +39,22 @@ import CeramicCoatingPalakkad from './pages/locations/CeramicCoatingPalakkad';
 
 function App() {
   const isMobile = useIsMobile();
+  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  // Add viewport meta tag for mobile optimization
+  // PWA installation check
+  const [isAppInstalled, setIsAppInstalled] = useState(false);
+  
   useEffect(() => {
-    // Add preloading hints for key assets
+    // Check if app is in standalone mode (PWA installed)
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsAppInstalled(true);
+    }
+    
+    // Add dark theme preference
+    document.documentElement.classList.add('dark-theme');
+    
+    // Add viewport meta tag for mobile optimization
     const fontPreloadLink = document.createElement('link');
     fontPreloadLink.rel = 'preload';
     fontPreloadLink.href = '/fonts/inter-var.woff2';
@@ -69,6 +85,13 @@ function App() {
       `;
       document.head.appendChild(script);
     }
+    
+    // Scroll to top button visibility
+    const handleScroll = () => {
+      setShowScrollToTop(window.pageYOffset > 300);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
 
     // Cleanup
     return () => {
@@ -79,8 +102,16 @@ function App() {
         if (metaThemeColor) document.head.removeChild(metaThemeColor);
         if (metaAppleMobile) document.head.removeChild(metaAppleMobile);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isMobile]);
+  
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <Router>
@@ -99,7 +130,7 @@ function App() {
 
           {isMobile && <CountdownBanner />}
 
-          <PageTransition>
+          <AppLikePageTransition>
             <Routes>
               {/* Main Pages */}
               <Route path="/" element={<Index />} />
@@ -133,7 +164,7 @@ function App() {
               {/* 404 Not Found */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </PageTransition>
+          </AppLikePageTransition>
 
           {/* Mobile-specific components */}
           {isMobile && (
@@ -145,6 +176,21 @@ function App() {
               <LeadCapturePopup />
             </>
           )}
+          
+          {/* Scroll to top button */}
+          {showScrollToTop && (
+            <Button 
+              onClick={scrollToTop}
+              className="fixed bottom-24 right-4 z-40 p-2 rounded-full bg-xera-red shadow-lg"
+              size="icon"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </Button>
+          )}
+          
+          {/* Toast notifications */}
+          <Toaster />
         </AnalyticsProvider>
       </HelmetProvider>
     </Router>
