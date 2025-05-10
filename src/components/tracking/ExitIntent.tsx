@@ -69,15 +69,15 @@ const ExitIntent = ({
   
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md border-xera-red/50 bg-gradient-to-b from-black to-xera-darkgray">
-        <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl text-gradient">{title}</DialogTitle>
-          <DialogDescription className="text-white/80">
+      <DialogContent className="w-[95%] max-w-md mx-auto border-xera-red/50 bg-gradient-to-b from-black to-xera-darkgray p-4 sm:p-6 rounded-lg">
+        <DialogHeader className="space-y-2">
+          <DialogTitle className="text-lg sm:text-xl md:text-2xl text-gradient">{title}</DialogTitle>
+          <DialogDescription className="text-white/80 text-sm sm:text-base">
             {description}
           </DialogDescription>
         </DialogHeader>
         
-        <div className="py-4">
+        <div className="py-3 sm:py-4">
           <div className="rounded-md overflow-hidden">
             <img 
               src="/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png" 
@@ -85,11 +85,12 @@ const ExitIntent = ({
               className="w-full h-auto"
               width={600}
               height={400}
+              loading="lazy"
             />
           </div>
         </div>
         
-        <DialogFooter className="flex flex-col sm:flex-row gap-2">
+        <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2">
           <a 
             href={ctaLink}
             target="_blank"
@@ -97,14 +98,14 @@ const ExitIntent = ({
             className="w-full sm:w-auto"
             onClick={handleCTAClick}
           >
-            <Button className="w-full bg-xera-red hover:bg-red-700 text-white">
+            <Button className="w-full py-2 md:py-3 h-auto bg-xera-red hover:bg-red-700 text-white text-sm sm:text-base">
               {ctaText}
             </Button>
           </a>
           <Button 
             variant="outline" 
             onClick={handleClose}
-            className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10"
+            className="w-full sm:w-auto py-2 md:py-3 h-auto border-white/30 text-white hover:bg-white/10 text-sm sm:text-base"
           >
             Maybe Later
           </Button>

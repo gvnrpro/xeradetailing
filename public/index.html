@@ -7,6 +7,10 @@
     <meta name="description" content="Kerala's premier ceramic coating and auto detailing studio in Ottapalam. Professional paint protection, interior detailing, and 9H ceramic coating services." />
     <meta name="keywords" content="ceramic coating ottapalam, car detailing palakkad, auto detailing kerala, paint protection" />
     
+    <!-- Preconnect to origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#000000" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -16,6 +20,11 @@
     <!-- iOS icons -->
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="apple-touch-startup-image" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
+    
+    <!-- Media queries for responsive startup images on iOS -->
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -42,11 +51,9 @@
       }
     </script>
     
-    <!-- A2HS (Add to Home Screen) Prompt -->
+    <!-- Improved A2HS (Add to Home Screen) Prompt -->
     <script>
       let deferredPrompt;
-      const addToHomeScreenBtn = document.createElement('button');
-      addToHomeScreenBtn.style.display = 'none';
       
       window.addEventListener('beforeinstallprompt', (e) => {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -59,12 +66,12 @@
           if (deferredPrompt) {
             const installBanner = document.createElement('div');
             installBanner.id = 'install-banner';
-            installBanner.className = 'fixed bottom-20 left-0 right-0 mx-auto w-11/12 max-w-sm p-4 bg-black/90 backdrop-blur-lg border border-xera-red/30 rounded-lg shadow-lg z-50 flex flex-col items-center';
+            installBanner.className = 'fixed bottom-24 sm:bottom-20 left-0 right-0 mx-auto w-[90%] sm:w-11/12 max-w-sm p-3 sm:p-4 bg-black/90 backdrop-blur-lg border border-xera-red/30 rounded-lg shadow-lg z-50 flex flex-col items-center';
             installBanner.innerHTML = `
-              <p class="text-white mb-3 text-center">Add XERA to your home screen for quick access!</p>
+              <p class="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">Add XERA to your home screen for quick access!</p>
               <div class="flex gap-2">
-                <button id="install-btn" class="bg-xera-red text-white px-4 py-2 rounded hover:bg-red-700 transition-colors">Install App</button>
-                <button id="dismiss-btn" class="border border-white/30 text-white px-4 py-2 rounded hover:bg-white/10 transition-colors">Later</button>
+                <button id="install-btn" class="bg-xera-red text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded hover:bg-red-700 transition-colors">Install App</button>
+                <button id="dismiss-btn" class="border border-white/30 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded hover:bg-white/10 transition-colors">Later</button>
               </div>
             `;
             document.body.appendChild(installBanner);

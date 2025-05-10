@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -89,7 +88,7 @@
 
     /* Thumb zone optimization for mobile UX */
     .bottom-action-zone {
-      @apply mb-16; /* Add bottom padding for mobile nav bar */
+      @apply mb-20; /* Add bottom padding for mobile nav bar */
     }
 
     /* Adjust mobile form elements */
@@ -123,6 +122,15 @@
 }
 
 @layer components {
+  /* Improve toast styles for better responsiveness */
+  .toaster {
+    @apply z-[100] !important;
+  }
+
+  .toast {
+    @apply max-w-[90vw] sm:max-w-md !important;
+  }
+  
   .glass-card {
     @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-lg;
   }
@@ -502,4 +510,74 @@ h3 {
 /* Add content visibility auto for performance */
 .content-visibility-auto {
   content-visibility: auto;
+}
+
+/* Improve dialog positioning specifically for mobile */
+.dialog-content {
+  @apply bg-xera-darkgray border border-xera-lightgray rounded-lg shadow-xl z-50;
+}
+
+@media (max-width: 768px) {
+  .dialog-content {
+    @apply m-3 max-w-[95vw]; /* Mobile safe margins */
+  }
+  
+  /* Improved spacing for stackable mobile components */
+  .mobile-notification-1 {
+    @apply bottom-20;
+  }
+  
+  .mobile-notification-2 {
+    @apply bottom-36;
+  }
+  
+  .mobile-notification-3 {
+    @apply bottom-52;
+  }
+  
+  /* Mobile popups should be smaller and more compact */
+  .mobile-popup {
+    @apply p-3 text-sm;
+  }
+  
+  .mobile-popup-header {
+    @apply text-lg mb-2;
+  }
+  
+  .mobile-popup-content {
+    @apply space-y-2;
+  }
+}
+
+/* Enhance z-index layering to prevent overlap issues */
+.z-popup {
+  @apply z-50;
+}
+
+.z-toast {
+  @apply z-60;
+}
+
+.z-notification {
+  @apply z-40;
+}
+
+.z-nav {
+  @apply z-30;
+}
+
+/* Fix dropdown position and visibility */
+.dropdown-menu {
+  @apply bg-xera-darkgray border border-xera-lightgray rounded-md shadow-lg py-2 z-50;
+}
+
+/* Staggered notification system to prevent overlap */
+.notification-system {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: fixed;
+  bottom: 5rem;
+  right: 1rem;
+  z-index: 40;
 }

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Calendar, CheckCircle } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface TrustNudgeMessage {
   id: number;
@@ -12,6 +13,7 @@ interface TrustNudgeMessage {
 const TrustNudge = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
   
   const messages: TrustNudgeMessage[] = [
     {
@@ -53,8 +55,11 @@ const TrustNudge = () => {
   
   if (!isVisible) return null;
   
+  // Mobile: Bottom-20 is now bottom-36 to prevent overlap with other elements
+  const positionClass = isMobile ? "fixed bottom-36 right-4 z-30 max-w-[280px]" : "fixed bottom-24 right-6 z-30 max-w-[320px]";
+  
   return (
-    <div className="fixed bottom-20 right-4 z-30 max-w-[280px] md:hidden">
+    <div className={positionClass}>
       <AnimatePresence mode="wait">
         <motion.div
           key={messages[currentIndex].id}

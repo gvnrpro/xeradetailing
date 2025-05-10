@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Calendar, CheckCircle } from 'lucide-react';
+import { Users } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ActivityEvent {
   id: number;
@@ -15,6 +16,7 @@ const RealTimeActivity = () => {
   const [events, setEvents] = useState<ActivityEvent[]>([]);
   const [currentEvent, setCurrentEvent] = useState<ActivityEvent | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
   
   // Names pool for realistic activity
   const names = [
@@ -94,8 +96,15 @@ const RealTimeActivity = () => {
   
   if (!isVisible || !currentEvent) return null;
   
+  // Adjust positioning to prevent overlap with other elements
+  // On mobile, position higher (bottom-44) to avoid other elements
+  const positionClass = isMobile 
+    ? "fixed bottom-44 right-4 z-30 max-w-[250px]" 
+    : "fixed bottom-16 right-6 z-30 max-w-[300px]";
+  
+  // Only show one notification at a time on mobile
   return (
-    <div className="fixed bottom-28 right-4 z-30 max-w-[250px] md:hidden">
+    <div className={positionClass}>
       <AnimatePresence>
         <motion.div
           key={currentEvent.id}
