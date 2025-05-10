@@ -553,11 +553,11 @@ h3 {
 .z-popup {
   @apply z-50;
 }
-
+@layer components {
 .z-toast {
   @apply z-60;
+ }
 }
-
 .z-notification {
   @apply z-40;
 }
