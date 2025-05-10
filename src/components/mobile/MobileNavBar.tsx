@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Tool, Star, Phone } from 'lucide-react';
+import { Home, Wrench, Star, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { trackEvent } from '../tracking/AnalyticsProvider';
 
@@ -14,7 +14,7 @@ const MobileNavBar = () => {
   
   const navItems = [
     { icon: <Home size={20} />, label: 'Home', path: '/' },
-    { icon: <Tool size={20} />, label: 'Services', path: '/services' },
+    { icon: <Wrench size={20} />, label: 'Services', path: '/services' },
     { icon: <Star size={20} />, label: 'Reviews', path: '/#reviews' },
     { icon: <Phone size={20} />, label: 'Contact', path: '/contact' },
   ];

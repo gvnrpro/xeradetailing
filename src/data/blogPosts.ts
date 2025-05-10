@@ -1,3 +1,4 @@
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -6,9 +7,15 @@ export interface BlogPost {
   content: string;
   date: string;
   author: string;
-  coverImage: string; // Added this property
-  category: string;   // Added this property
+  coverImage: string;
+  image: string;
+  imageAlt?: string;
+  category: string;
+  categories: string[];
   tags: string[];
+  keywords: string[];
+  metaTitle?: string;
+  metaDescription?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -21,8 +28,14 @@ export const blogPosts: BlogPost[] = [
     date: "August 15, 2023",
     author: "Admin",
     coverImage: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
+    image: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
+    imageAlt: "Ceramic coated car in Ottapalam",
     category: "Ceramic Coating",
-    tags: ["ceramic coating", "car protection", "Ottapalam"]
+    categories: ["Ceramic Coating", "Car Protection"],
+    tags: ["ceramic coating", "car protection", "Ottapalam"],
+    keywords: ["ceramic coating Ottapalam", "car protection Kerala", "XERA detailing"],
+    metaTitle: "Ceramic Coating in Ottapalam - Long-Term Car Protection | XERA",
+    metaDescription: "Discover how ceramic coating provides the ultimate protection for your vehicle against Kerala's harsh climate. Expert application by XERA in Ottapalam."
   },
   {
     id: "2",
@@ -33,8 +46,14 @@ export const blogPosts: BlogPost[] = [
     date: "July 22, 2023",
     author: "Admin",
     coverImage: "/lovable-uploads/18a2b3d8-292b-497f-88b3-78d082ff3357.png",
+    image: "/lovable-uploads/18a2b3d8-292b-497f-88b3-78d082ff3357.png",
+    imageAlt: "Car wash during Kerala monsoon",
     category: "Car Wash",
-    tags: ["car wash", "Kerala", "monsoon"]
+    categories: ["Car Wash", "Monsoon Care"],
+    tags: ["car wash", "Kerala", "monsoon"],
+    keywords: ["car wash Kerala monsoon", "rainy season car care", "XERA detailing"],
+    metaTitle: "Car Washing Guide for Kerala Monsoons | XERA Detailing",
+    metaDescription: "Essential tips for keeping your vehicle clean and protected during Kerala's intense monsoon season. Professional advice from XERA Detailing."
   },
   {
     id: "3",
@@ -45,8 +64,14 @@ export const blogPosts: BlogPost[] = [
     date: "June 10, 2023",
     author: "Admin",
     coverImage: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+    image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+    imageAlt: "Car with ceramic coating in Kerala climate",
     category: "Ceramic Coating",
-    tags: ["ceramic coating", "Kerala", "climate"]
+    categories: ["Ceramic Coating", "Climate Protection"],
+    tags: ["ceramic coating", "Kerala", "climate"],
+    keywords: ["ceramic coating Kerala climate", "paint protection humid climate", "XERA detailing"],
+    metaTitle: "Kerala Climate Car Paint Protection: Ceramic Coating Solution | XERA",
+    metaDescription: "Learn how Kerala's unique climate affects your vehicle's paint and why ceramic coating is the ultimate protection solution. Expert service by XERA."
   },
   {
     id: "4",
@@ -57,8 +82,14 @@ export const blogPosts: BlogPost[] = [
     date: "May 05, 2023",
     author: "Admin",
     coverImage: "/lovable-uploads/6554b31e-7ba5-48d8-8f31-2ac905a4f88f.png",
+    image: "/lovable-uploads/6554b31e-7ba5-48d8-8f31-2ac905a4f88f.png",
+    imageAlt: "Common ceramic coating application mistakes",
     category: "Ceramic Coating",
-    tags: ["ceramic coating", "DIY", "mistakes"]
+    categories: ["Ceramic Coating", "DIY Tips"],
+    tags: ["ceramic coating", "DIY", "mistakes"],
+    keywords: ["ceramic coating mistakes", "DIY ceramic coating", "professional coating XERA"],
+    metaTitle: "Avoid These Ceramic Coating Application Mistakes | XERA Detailing",
+    metaDescription: "Learn the most common mistakes people make when applying ceramic coating and how to avoid them. Get professional results with XERA Detailing."
   },
 ];
 
