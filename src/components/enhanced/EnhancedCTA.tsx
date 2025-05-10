@@ -18,6 +18,7 @@ interface EnhancedCTAProps {
   showOnScroll?: boolean;
   scrollThreshold?: number;
   animateEntrance?: boolean;
+  onClick?: () => void; // Added onClick handler prop
 }
 
 const EnhancedCTA = ({
@@ -32,7 +33,8 @@ const EnhancedCTA = ({
   pulseEffect = false,
   showOnScroll = false,
   scrollThreshold = 300,
-  animateEntrance = false
+  animateEntrance = false,
+  onClick
 }: EnhancedCTAProps) => {
   const [isVisible, setIsVisible] = useState(!showOnScroll);
   
@@ -56,6 +58,11 @@ const EnhancedCTA = ({
       location: window.location.pathname,
       label: trackingLabel || text
     });
+    
+    // Call the onClick handler if provided
+    if (onClick) {
+      onClick();
+    }
   };
   
   const getButtonVariant = () => {

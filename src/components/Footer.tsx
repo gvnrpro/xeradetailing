@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-y-3 gap-x-2 mobile-tap-list">
               <Link to="/" className="text-white/70 hover:text-xera-red transition-colors">Home</Link>
               <Link to="/services" className="text-white/70 hover:text-xera-red transition-colors">Services</Link>
               <Link to="/blog" className="text-white/70 hover:text-xera-red transition-colors">Blog</Link>
@@ -55,6 +55,16 @@ const Footer = () => {
                 className="text-white/70 hover:text-xera-red transition-colors"
               >
                 Leave a Review
+              </a>
+              <a 
+                href="#" 
+                className="text-white/70 hover:text-xera-red transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert("Refer a friend feature coming soon!");
+                }}
+              >
+                Refer a Friend
               </a>
             </div>
           </div>
@@ -71,6 +81,22 @@ const Footer = () => {
             <p className="text-white/70">
               Open Daily: 9:00 AM – 7:00 PM
             </p>
+            
+            {/* Mobile Footer Nav */}
+            <div className="flex flex-wrap gap-3 mt-6 md:hidden">
+              <a href="#faq" className="bg-xera-darkgray py-2 px-4 rounded-full text-sm text-white/70">
+                FAQ
+              </a>
+              <a href="#reviews" className="bg-xera-darkgray py-2 px-4 rounded-full text-sm text-white/70">
+                Reviews
+              </a>
+              <a href="https://wa.me/917559999366" className="bg-xera-darkgray py-2 px-4 rounded-full text-sm text-white/70">
+                WhatsApp
+              </a>
+              <Link to="/contact" className="bg-xera-red py-2 px-4 rounded-full text-sm text-white">
+                Book Now
+              </Link>
+            </div>
           </div>
         </div>
         
@@ -126,6 +152,9 @@ const Footer = () => {
             ]
           }
         ` }} />
+      </div>
+      <div className="pb-20 md:pb-0">
+        {/* Extra bottom padding for mobile with bottom navigation bar */}
       </div>
     </footer>
   );

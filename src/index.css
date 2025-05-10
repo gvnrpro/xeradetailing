@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +50,7 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -71,18 +73,52 @@
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    content-visibility: auto; /* Improve performance on images */
   }
   
-  /* Focus style for better accessibility */
-  a:focus, button:focus {
+  /* Enhanced focus style for better accessibility */
+  a:focus, button:focus, input:focus, textarea:focus, select:focus {
     @apply outline-none ring-2 ring-xera-red/50;
   }
   
-  /* Improve touch targets for mobile */
+  /* Mobile touch targets (minimum 44×44px per Apple HIG) */
   @media (max-width: 768px) {
-    a, button, [role="button"] {
+    a, button, [role="button"], input, select, textarea {
       @apply min-h-[44px] min-w-[44px];
     }
+
+    /* Thumb zone optimization for mobile UX */
+    .bottom-action-zone {
+      @apply mb-16; /* Add bottom padding for mobile nav bar */
+    }
+
+    /* Adjust mobile form elements */
+    input, select, textarea {
+      @apply text-base; /* iOS zooms on inputs smaller than 16px */
+    }
+  }
+  
+  /* Fix for 100vh issue on mobile browsers */
+  .mobile-full-height {
+    height: 100vh; /* Fallback */
+    height: -webkit-fill-available;
+    height: stretch;
+  }
+  
+  /* Content hiding for non-JS users */
+  .no-js-hide {
+    @apply hidden;
+  }
+  
+  html.js .no-js-hide {
+    @apply block;
+  }
+  
+  /* Fix for iOS overscroll */
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -108,7 +144,16 @@
     @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer;
   }
   
-  /* Enhanced card hover effect */
+  /* Enhanced mobile tappable elements */
+  .tap-highlight {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Enhanced card hover & tap effect */
   .hover-card {
     @apply transition-all duration-300;
   }
@@ -117,7 +162,14 @@
     @apply transform -translate-y-1 shadow-lg shadow-xera-red/20;
   }
   
-  /* Premium button effect */
+  /* Mobile specific card tap effect */
+  @media (max-width: 768px) {
+    .hover-card:active {
+      @apply transform scale-95 shadow-lg shadow-xera-red/20;
+    }
+  }
+  
+  /* Premium button effect with more visible active state on mobile */
   .premium-button {
     @apply relative overflow-hidden bg-gradient-to-r from-xera-red to-red-700 text-white font-bold py-3 px-6 rounded-md transition-transform duration-300 transform hover:scale-105;
   }
@@ -131,6 +183,16 @@
     @apply opacity-100;
   }
   
+  @media (max-width: 768px) {
+    .premium-button:active {
+      @apply transform scale-95;
+    }
+    
+    .premium-button:active::after {
+      @apply opacity-100;
+    }
+  }
+  
   /* Metallic effect for premium elements */
   .metallic-effect {
     @apply relative bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900;
@@ -141,7 +203,7 @@
     @apply absolute inset-0 bg-gradient-to-tr from-white/5 to-white/0 opacity-80;
   }
   
-  /* Service card hover effect */
+  /* Service card hover effect with mobile optimization */
   .service-card {
     @apply transition-all duration-300;
   }
@@ -150,7 +212,13 @@
     @apply transform scale-[1.02] shadow-xl;
   }
   
-  /* Hero cta button */
+  @media (max-width: 768px) {
+    .service-card:active {
+      @apply transform scale-[0.98] shadow-xl;
+    }
+  }
+  
+  /* Hero CTA button with mobile-friendly active state */
   .hero-cta {
     @apply relative bg-xera-red text-white font-bold py-3 px-6 rounded-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-xera-red/30;
   }
@@ -164,7 +232,17 @@
     @apply translate-x-full;
   }
   
-  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .hero-cta {
+      @apply py-4 px-6 text-lg; /* Larger for mobile tappability */
+    }
+    
+    .hero-cta:active {
+      @apply transform scale-95;
+    }
+  }
+  
+  /* Mobile optimizations for spacing and layout */
   @media (max-width: 768px) {
     .container {
       @apply px-4;
@@ -181,11 +259,43 @@
     .hero-section {
       @apply min-h-[80vh];
     }
+    
+    /* Add bottom padding to account for mobile navigation */
+    .has-mobile-nav {
+      @apply pb-20;
+    }
+    
+    /* Mobile nav safe area */
+    .pb-mobile-nav {
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+    }
+    
+    /* Optimized spacing for stacked elements on mobile */
+    .mobile-stack > * + * {
+      @apply mt-4;
+    }
+    
+    /* Optimize tap targets in lists */
+    .mobile-tap-list li {
+      @apply py-3;
+    }
   }
   
-  /* Animated car effect */
+  /* Enhanced skeleton loading for perceived performance */
+  .skeleton {
+    @apply bg-gray-700/30 animate-pulse rounded;
+  }
+  
+  /* Water droplet effect for ceramic coating sections */
+  .water-droplet {
+    @apply absolute rounded-full bg-gradient-to-b from-white/80 to-white/30;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+  }
+  
+  /* Animated car effect with better performance */
   .animate-car-move {
     animation: car-move 10s linear infinite;
+    will-change: transform; /* Performance hint */
   }
   
   @keyframes car-move {
@@ -200,6 +310,7 @@
   /* Floating animation for call-to-action elements */
   .float-animation {
     animation: float 6s ease-in-out infinite;
+    will-change: transform; /* Performance hint */
   }
   
   @keyframes float {
@@ -213,9 +324,18 @@
       transform: translateY(0px);
     }
   }
+  
+  /* Mobile-optimized carousel indicators */
+  .carousel-indicator {
+    @apply w-2 h-2 rounded-full bg-white/30 mx-1;
+  }
+  
+  .carousel-indicator.active {
+    @apply bg-xera-red w-3 h-3;
+  }
 }
 
-/* Animation keyframes */
+/* Animation keyframes with performance optimizations */
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
@@ -231,26 +351,54 @@
   }
 }
 
-/* Utility animations */
-.animate-shimmer {
-  animation: shimmer 2s infinite;
+/* Utility animations with reduced motion preference support */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    will-change: transform; /* Performance hint */
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+    will-change: box-shadow; /* Performance hint */
+  }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
-/* Ensures dropdown menus are visible */
+/* Ensures dropdown menus are visible and tappable on mobile */
 .dropdown-menu {
   @apply bg-xera-darkgray border border-xera-lightgray rounded-md shadow-lg py-2 z-50;
 }
 
-/* Make sure modals and dialogs are visible */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    @apply py-3; /* More padding for touch */
+  }
+  
+  .dropdown-menu > * {
+    @apply py-3; /* Larger hit area */
+  }
+}
+
+/* Make sure modals and dialogs are visible and accessible on mobile */
 .dialog-content {
   @apply bg-xera-darkgray border border-xera-lightgray rounded-lg shadow-xl z-50;
 }
 
-/* Enhanced button hover effects */
+@media (max-width: 768px) {
+  .dialog-content {
+    @apply m-3 max-w-[95vw]; /* Mobile safe margins */
+  }
+}
+
+/* Enhanced button hover effects with mobile considerations */
 button, a, [role="button"] {
   @apply transition-all duration-200;
 }
@@ -280,4 +428,78 @@ button:active, a:active, [role="button"]:active {
 .page-transition-exit-active {
   opacity: 0;
   transition: opacity 300ms;
+}
+
+/* Mobile-specific page transitions (app-like feel) */
+@media (max-width: 768px) {
+  .slide-transition-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .slide-transition-right {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .slide-transition-active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add bottom safe area for mobile browsers with notches */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.fixed-bottom {
+  bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Optimize horizontal scrolling containers */
+.scroll-container {
+  @apply overflow-x-auto scrollbar-hide -mx-4 px-4;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container > * {
+  scroll-snap-align: start;
+}
+
+/* Enhanced touch feedback for cards */
+.touch-card {
+  @apply transition-transform duration-150;
+}
+
+@media (max-width: 768px) {
+  .touch-card:active {
+    @apply transform scale-[0.98] brightness-110;
+  }
+}
+
+/* Better headings hierarchy for SEO and a11y */
+h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+}
+
+h3 {
+  @apply text-xl md:text-2xl lg:text-3xl;
+}
+
+/* Bottom spacing for pages with mobile nav */
+.has-bottom-nav {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0));
+}
+
+/* Add content visibility auto for performance */
+.content-visibility-auto {
+  content-visibility: auto;
 }

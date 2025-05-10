@@ -104,7 +104,7 @@ const Navbar = () => {
         
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-white"
+          className="md:hidden text-white tap-highlight p-2 -mr-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -122,12 +122,17 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMenuOpen && isMobile && (
-        <div className="md:hidden bg-black/95 backdrop-blur-md">
+        <motion.div 
+          className="md:hidden bg-black/95 backdrop-blur-md"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
           <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 mobile-tap-list">
               <Link 
                 to="/" 
-                className={`text-white hover:text-xera-red transition-colors ${
+                className={`text-white hover:text-xera-red transition-colors py-3 ${
                   location.pathname === '/' ? 'text-xera-red' : ''
                 }`}
                 onClick={() => handleNavClick('home_mobile')}
@@ -136,7 +141,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/services" 
-                className={`text-white hover:text-xera-red transition-colors ${
+                className={`text-white hover:text-xera-red transition-colors py-3 ${
                   location.pathname.includes('/services') ? 'text-xera-red' : ''
                 }`}
                 onClick={() => handleNavClick('services_mobile')}
@@ -145,7 +150,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/car-care-tips" 
-                className={`text-white hover:text-xera-red transition-colors ${
+                className={`text-white hover:text-xera-red transition-colors py-3 ${
                   location.pathname.includes('/car-care-tips') ? 'text-xera-red' : ''
                 }`}
                 onClick={() => handleNavClick('car_care_tips_mobile')}
@@ -154,7 +159,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/blog" 
-                className={`text-white hover:text-xera-red transition-colors ${
+                className={`text-white hover:text-xera-red transition-colors py-3 ${
                   location.pathname.includes('/blog') ? 'text-xera-red' : ''
                 }`}
                 onClick={() => handleNavClick('blog_mobile')}
@@ -163,7 +168,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/about" 
-                className={`text-white hover:text-xera-red transition-colors ${
+                className={`text-white hover:text-xera-red transition-colors py-3 ${
                   location.pathname === '/about' ? 'text-xera-red' : ''
                 }`}
                 onClick={() => handleNavClick('about_mobile')}
@@ -172,14 +177,14 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/contact" 
-                className="bg-xera-red hover:bg-red-700 text-white px-4 py-2 rounded transition-colors text-center"
+                className="bg-xera-red hover:bg-red-700 text-white p-3 rounded transition-colors text-center font-medium"
                 onClick={() => handleNavClick('contact_button_mobile')}
               >
                 Book Now
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
