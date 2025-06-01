@@ -109,10 +109,10 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'shimmer': 'shimmer 2s infinite linear',
 				'car-move': 'car-move 10s infinite linear'
-			}
+			},
 			zIndex: {
-  60: '60',
-},
+				60: '60',
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

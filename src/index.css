@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -129,6 +130,11 @@
 
   .toast {
     @apply max-w-[90vw] sm:max-w-md !important;
+  }
+
+  /* Fixed z-index utilities */
+  .z-toast {
+    @apply z-[60];
   }
   
   .glass-card {
@@ -341,6 +347,19 @@
   .carousel-indicator.active {
     @apply bg-xera-red w-3 h-3;
   }
+
+  /* Enhance z-index layering to prevent overlap issues */
+  .z-popup {
+    @apply z-50;
+  }
+
+  .z-notification {
+    @apply z-40;
+  }
+
+  .z-nav {
+    @apply z-30;
+  }
 }
 
 /* Animation keyframes with performance optimizations */
@@ -403,6 +422,32 @@
 @media (max-width: 768px) {
   .dialog-content {
     @apply m-3 max-w-[95vw]; /* Mobile safe margins */
+  }
+  
+  /* Improved spacing for stackable mobile components */
+  .mobile-notification-1 {
+    @apply bottom-20;
+  }
+  
+  .mobile-notification-2 {
+    @apply bottom-36;
+  }
+  
+  .mobile-notification-3 {
+    @apply bottom-52;
+  }
+  
+  /* Mobile popups should be smaller and more compact */
+  .mobile-popup {
+    @apply p-3 text-sm;
+  }
+  
+  .mobile-popup-header {
+    @apply text-lg mb-2;
+  }
+  
+  .mobile-popup-content {
+    @apply space-y-2;
   }
 }
 
@@ -510,65 +555,6 @@ h3 {
 /* Add content visibility auto for performance */
 .content-visibility-auto {
   content-visibility: auto;
-}
-
-/* Improve dialog positioning specifically for mobile */
-.dialog-content {
-  @apply bg-xera-darkgray border border-xera-lightgray rounded-lg shadow-xl z-50;
-}
-
-@media (max-width: 768px) {
-  .dialog-content {
-    @apply m-3 max-w-[95vw]; /* Mobile safe margins */
-  }
-  
-  /* Improved spacing for stackable mobile components */
-  .mobile-notification-1 {
-    @apply bottom-20;
-  }
-  
-  .mobile-notification-2 {
-    @apply bottom-36;
-  }
-  
-  .mobile-notification-3 {
-    @apply bottom-52;
-  }
-  
-  /* Mobile popups should be smaller and more compact */
-  .mobile-popup {
-    @apply p-3 text-sm;
-  }
-  
-  .mobile-popup-header {
-    @apply text-lg mb-2;
-  }
-  
-  .mobile-popup-content {
-    @apply space-y-2;
-  }
-}
-
-/* Enhance z-index layering to prevent overlap issues */
-.z-popup {
-  @apply z-50;
-}
-@layer components {
-.z-toast {
-  @apply z-60;
- }
-}
-.z-notification {
-  @apply z-40;
-}
-
-.z-nav {
-  @apply z-30;
-}
-
-/* Fix dropdown position and visibility */
-.dropdown-menu {
-  @apply bg-xera-darkgray border border-xera-lightgray rounded-md shadow-lg py-2 z-50;
 }
 
 /* Staggered notification system to prevent overlap */
