@@ -32,7 +32,7 @@ const FloatingCallButton = () => {
     <motion.a
       href="tel:+917559999366"
       aria-label="Call XERA Auto Detailing"
-      className="fixed left-4 bottom-24 z-50 flex items-center justify-center rounded-full shadow-lg h-14 w-14 bg-gradient-to-r from-xera-red to-red-700"
+      className="fixed left-4 bottom-20 z-50 flex items-center justify-center rounded-full shadow-lg h-14 w-14 bg-gradient-to-r from-xera-red to-red-700 safe-area-bottom"
       onClick={handleCallClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}

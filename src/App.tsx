@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Index from './pages/Index';
@@ -16,9 +15,7 @@ import AnalyticsProvider from './components/tracking/AnalyticsProvider';
 import AppLikePageTransition from './components/transitions/AppLikePageTransition';
 import MobileNavBar from './components/mobile/MobileNavBar';
 import FloatingCallButton from './components/mobile/FloatingCallButton';
-import TrustNudge from './components/mobile/TrustNudge';
 import LeadCapturePopup from './components/mobile/LeadCapturePopup';
-import RealTimeActivity from './components/mobile/RealTimeActivity';
 import { useIsMobile } from './hooks/use-mobile';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -36,6 +33,9 @@ import CeramicCoatingMistakes from './pages/car-care-tips/CeramicCoatingMistakes
 
 // Location Pages
 import CeramicCoatingPalakkad from './pages/locations/CeramicCoatingPalakkad';
+import { NotificationProvider } from './components/mobile/NotificationProvider';
+import TrustNudgeManaged from './components/mobile/TrustNudgeManaged';
+import RealTimeActivityManaged from './components/mobile/RealTimeActivityManaged';
 
 function App() {
   const isMobile = useIsMobile();
@@ -117,22 +117,23 @@ function App() {
     <Router>
       <HelmetProvider>
         <AnalyticsProvider>
-          <Helmet>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-            <link rel="manifest" href="/manifest.json" />
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-            <link rel="apple-touch-icon" href="/favicon.svg" />
-            <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-          </Helmet>
+          <NotificationProvider>
+            <Helmet>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+              <link rel="manifest" href="/manifest.json" />
+              <meta name="apple-mobile-web-app-capable" content="yes" />
+              <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+              <link rel="apple-touch-icon" href="/favicon.svg" />
+              <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+            </Helmet>
 
-          {isMobile && <CountdownBanner />}
+            {isMobile && <CountdownBanner />}
 
-          <AppLikePageTransition>
-            <Routes>
-              {/* Main Pages */}
+            <AppLikePageTransition>
+              <Routes>
+                {/* Main Pages */}
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
@@ -163,34 +164,35 @@ function App() {
               
               {/* 404 Not Found */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AppLikePageTransition>
+              </Routes>
+            </AppLikePageTransition>
 
-          {/* Mobile-specific components */}
-          {isMobile && (
-            <>
-              <MobileNavBar />
-              <FloatingCallButton />
-              <TrustNudge />
-              <RealTimeActivity />
-              <LeadCapturePopup />
-            </>
-          )}
-          
-          {/* Scroll to top button */}
-          {showScrollToTop && (
-            <Button 
-              onClick={scrollToTop}
-              className="fixed bottom-24 right-4 z-40 p-2 rounded-full bg-xera-red shadow-lg"
-              size="icon"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp className="h-4 w-4" />
-            </Button>
-          )}
-          
-          {/* Toast notifications */}
-          <Toaster />
+            {/* Mobile-specific components */}
+            {isMobile && (
+              <>
+                <MobileNavBar />
+                <FloatingCallButton />
+                <TrustNudgeManaged />
+                <RealTimeActivityManaged />
+                <LeadCapturePopup />
+              </>
+            )}
+            
+            {/* Scroll to top button */}
+            {showScrollToTop && (
+              <Button 
+                onClick={scrollToTop}
+                className="fixed bottom-24 right-4 z-40 p-2 rounded-full bg-xera-red shadow-lg"
+                size="icon"
+                aria-label="Scroll to top"
+              >
+                <ArrowUp className="h-4 w-4" />
+              </Button>
+            )}
+            
+            {/* Toast notifications */}
+            <Toaster />
+          </NotificationProvider>
         </AnalyticsProvider>
       </HelmetProvider>
     </Router>
