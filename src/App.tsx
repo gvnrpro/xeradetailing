@@ -16,6 +16,7 @@ import AppLikePageTransition from './components/transitions/AppLikePageTransitio
 import MobileNavBar from './components/mobile/MobileNavBar';
 import FloatingCallButton from './components/mobile/FloatingCallButton';
 import LeadCapturePopup from './components/mobile/LeadCapturePopup';
+import ComponentQueueProvider from './components/mobile/ComponentQueueProvider';
 import { useIsMobile } from './hooks/use-mobile';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -39,12 +40,8 @@ import RealTimeActivityManaged from './components/mobile/RealTimeActivityManaged
 
 function App() {
   const isMobile = useIsMobile();
-  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  // PWA installation check
-  const [isAppInstalled, setIsAppInstalled] = useState(false);
-  
   useEffect(() => {
     // Check if app is in standalone mode (PWA installed)
     if (window.matchMedia('(display-mode: standalone)').matches) {
@@ -92,18 +89,7 @@ function App() {
     };
     
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup
-    return () => {
-      document.head.removeChild(fontPreloadLink);
-      if (isMobile) {
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        const metaAppleMobile = document.querySelector('meta[name="apple-mobile-web-app-capable"]');
-        if (metaThemeColor) document.head.removeChild(metaThemeColor);
-        if (metaAppleMobile) document.head.removeChild(metaAppleMobile);
-      }
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
   
   const scrollToTop = () => {
@@ -117,7 +103,7 @@ function App() {
     <Router>
       <HelmetProvider>
         <AnalyticsProvider>
-          <NotificationProvider>
+          <ComponentQueueProvider>
             <Helmet>
               <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
               <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -167,14 +153,11 @@ function App() {
               </Routes>
             </AppLikePageTransition>
 
-            {/* Mobile-specific components */}
+            {/* Simplified mobile components - now managed by queue */}
             {isMobile && (
               <>
                 <MobileNavBar />
                 <FloatingCallButton />
-                <TrustNudgeManaged />
-                <RealTimeActivityManaged />
-                <LeadCapturePopup />
               </>
             )}
             
@@ -190,9 +173,8 @@ function App() {
               </Button>
             )}
             
-            {/* Toast notifications */}
             <Toaster />
-          </NotificationProvider>
+          </ComponentQueueProvider>
         </AnalyticsProvider>
       </HelmetProvider>
     </Router>

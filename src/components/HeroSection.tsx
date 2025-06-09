@@ -8,13 +8,6 @@ import { motion } from 'framer-motion';
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,99 +37,92 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center pt-20 pb-10 overflow-hidden"
-      style={{
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png') no-repeat center center/cover"
-      }}
+      className="relative min-h-screen flex items-center pt-20 pb-10 overflow-hidden hero-bg"
     >
-      {/* Car Animation */}
-      <div className="absolute bottom-10 w-full overflow-hidden pointer-events-none h-20 opacity-30">
-        <div className="w-20 h-10 bg-white rounded animate-car-move"></div>
-      </div>
-      
-      {/* Spotlight Effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 pointer-events-none"></div>
+      {/* Simplified background with better loading */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Trust Badge */}
-          <div className="bg-xera-red/20 border border-xera-red/40 text-white inline-block px-4 py-2 rounded-full mb-6 animate-on-scroll opacity-0 transition-all duration-700 delay-100 translate-y-10">
-            <motion.div 
-              className="flex items-center gap-2"
-              animate={{ x: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 2, repeatDelay: 1 }}
-            >
-              <Shield className="h-4 w-4" />
-              <span className="text-sm font-medium">Kerala's #1 Ceramic Coating Specialists</span>
-            </motion.div>
-          </div>
+          {/* Simplified trust badge */}
+          <motion.div 
+            className="inline-flex items-center gap-2 bg-xera-red/20 border border-xera-red/40 text-white px-4 py-2 rounded-full mb-6"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Shield className="h-4 w-4" />
+            <span className="text-sm font-medium">Kerala's #1 Ceramic Coating</span>
+          </motion.div>
           
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-on-scroll opacity-0 transition-all duration-700 delay-200 translate-y-10 text-gradient">
-            Premium Ceramic Coating & Auto Detailing in Ottapalam
-          </h1>
+          {/* Cleaner headline */}
+          <motion.h1 
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            Premium Car Protection
+            <br />
+            <span className="text-2xl md:text-4xl lg:text-5xl">in Ottapalam</span>
+          </motion.h1>
           
-          {/* Value Proposition */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 animate-on-scroll opacity-0 transition-all duration-700 delay-300 translate-y-10 max-w-3xl mx-auto">
-            Protect your car with our advanced 9H ceramic coating. <span className="text-xera-red font-semibold">5+ years protection</span> against Kerala's harsh climate.
-          </p>
+          {/* Simplified value prop */}
+          <motion.p 
+            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            Advanced 9H ceramic coating with <span className="text-xera-red font-semibold">5+ years protection</span> against Kerala's harsh climate.
+          </motion.p>
           
-          {/* Social Proof Points */}
-          <div className="flex flex-wrap gap-4 justify-center mb-8 animate-on-scroll opacity-0 transition-all duration-700 delay-400 translate-y-10">
-            <div className="bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg flex items-center gap-2">
+          {/* Condensed social proof */}
+          <motion.div 
+            className="flex flex-wrap gap-3 justify-center mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <div className="bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg flex items-center gap-2">
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star key={star} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
               <span className="text-white/90 text-sm">120+ Reviews</span>
             </div>
             
-            <div className="bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-400" />
+            <div className="bg-black/40 backdrop-blur-sm px-3 py-2 rounded-lg flex items-center gap-2">
+              <CheckCircle className="w-3 h-3 text-green-400" />
               <span className="text-white/90 text-sm">500+ Cars Protected</span>
             </div>
-            
-            <div className="bg-black/40 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <span className="text-white/90 text-sm">Serving Palakkad District</span>
-            </div>
-          </div>
+          </motion.div>
           
-          {/* Single Primary CTA */}
-          <div className="animate-on-scroll opacity-0 transition-all duration-700 delay-500 translate-y-10">
+          {/* Single strong CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <Link to="/services/ceramic-coating">
               <Button 
-                className="bg-xera-red hover:bg-red-700 text-white px-8 py-6 text-lg font-bold rounded-md transition-all group hover:shadow-lg hover:shadow-xera-red/30 hero-cta"
+                className="bg-xera-red hover:bg-red-700 text-white px-8 py-4 text-lg font-bold rounded-lg transition-all group shadow-lg hover:shadow-xera-red/30"
                 size="lg"
               >
-                Get Your Ceramic Coating Quote
+                Get Free Quote
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </Button>
             </Link>
             
-            {/* Secondary Action */}
-            <div className="mt-4">
-              <button 
-                onClick={scrollToServices}
-                className="text-white/80 hover:text-white text-sm underline transition-colors"
-              >
-                Or explore all our services below
-              </button>
-            </div>
-          </div>
-          
-          {/* Urgency Indicator */}
-          <div className="mt-8 animate-on-scroll opacity-0 transition-all duration-700 delay-600 translate-y-10">
-            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-400/30 text-white px-4 py-2 rounded-lg inline-block">
-              <p className="text-sm">⚡ Limited slots available this week - Book now to secure your spot!</p>
-            </div>
-          </div>
+            {/* Simple secondary action */}
+            <p className="mt-4 text-white/70 text-sm">
+              Or call <a href="tel:+917559999366" className="text-xera-red hover:underline">+91 755 999 9366</a>
+            </p>
+          </motion.div>
         </div>
       </div>
-      
-      {/* Overlay gradient at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent"></div>
     </section>
   );
 };
