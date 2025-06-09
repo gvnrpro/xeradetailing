@@ -22,6 +22,7 @@ const CountdownBanner = ({
   });
   
   const [isVisible, setIsVisible] = useState(false);
+  const [isExpired, setIsExpired] = useState(false);
   
   useEffect(() => {
     // Delay visibility for improved UX
@@ -36,28 +37,36 @@ const CountdownBanner = ({
     const calculateTimeLeft = () => {
       const difference = +endDate - +new Date();
       
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        });
+      if (difference <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setIsExpired(true);
+        return;
       }
+      
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      });
     };
     
     calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
     
-    return () => clearInterval(timer);
-  }, [endDate]);
+    if (!isExpired) {
+      const timer = setInterval(calculateTimeLeft, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [endDate, isExpired]);
   
-  if (!isVisible) return null;
+  // Hide banner if expired or not visible
+  if (!isVisible || isExpired) return null;
   
   return (
     <motion.div
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -50, opacity: 0 }}
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
       className={`bg-gradient-to-r from-xera-red to-red-700 text-white text-center py-2 px-4 text-sm ${className}`}
     >
@@ -68,19 +77,19 @@ const CountdownBanner = ({
       
       <div className="flex justify-center gap-3 mt-1 text-xs font-bold">
         <div className="flex flex-col items-center">
-          <span className="bg-black/30 rounded px-2 py-1">{timeLeft.days}</span>
+          <span className="bg-black/30 rounded px-2 py-1">{String(timeLeft.days).padStart(2, '0')}</span>
           <span>Days</span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="bg-black/30 rounded px-2 py-1">{timeLeft.hours}</span>
+          <span className="bg-black/30 rounded px-2 py-1">{String(timeLeft.hours).padStart(2, '0')}</span>
           <span>Hrs</span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="bg-black/30 rounded px-2 py-1">{timeLeft.minutes}</span>
+          <span className="bg-black/30 rounded px-2 py-1">{String(timeLeft.minutes).padStart(2, '0')}</span>
           <span>Min</span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="bg-black/30 rounded px-2 py-1">{timeLeft.seconds}</span>
+          <span className="bg-black/30 rounded px-2 py-1">{String(timeLeft.seconds).padStart(2, '0')}</span>
           <span>Sec</span>
         </div>
       </div>
