@@ -46,10 +46,10 @@ export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = (
     }}>
       {children}
       
-      {/* Render active component */}
-      <div className={activeComponent ? getPositionStyles(activeComponent.position) : ''}>
-        <AnimatePresence mode="wait">
-          {isVisible && activeComponent && (
+      {/* Render active component with proper positioning */}
+      <AnimatePresence mode="wait">
+        {isVisible && activeComponent && (
+          <div className={getPositionStyles(activeComponent.position)}>
             <motion.div
               key={activeComponent.id}
               initial={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -59,9 +59,9 @@ export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = (
             >
               <activeComponent.component {...(activeComponent.props || {})} />
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
+        )}
+      </AnimatePresence>
     </ComponentQueueContext.Provider>
   );
 };

@@ -25,7 +25,7 @@ const LimitedOfferModalContent = ({ onDismiss }: LimitedOfferModalManagedProps) 
       <div className="bg-xera-darkgray rounded-md p-3 sm:p-4 relative">
         <button 
           onClick={handleDismiss}
-          className="absolute top-2 right-2 text-white/70 hover:text-white transition-colors"
+          className="absolute top-2 right-2 text-white/70 hover:text-white transition-colors z-10"
           aria-label="Close offer"
         >
           <X className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -61,7 +61,7 @@ const LimitedOfferModalManaged = () => {
   const [componentId] = useState(() => `limited-offer-${Date.now()}`);
   
   useEffect(() => {
-    // Check if offer was dismissed today
+    // Check if offer was dismissed today (reset daily)
     const dismissedDate = localStorage.getItem('xera_offer_dismissed_date');
     const today = new Date().toDateString();
     
@@ -71,14 +71,17 @@ const LimitedOfferModalManaged = () => {
     
     // Show offer after delay
     const timer = setTimeout(() => {
+      const handleDismiss = () => {
+        removeComponent(componentId);
+        localStorage.setItem('xera_offer_dismissed_date', today);
+        trackEvent('limited_offer_dismissed');
+      };
+      
       addComponent({
         id: componentId,
         component: LimitedOfferModalContent,
         props: {
-          onDismiss: () => {
-            removeComponent(componentId);
-            localStorage.setItem('xera_offer_dismissed_date', today);
-          }
+          onDismiss: handleDismiss
         },
         priority: 'medium',
         position: 'bottom',
@@ -89,7 +92,11 @@ const LimitedOfferModalManaged = () => {
       trackEvent('limited_offer_shown');
     }, 8000);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      // Clean up component if unmounting
+      removeComponent(componentId);
+    };
   }, [addComponent, removeComponent, componentId]);
   
   return null; // This component doesn't render anything directly

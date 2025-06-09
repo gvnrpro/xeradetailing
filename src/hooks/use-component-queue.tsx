@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export interface QueuedComponent {
   id: string;
@@ -15,6 +15,7 @@ export const useComponentQueue = () => {
   const [queue, setQueue] = useState<QueuedComponent[]>([]);
   const [activeComponent, setActiveComponent] = useState<QueuedComponent | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const autoRemoveTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const addToQueue = useCallback((component: QueuedComponent) => {
     setQueue(prev => {
@@ -32,6 +33,11 @@ export const useComponentQueue = () => {
     if (activeComponent?.id === id) {
       setActiveComponent(null);
       setIsVisible(false);
+      // Clear auto-remove timer if component is manually removed
+      if (autoRemoveTimerRef.current) {
+        clearTimeout(autoRemoveTimerRef.current);
+        autoRemoveTimerRef.current = null;
+      }
     }
   }, [activeComponent]);
 
@@ -39,6 +45,11 @@ export const useComponentQueue = () => {
     setQueue([]);
     setActiveComponent(null);
     setIsVisible(false);
+    // Clear any pending auto-remove timer
+    if (autoRemoveTimerRef.current) {
+      clearTimeout(autoRemoveTimerRef.current);
+      autoRemoveTimerRef.current = null;
+    }
   }, []);
 
   // Process queue
@@ -50,7 +61,7 @@ export const useComponentQueue = () => {
       
       // Auto-remove after duration
       if (nextComponent.duration) {
-        setTimeout(() => {
+        autoRemoveTimerRef.current = setTimeout(() => {
           removeFromQueue(nextComponent.id);
         }, nextComponent.duration);
       }
@@ -59,6 +70,15 @@ export const useComponentQueue = () => {
       setQueue(prev => prev.slice(1));
     }
   }, [queue, activeComponent, removeFromQueue]);
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (autoRemoveTimerRef.current) {
+        clearTimeout(autoRemoveTimerRef.current);
+      }
+    };
+  }, []);
 
   return {
     addToQueue,
