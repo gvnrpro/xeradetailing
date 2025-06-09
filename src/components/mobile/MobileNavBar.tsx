@@ -18,32 +18,48 @@ const MobileNavBar = () => {
     { 
       icon: <MessageCircle size={20} />, 
       label: 'WhatsApp', 
-      path: 'https://wa.me/917559999366?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment.',
+      href: 'https://wa.me/917559999366?text=Hi%20XERA%2C%20I%E2%80%99d%20like%20to%20book%20an%20appointment.',
       external: true,
       color: 'text-green-500'
     },
-    { icon: <Phone size={20} />, label: 'Call', path: 'tel:+917559999366', external: true, color: 'text-red-400' },
+    { icon: <Phone size={20} />, label: 'Call', href: 'tel:+917559999366', external: true, color: 'text-red-400' },
   ];
   
   return (
     <div className="fixed bottom-0 left-0 right-0 z-30 bg-black/95 backdrop-blur-md border-t border-white/10 md:hidden safe-area-bottom">
       <div className="grid grid-cols-4 h-16">
         {navItems.map((item) => {
-          const isActive = !item.external && (
+          const isActive = !item.external && item.path && (
             item.path === '/' 
               ? location.pathname === '/' 
               : location.pathname.includes(item.path)
           );
           
-          const Component = item.external ? 'a' : Link;
-          const linkProps = item.external 
-            ? { href: item.path, target: '_blank', rel: 'noopener noreferrer' }
-            : { to: item.path };
+          if (item.external) {
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center h-full relative tap-highlight"
+                onClick={() => handleNavClick(item.label.toLowerCase())}
+              >
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
+                  className={`flex flex-col items-center justify-center transition-colors duration-200 ${item.color}`}
+                >
+                  {item.icon}
+                  <span className="text-xs mt-1 font-medium">{item.label}</span>
+                </motion.div>
+              </a>
+            );
+          }
           
           return (
-            <Component
+            <Link
               key={item.label}
-              {...linkProps}
+              to={item.path!}
               className="flex flex-col items-center justify-center h-full relative tap-highlight"
               onClick={() => handleNavClick(item.label.toLowerCase())}
             >
@@ -65,7 +81,7 @@ const MobileNavBar = () => {
                   />
                 )}
               </motion.div>
-            </Component>
+            </Link>
           );
         })}
       </div>

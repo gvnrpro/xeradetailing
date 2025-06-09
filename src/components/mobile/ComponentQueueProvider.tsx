@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useComponentQueue, QueuedComponent } from '@/hooks/use-component-queue';
+import { useComponentQueue as useComponentQueueHook, QueuedComponent } from '@/hooks/use-component-queue';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ComponentQueueContextType {
@@ -21,7 +21,7 @@ export const useComponentQueue = () => {
 };
 
 export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { addToQueue, removeFromQueue, clearQueue, activeComponent, isVisible } = useComponentQueue();
+  const { addToQueue, removeFromQueue, clearQueue, activeComponent, isVisible } = useComponentQueueHook();
   const isMobile = useIsMobile();
 
   const getPositionStyles = (position: string) => {

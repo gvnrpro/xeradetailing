@@ -16,7 +16,7 @@ import AppLikePageTransition from './components/transitions/AppLikePageTransitio
 import MobileNavBar from './components/mobile/MobileNavBar';
 import FloatingCallButton from './components/mobile/FloatingCallButton';
 import LeadCapturePopup from './components/mobile/LeadCapturePopup';
-import ComponentQueueProvider from './components/mobile/ComponentQueueProvider';
+import { ComponentQueueProvider } from './components/mobile/ComponentQueueProvider';
 import { useIsMobile } from './hooks/use-mobile';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -41,6 +41,7 @@ import RealTimeActivityManaged from './components/mobile/RealTimeActivityManaged
 function App() {
   const isMobile = useIsMobile();
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [isAppInstalled, setIsAppInstalled] = useState(false);
 
   useEffect(() => {
     // Check if app is in standalone mode (PWA installed)
