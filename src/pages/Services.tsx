@@ -1,18 +1,21 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import FeaturedGallery from '@/components/FeaturedGallery';
 import BeforeAfterShowcase from '@/components/BeforeAfterShowcase';
-import PremiumServiceDiscovery from '@/components/PremiumServiceDiscovery';
+import ServiceDiscovery from '@/components/mobile/ServiceDiscovery';
 import PricingPreview from '@/components/mobile/PricingPreview';
 import SmartLeadCapture from '@/components/conversion/SmartLeadCapture';
 import SEOContentManager from '@/components/seo/SEOContentManager';
 import SocialProofSystem from '@/components/conversion/SocialProofSystem';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Services = () => {
+  const isMobile = useIsMobile();
+  
   const servicesStructuredData = [
     {
       "@context": "https://schema.org",
@@ -68,34 +71,40 @@ const Services = () => {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow pt-20">
-          {/* Premium Hero Section */}
-          <div className="section-spacing premium-hero-bg relative overflow-hidden">
-            <div className="container-spacing relative z-10">
-              <motion.div 
-                className="text-center max-w-3xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
+          {/* Hero Section - Simplified for mobile */}
+          <div className="bg-xera-darkgray py-12 lg:py-16 relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+              <motion.h1 
+                className="text-2xl md:text-4xl font-bold text-center mb-4 text-gradient"
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.7 }}
               >
-                <h1 className="font-playfair text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 premium-text-gradient text-balance">
-                  Professional Automotive Care
-                </h1>
-                
-                <p className="text-lg md:text-xl text-premium-light-gray leading-relaxed max-w-2xl mx-auto">
-                  Experience the pinnacle of automotive detailing with our premium services, meticulously designed for Kerala's unique climate challenges.
-                </p>
-              </motion.div>
+                Professional Auto Care Services
+              </motion.h1>
+              
+              <motion.p 
+                className="text-center text-white/70 max-w-2xl mx-auto mb-6 text-sm md:text-base"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                Expert detailing services designed for Kerala's climate. From quick washes to premium ceramic coatings.
+              </motion.p>
             </div>
           </div>
           
-          {/* Premium Service Discovery */}
-          <PremiumServiceDiscovery />
+          {/* Service Discovery - Mobile Optimized */}
+          <ServiceDiscovery />
           
-          {/* Refined Social Proof */}
-          <SocialProofSystem variant="stats" className="section-spacing bg-premium-charcoal/50" />
+          {/* Enhanced Social Proof Stats */}
+          <SocialProofSystem variant="stats" className="bg-gradient-to-b from-xera-darkgray/50 to-background" />
           
           {/* Pricing Preview */}
           <PricingPreview />
+          
+          {/* Recent Activity Social Proof */}
+          <SocialProofSystem variant="recent-activity" className="py-8" />
           
           {/* Featured Gallery */}
           <FeaturedGallery />
@@ -104,7 +113,7 @@ const Services = () => {
           <BeforeAfterShowcase />
           
           {/* Certifications */}
-          <SocialProofSystem variant="certifications" className="section-spacing bg-premium-slate/30" />
+          <SocialProofSystem variant="certifications" className="py-12 bg-xera-darkgray/30" />
           
           {/* Schema markup for SEO */}
           <script
@@ -148,12 +157,12 @@ const Services = () => {
         <Footer />
         <WhatsAppButton />
         
-        {/* Refined conversion optimization */}
+        {/* Advanced conversion optimization */}
         <SmartLeadCapture 
           trigger="time" 
-          delay={15000}
-          offer="Complimentary Vehicle Assessment"
-          urgency={false}
+          delay={12000}
+          offer="Free Paint Inspection + ₹500 OFF"
+          urgency={true}
         />
       </div>
     </>

@@ -1,64 +1,52 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* XERA Black & Red Theme */
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 84% 60%;
-    --accent-foreground: 0 0% 100%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 10%;
-    --ring: 0 84% 60%;
-    --radius: 8px;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
 
-    /* XERA Color Palette */
-    --xera-black: 0 0% 5%;
-    --xera-dark: 0 0% 8%;
-    --xera-gray: 0 0% 20%;
-    --xera-light-gray: 0 0% 60%;
-    --xera-white: 0 0% 95%;
-    --xera-red: 0 84% 60%;
-    --xera-red-dark: 0 84% 45%;
-    --xera-red-light: 0 84% 75%;
+    /* Enhanced XERA Colors */
+    --xera-red: 0 72% 51%;
+    --xera-red-dark: 0 72% 45%;
+    --xera-red-light: 0 72% 60%;
+    --xera-darkgray: 220 13% 18%;
+    --xera-lightgray: 215 16% 47%;
+    --xera-success: 142 76% 36%;
+    --xera-warning: 38 92% 50%;
+    --xera-info: 217 91% 60%;
     
-    /* Spacing Scale */
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    --space-4xl: 6rem;
-    
-    /* Typography Scale */
-    --text-xs: 0.75rem;
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 1.875rem;
-    --text-4xl: 2.25rem;
-    --text-5xl: 3rem;
-    --text-6xl: 3.75rem;
+    /* Modal and Popup Z-index management */
+    --z-modal-backdrop: 40;
+    --z-modal-content: 50;
+    --z-popup-high: 60;
+    --z-popup-critical: 70;
   }
 }
 
@@ -66,122 +54,100 @@
   * {
     @apply border-border;
   }
-  
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
   }
 }
 
+/* XERA Custom Styles */
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-xera-red via-xera-red-light to-xera-red bg-clip-text text-transparent;
-    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
+    @apply bg-gradient-to-r from-white via-white to-xera-red bg-clip-text text-transparent;
   }
   
-  .xera-hero-bg {
-    background: linear-gradient(135deg, hsl(var(--xera-black)) 0%, hsl(var(--xera-dark)) 50%, hsl(var(--xera-gray)) 100%);
+  .hero-bg {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), 
+                url('/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png') no-repeat center center/cover;
+    background-attachment: fixed;
   }
   
-  .xera-card {
-    @apply bg-card border border-border rounded-xl shadow-lg backdrop-blur-sm;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .mobile-tap-list a {
+    @apply min-h-[44px] flex items-center;
   }
   
-  .xera-card:hover {
-    @apply shadow-2xl border-xera-red/30;
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -10px rgba(239, 68, 68, 0.2);
+  .tap-highlight {
+    -webkit-tap-highlight-color: rgba(239, 68, 68, 0.3);
   }
   
-  .xera-button {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
-    @apply bg-xera-red text-white hover:bg-xera-red-dark;
-    @apply focus:outline-none focus:ring-2 focus:ring-xera-red/50 focus:ring-offset-2 focus:ring-offset-background;
-    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
-  .xera-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.4);
+  /* Enhanced modal and popup styles */
+  .modal-backdrop {
+    @apply bg-black/50 backdrop-blur-sm;
   }
   
-  .xera-button-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
-    @apply border border-xera-red text-xera-red hover:bg-xera-red/10 hover:border-xera-red-light;
-    @apply focus:outline-none focus:ring-2 focus:ring-xera-red/50 focus:ring-offset-2 focus:ring-offset-background;
+  .popup-container {
+    @apply pointer-events-none;
   }
   
-  .xera-input {
-    @apply w-full px-4 py-3 rounded-lg border border-border bg-input text-foreground;
-    @apply focus:outline-none focus:ring-2 focus:ring-xera-red/50 focus:border-xera-red/50;
-    @apply placeholder:text-muted-foreground;
-  }
-  
-  .section-spacing {
-    @apply py-16 lg:py-24;
-  }
-  
-  .container-spacing {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .text-balance {
-    text-wrap: balance;
+  .popup-content {
+    @apply pointer-events-auto;
   }
 }
 
+/* Performance optimizations */
 @layer utilities {
-  .glass-effect {
-    backdrop-filter: blur(20px);
-    background: rgba(239, 68, 68, 0.05);
-    border: 1px solid rgba(239, 68, 68, 0.1);
+  .hero-cta {
+    @apply transform-gpu will-change-transform;
   }
   
-  .smooth-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .animate-car-move {
+    animation: carMove 15s linear infinite;
   }
   
-  .elegant-shadow {
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  @keyframes carMove {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
   }
   
-  .xera-gradient {
-    background: linear-gradient(135deg, hsl(var(--xera-dark)) 0%, hsl(var(--xera-gray)) 100%);
-  }
-  
-  .glow-red {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  /* Smooth countdown transitions */
+  .countdown-digit {
+    @apply transition-all duration-300 ease-in-out;
   }
 }
 
-/* Remove excessive animations */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Mobile optimizations */
+/* Mobile-specific optimizations */
 @media (max-width: 768px) {
-  .section-spacing {
-    @apply py-12;
+  .hero-bg {
+    background-attachment: scroll; /* Better mobile performance */
   }
   
-  .container-spacing {
-    @apply px-4;
+  /* Improved mobile modal positioning */
+  .mobile-modal {
+    @apply max-h-[80vh] overflow-y-auto;
   }
+}
+
+/* iOS specific fixes */
+.ios-device {
+  .safe-area-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 20px);
+  }
+}
+
+/* Component queue positioning improvements */
+.component-queue-overlay {
+  @apply pointer-events-none;
+}
+
+.component-queue-overlay > * {
+  @apply pointer-events-auto;
+}
+
+/* Focus management for accessibility */
+.modal-focus-trap {
+  @apply focus:outline-none focus:ring-2 focus:ring-xera-red focus:ring-opacity-50;
 }
