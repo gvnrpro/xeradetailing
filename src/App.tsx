@@ -17,6 +17,7 @@ import MobileNavBar from './components/mobile/MobileNavBar';
 import FloatingCallButton from './components/mobile/FloatingCallButton';
 import LeadCapturePopup from './components/mobile/LeadCapturePopup';
 import { ComponentQueueProvider } from './components/mobile/ComponentQueueProvider';
+import { NotificationProvider } from './components/mobile/NotificationProvider';
 import { useIsMobile } from './hooks/use-mobile';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
@@ -34,7 +35,6 @@ import CeramicCoatingMistakes from './pages/car-care-tips/CeramicCoatingMistakes
 
 // Location Pages
 import CeramicCoatingPalakkad from './pages/locations/CeramicCoatingPalakkad';
-import { NotificationProvider } from './components/mobile/NotificationProvider';
 import TrustNudgeManaged from './components/mobile/TrustNudgeManaged';
 import RealTimeActivityManaged from './components/mobile/RealTimeActivityManaged';
 import LimitedOfferModalManaged from './components/mobile/LimitedOfferModalManaged';
@@ -106,79 +106,81 @@ function App() {
       <HelmetProvider>
         <AnalyticsProvider>
           <ComponentQueueProvider>
-            <Helmet>
-              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-              <link rel="preconnect" href="https://fonts.googleapis.com" />
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-              <link rel="manifest" href="/manifest.json" />
-              <meta name="apple-mobile-web-app-capable" content="yes" />
-              <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-              <link rel="apple-touch-icon" href="/favicon.svg" />
-              <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-            </Helmet>
+            <NotificationProvider>
+              <Helmet>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="manifest" href="/manifest.json" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+                <link rel="apple-touch-icon" href="/favicon.svg" />
+                <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+              </Helmet>
 
-            {isMobile && <CountdownBanner />}
+              {isMobile && <CountdownBanner />}
 
-            <AppLikePageTransition>
-              <Routes>
-                {/* Main Pages */}
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                
-                {/* Service Pages */}
-                <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
-                <Route path="/services/express-wash" element={<ExpressWash />} />
-                <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
-                
-                {/* Blog Pages */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/blog/ceramic-coating-ottapalam-car-protection" element={<CeramicCoatingOttapalam />} />
-                
-                {/* Content Hub and Articles */}
-                <Route path="/car-care-tips" element={<CarCareTips />} />
-                <Route path="/car-care-tips/ceramic-coating-kerala-climate" element={<CeramicCoatingKeralaClimate />} />
-                <Route path="/car-care-tips/car-wash-kerala-monsoon" element={<CarWashKeralaMonsoon />} />
-                <Route path="/car-care-tips/ceramic-coating-mistakes" element={<CeramicCoatingMistakes />} />
-                
-                {/* Location Pages */}
-                <Route path="/ceramic-coating-palakkad" element={<CeramicCoatingPalakkad />} />
-                <Route path="/car-detailing-shoranur" element={<CeramicCoatingPalakkad />} />
-                <Route path="/car-wash-pattambi" element={<CeramicCoatingPalakkad />} />
-                <Route path="/paint-protection-perinthalmanna" element={<CeramicCoatingPalakkad />} />
-                <Route path="/interior-cleaning-mannarkkad" element={<CeramicCoatingPalakkad />} />
-                
-                {/* 404 Not Found */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AppLikePageTransition>
+              <AppLikePageTransition>
+                <Routes>
+                  {/* Main Pages */}
+                  <Route path="/" element={<Index />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  
+                  {/* Service Pages */}
+                  <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
+                  <Route path="/services/express-wash" element={<ExpressWash />} />
+                  <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
+                  
+                  {/* Blog Pages */}
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/blog/ceramic-coating-ottapalam-car-protection" element={<CeramicCoatingOttapalam />} />
+                  
+                  {/* Content Hub and Articles */}
+                  <Route path="/car-care-tips" element={<CarCareTips />} />
+                  <Route path="/car-care-tips/ceramic-coating-kerala-climate" element={<CeramicCoatingKeralaClimate />} />
+                  <Route path="/car-care-tips/car-wash-kerala-monsoon" element={<CarWashKeralaMonsoon />} />
+                  <Route path="/car-care-tips/ceramic-coating-mistakes" element={<CeramicCoatingMistakes />} />
+                  
+                  {/* Location Pages */}
+                  <Route path="/ceramic-coating-palakkad" element={<CeramicCoatingPalakkad />} />
+                  <Route path="/car-detailing-shoranur" element={<CeramicCoatingPalakkad />} />
+                  <Route path="/car-wash-pattambi" element={<CeramicCoatingPalakkad />} />
+                  <Route path="/paint-protection-perinthalmanna" element={<CeramicCoatingPalakkad />} />
+                  <Route path="/interior-cleaning-mannarkkad" element={<CeramicCoatingPalakkad />} />
+                  
+                  {/* 404 Not Found */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </AppLikePageTransition>
 
-            {/* Mobile components - now using unified queue system */}
-            {isMobile && (
-              <>
-                <MobileNavBar />
-                <FloatingCallButton />
-                <LimitedOfferModalManaged />
-                <TrustNudgeManaged />
-                <RealTimeActivityManaged />
-              </>
-            )}
-            
-            {/* Scroll to top button with improved z-index */}
-            {showScrollToTop && (
-              <Button 
-                onClick={scrollToTop}
-                className="fixed bottom-24 right-4 z-[50] p-2 rounded-full bg-xera-red shadow-lg hover:bg-red-700 transition-colors"
-                size="icon"
-                aria-label="Scroll to top"
-              >
-                <ArrowUp className="h-4 w-4" />
-              </Button>
-            )}
-            
-            <Toaster />
+              {/* Mobile components - now using unified queue system */}
+              {isMobile && (
+                <>
+                  <MobileNavBar />
+                  <FloatingCallButton />
+                  <LimitedOfferModalManaged />
+                  <TrustNudgeManaged />
+                  <RealTimeActivityManaged />
+                </>
+              )}
+              
+              {/* Scroll to top button with improved z-index */}
+              {showScrollToTop && (
+                <Button 
+                  onClick={scrollToTop}
+                  className="fixed bottom-24 right-4 z-[50] p-2 rounded-full bg-xera-red shadow-lg hover:bg-red-700 transition-colors"
+                  size="icon"
+                  aria-label="Scroll to top"
+                >
+                  <ArrowUp className="h-4 w-4" />
+                </Button>
+              )}
+              
+              <Toaster />
+            </NotificationProvider>
           </ComponentQueueProvider>
         </AnalyticsProvider>
       </HelmetProvider>
