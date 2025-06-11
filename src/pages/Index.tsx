@@ -22,7 +22,7 @@ const Index = () => {
   return (
     <>
       <SEOContentManager 
-        pageType="homepage"
+        pageType="home"
         canonicalUrl="https://xeradetailing.in"
       />
       
@@ -43,7 +43,7 @@ const Index = () => {
         {/* Premium lead capture */}
         <SmartLeadCapture 
           trigger="scroll" 
-          percentage={70}
+          scrollThreshold={70}
           offer="Free Vehicle Assessment"
           urgency={false}
         />
