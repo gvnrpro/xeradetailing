@@ -32,10 +32,21 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
-    /* Custom XERA Colors */
+    /* Enhanced XERA Colors */
     --xera-red: 0 72% 51%;
+    --xera-red-dark: 0 72% 45%;
+    --xera-red-light: 0 72% 60%;
     --xera-darkgray: 220 13% 18%;
     --xera-lightgray: 215 16% 47%;
+    --xera-success: 142 76% 36%;
+    --xera-warning: 38 92% 50%;
+    --xera-info: 217 91% 60%;
+    
+    /* Modal and Popup Z-index management */
+    --z-modal-backdrop: 40;
+    --z-modal-content: 50;
+    --z-popup-high: 60;
+    --z-popup-critical: 70;
   }
 }
 
@@ -72,6 +83,19 @@
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
+  
+  /* Enhanced modal and popup styles */
+  .modal-backdrop {
+    @apply bg-black/50 backdrop-blur-sm;
+  }
+  
+  .popup-container {
+    @apply pointer-events-none;
+  }
+  
+  .popup-content {
+    @apply pointer-events-auto;
+  }
 }
 
 /* Performance optimizations */
@@ -88,12 +112,22 @@
     0% { transform: translateX(-100px); }
     100% { transform: translateX(calc(100vw + 100px)); }
   }
+  
+  /* Smooth countdown transitions */
+  .countdown-digit {
+    @apply transition-all duration-300 ease-in-out;
+  }
 }
 
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
   .hero-bg {
     background-attachment: scroll; /* Better mobile performance */
+  }
+  
+  /* Improved mobile modal positioning */
+  .mobile-modal {
+    @apply max-h-[80vh] overflow-y-auto;
   }
 }
 
@@ -104,11 +138,16 @@
   }
 }
 
-/* Component queue positioning */
+/* Component queue positioning improvements */
 .component-queue-overlay {
   @apply pointer-events-none;
 }
 
 .component-queue-overlay > * {
   @apply pointer-events-auto;
+}
+
+/* Focus management for accessibility */
+.modal-focus-trap {
+  @apply focus:outline-none focus:ring-2 focus:ring-xera-red focus:ring-opacity-50;
 }

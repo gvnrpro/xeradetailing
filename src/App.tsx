@@ -155,20 +155,22 @@ function App() {
               </Routes>
             </AppLikePageTransition>
 
-            {/* Simplified mobile components - now managed by queue */}
+            {/* Mobile components - now using unified queue system */}
             {isMobile && (
               <>
                 <MobileNavBar />
                 <FloatingCallButton />
                 <LimitedOfferModalManaged />
+                <TrustNudgeManaged />
+                <RealTimeActivityManaged />
               </>
             )}
             
-            {/* Scroll to top button */}
+            {/* Scroll to top button with improved z-index */}
             {showScrollToTop && (
               <Button 
                 onClick={scrollToTop}
-                className="fixed bottom-24 right-4 z-40 p-2 rounded-full bg-xera-red shadow-lg"
+                className="fixed bottom-24 right-4 z-[50] p-2 rounded-full bg-xera-red shadow-lg hover:bg-red-700 transition-colors"
                 size="icon"
                 aria-label="Scroll to top"
               >
