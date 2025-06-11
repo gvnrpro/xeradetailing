@@ -34,17 +34,17 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-2 bg-black/90 backdrop-blur-md shadow-lg' : 'py-4 bg-transparent'
+        isScrolled ? 'py-2 bg-xera-black/95 backdrop-blur-md shadow-lg' : 'py-4 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo with XERA glow effect */}
         <Link 
           to="/" 
           className="text-white text-2xl font-bold"
           onClick={() => handleNavClick('logo')}
         >
-          <span className="text-gradient">XERA</span> Detailing
+          <span className="text-gradient animate-glow">XERA</span> Detailing
         </Link>
         
         {/* Desktop Navigation */}
@@ -96,7 +96,7 @@ const Navbar = () => {
           </Link>
           <Link 
             to="/contact" 
-            className="bg-xera-red hover:bg-red-700 text-white px-4 py-2 rounded transition-colors"
+            className="bg-xera-red hover:bg-xera-red-dark text-white px-4 py-2 rounded transition-colors glow-red"
             onClick={() => handleNavClick('contact_button')}
           >
             Contact Us
@@ -124,7 +124,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && isMobile && (
         <motion.div 
-          className="md:hidden bg-black/95 backdrop-blur-md"
+          className="md:hidden bg-xera-black/95 backdrop-blur-md"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
@@ -178,7 +178,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/contact" 
-                className="bg-xera-red hover:bg-red-700 text-white p-3 rounded transition-colors text-center font-medium"
+                className="bg-xera-red hover:bg-xera-red-dark text-white p-3 rounded transition-colors text-center font-medium glow-red"
                 onClick={() => handleNavClick('contact_button_mobile')}
               >
                 Book Now
