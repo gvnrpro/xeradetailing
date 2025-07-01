@@ -3,238 +3,312 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
         http://www.google.com/schemas/sitemap-image/1.1
         http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+  
   <!-- Homepage -->
   <url>
     <loc>https://xeradetailing.in/</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png</image:loc>
-      <image:title>Premium Ceramic Coating by XERA in Ottapalam</image:title>
-      <image:caption>Professional ceramic coating service in Ottapalam, Kerala</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
-      <image:title>XERA Ceramic Coating Protection Against Kerala Monsoon</image:title>
-      <image:caption>Hydrophobic ceramic coating for vehicles in Ottapalam</image:caption>
+      <image:title>XERA Premium Ceramic Coating Services in Ottapalam Kerala</image:title>
+      <image:caption>Professional automotive detailing and ceramic coating in Ottapalam, Palakkad district</image:caption>
     </image:image>
   </url>
   
-  <!-- Service Pages -->
+  <!-- Core Service Pages -->
   <url>
     <loc>https://xeradetailing.in/services</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.90</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://xeradetailing.in/services/ceramic-coating</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
+  </url>
+  
+  <!-- Individual Service Pages -->
+  <url>
+    <loc>https://xeradetailing.in/services/ceramic-coating</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://xeradetailing.in/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png</image:loc>
-      <image:title>Premium 9H Ceramic Coating Services in Ottapalam</image:title>
-      <image:caption>Professional ceramic coating for cars in Ottapalam and Palakkad district</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/5c6772f8-70d4-496c-9c31-291686cf603e.png</image:loc>
-      <image:title>Ceramic Coating Application by Professionals in Kerala</image:title>
-      <image:caption>Expert ceramic coating application in Ottapalam</image:caption>
+      <image:title>Premium 9H Ceramic Coating Services in Kerala</image:title>
+      <image:caption>Professional ceramic coating with 5+ year warranty in Ottapalam</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/services/express-wash</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
     <changefreq>weekly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/assets/express-wash-after.jpg</image:loc>
-      <image:title>Express Car Wash Services in Ottapalam</image:title>
-      <image:caption>Professional express car wash in Ottapalam and Palakkad district</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/services/engine-bay-cleaning</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
     <changefreq>weekly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/assets/engine-after.jpg</image:loc>
-      <image:title>Engine Bay Cleaning Services in Ottapalam</image:title>
-      <image:caption>Professional engine detailing in Ottapalam and surrounding areas</image:caption>
-    </image:image>
   </url>
   
-  <!-- Location Pages -->
+  <!-- Location-Specific Service Pages -->
   <url>
     <loc>https://xeradetailing.in/ceramic-coating-palakkad</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.95</priority>
     <changefreq>weekly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png</image:loc>
-      <image:title>Premium Ceramic Coating Services in Palakkad</image:title>
-      <image:caption>Professional ceramic coating for cars in Palakkad district</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/car-detailing-shoranur</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.92</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/car-wash-pattambi</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/paint-protection-perinthalmanna</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/interior-cleaning-mannarkkad</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-thrissur</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-cherpulassery</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
   
-  <!-- Content Hub and Car Care Tips -->
+  <!-- Service Category Pages -->
+  <url>
+    <loc>https://xeradetailing.in/paint-protection-film-kerala</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/headlight-restoration-palakkad</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/interior-detailing-kerala</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.87</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <!-- Car Care Tips Hub -->
   <url>
     <loc>https://xeradetailing.in/car-care-tips</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.93</priority>
     <changefreq>weekly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/c9c32a28-bc86-481a-8eff-6cc44b442248.png</image:loc>
-      <image:title>Car Care Tips from XERA Detailing</image:title>
-      <image:caption>Expert auto care advice for Kerala drivers</image:caption>
-    </image:image>
   </url>
+  
+  <!-- Expanded Car Care Articles -->
   <url>
     <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-kerala-climate</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.90</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
-      <image:title>Ceramic Coating Benefits in Kerala Climate</image:title>
-      <image:caption>How ceramic coating protects your car in Kerala's harsh climate</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/car-care-tips/car-wash-kerala-monsoon</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/b6128b34-f51e-46bf-aafb-23fdc89086b6.png</image:loc>
-      <image:title>Car Wash Tips for Kerala Monsoon</image:title>
-      <image:caption>How to properly wash your car during monsoon season</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-mistakes</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/c9c32a28-bc86-481a-8eff-6cc44b442248.png</image:loc>
-      <image:title>Common Ceramic Coating Mistakes</image:title>
-      <image:caption>Mistakes to avoid after ceramic coating your car</image:caption>
-    </image:image>
   </url>
   
-  <!-- Content Pages -->
   <url>
-    <loc>https://xeradetailing.in/about</loc>
-    <lastmod>2025-05-10</lastmod>
+    <loc>https://xeradetailing.in/car-care-tips/paint-protection-kerala-humidity</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/interior-cleaning-monsoon</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-vs-wax-kerala</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/engine-bay-cleaning-benefits</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.82</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/headlight-restoration-guide</loc>
+    <lastmod>2025-01-01</lastmod>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
-  <url>
-    <loc>https://xeradetailing.in/contact</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
-    <changefreq>monthly</changefreq>
-  </url>
   
-  <!-- Blog Pages -->
+  <!-- Blog Hub -->
   <url>
     <loc>https://xeradetailing.in/blog</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
+  <!-- Enhanced Blog Articles -->
   <url>
     <loc>https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.92</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
-      <image:title>Why Ceramic Coating Is the Best Car Protection in Ottapalam</image:title>
-      <image:caption>Long-lasting ceramic coating protection for vehicles in Kerala climate</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/588a7319-b8dc-4e0c-99dd-909134350e51.png</image:loc>
-      <image:title>Hydrophobic Properties of Ceramic Coating in Kerala</image:title>
-      <image:caption>Water beading demonstration on ceramic coated surface in Ottapalam</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/blog/why-kerala-cars-need-ceramic-coating</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/20fa2a68-f3d0-4ad1-b35f-f1a8b1378c1e.png</image:loc>
-      <image:title>Kerala's Climate Effects on Car Paint</image:title>
-      <image:caption>Why cars in Kerala need ceramic coating protection</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://xeradetailing.in/blog/car-wash-frequency-kerala</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.70</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
-  <url>
-    <loc>https://xeradetailing.in/blog/bike-detailing-kerala-monsoon</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.70</priority>
-    <changefreq>monthly</changefreq>
-  </url>
+  
   <url>
     <loc>https://xeradetailing.in/blog/ceramic-coating-care-tips</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.75</priority>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.87</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://xeradetailing.in/lovable-uploads/c9c32a28-bc86-481a-8eff-6cc44b442248.png</image:loc>
-      <image:title>Maintaining Ceramic Coated Cars in Kerala</image:title>
-      <image:caption>Care tips for ceramic coated vehicles in humid climate</image:caption>
-    </image:image>
   </url>
+  
+  <!-- New Comprehensive Blog Articles -->
   <url>
-    <loc>https://xeradetailing.in/blog/underbody-coating-palakkad-value</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.70</priority>
+    <loc>https://xeradetailing.in/blog/ceramic-coating-cost-analysis-kerala</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.88</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
   <url>
-    <loc>https://xeradetailing.in/blog/foam-vs-pressure-wash-kerala</loc>
-    <lastmod>2025-05-10</lastmod>
-    <priority>0.70</priority>
+    <loc>https://xeradetailing.in/blog/monsoon-car-care-complete-guide</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
     <changefreq>monthly</changefreq>
   </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/blog/paint-correction-before-ceramic-coating</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/blog/interior-protection-kerala-humidity</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.83</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/blog/luxury-car-detailing-kerala</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/blog/ppf-vs-ceramic-coating-comparison</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Core Pages -->
+  <url>
+    <loc>https://xeradetailing.in/about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- FAQ and Support Pages -->
+  <url>
+    <loc>https://xeradetailing.in/faq</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/pricing</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://xeradetailing.in/gallery</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
 </urlset>
