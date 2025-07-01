@@ -36,7 +36,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
       
       {/* Render current notification */}
       <div className={getNotificationPosition()}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {isVisible && currentNotification && (
             <motion.div
               key={currentNotification.id}

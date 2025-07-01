@@ -32,7 +32,6 @@ export const useComponentQueue = () => {
       // Check for collision if collision_detection is enabled
       if (component.collision_detection && prev.length > 0) {
         console.log('Collision detected, replacing queue');
-        // Replace queue with higher priority component
         return [component];
       }
       
