@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -265,23 +264,31 @@ const Pricing = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: generateSchemaMarkup('ItemList', {
+            __html: generateSchemaMarkup('Service', {
               name: "XERA Auto Detailing Service Prices",
               description: "Professional car detailing and ceramic coating service pricing in Kerala",
-              itemListElement: pricingTiers.map((tier, index) => ({
+              provider: {
+                "@type": "LocalBusiness",
+                name: "XERA Car Wash & Auto Detailing",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Opp. NSS College, Palappuram",
+                  addressLocality: "Ottapalam",
+                  addressRegion: "Kerala",
+                  postalCode: "679103",
+                  addressCountry: "IN"
+                },
+                telephone: "+919605858483"
+              },
+              offers: pricingTiers.map(tier => ({
                 "@type": "Offer",
-                position: index + 1,
                 name: tier.name,
                 description: tier.ideal,
                 price: tier.price.replace('₹', ''),
                 priceCurrency: "INR",
                 availability: "https://schema.org/InStock",
                 validFrom: "2025-01-01",
-                validThrough: "2025-12-31",
-                seller: {
-                  "@type": "LocalBusiness",
-                  name: "XERA Car Wash & Auto Detailing"
-                }
+                validThrough: "2025-12-31"
               }))
             })
           }}

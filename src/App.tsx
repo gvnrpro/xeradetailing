@@ -1,25 +1,26 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Index from '@/pages/Index';
 import Services from '@/pages/Services';
-import CeramicCoating from '@/pages/CeramicCoating';
-import ExpressWash from '@/pages/ExpressWash';
-import EngineBayCleaning from '@/pages/EngineBayCleaning';
-import CeramicCoatingPalakkad from '@/pages/CeramicCoatingPalakkad';
+import CeramicCoating from '@/pages/services/CeramicCoating';
+import ExpressWash from '@/pages/services/ExpressWash';
+import EngineBayCleaning from '@/pages/services/EngineBayCleaning';
+import CeramicCoatingPalakkad from '@/pages/locations/CeramicCoatingPalakkad';
 import CarCareTips from '@/pages/CarCareTips';
-import CeramicCoatingKeralaClimate from '@/pages/CeramicCoatingKeralaClimate';
-import CarWashKeralaMonsoon from '@/pages/CarWashKeralaMonsoon';
-import CeramicCoatingMistakes from '@/pages/CeramicCoatingMistakes';
+import CeramicCoatingKeralaClimate from '@/pages/car-care-tips/CeramicCoatingKeralaClimate';
+import CarWashKeralaMonsoon from '@/pages/car-care-tips/CarWashKeralaMonsoon';
+import CeramicCoatingMistakes from '@/pages/car-care-tips/CeramicCoatingMistakes';
 import Blog from '@/pages/Blog';
 import BlogPost from '@/pages/BlogPost';
-import CeramicCoatingOttapalam from '@/pages/CeramicCoatingOttapalam';
+import CeramicCoatingOttapalam from '@/pages/blog/CeramicCoatingOttapalam';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
 import NotFound from '@/pages/NotFound';
 import FAQ from '@/pages/FAQ';
 import Pricing from '@/pages/Pricing';
 import { HelmetProvider } from 'react-helmet-async';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
   return (
