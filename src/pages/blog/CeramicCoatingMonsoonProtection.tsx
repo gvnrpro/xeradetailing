@@ -51,9 +51,14 @@ const CeramicCoatingMonsoonProtection = () => {
       date: "2025-01-01",
       author: "XERA Team",
       tags: ["monsoon", "car-wash"],
+      coverImage: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
       image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
-      readTime: "5 min read",
+      imageAlt: "Car wash during Kerala monsoon",
       category: "Car Care",
+      categories: ["Car Care", "Monsoon"],
+      keywords: ["car wash Kerala monsoon", "rainy season car care", "XERA detailing"],
+      metaTitle: "Car Wash During Kerala Monsoon Season | XERA",
+      metaDescription: "Essential tips for maintaining your car during Kerala's heavy monsoon rains.",
       url: "/car-care-tips/car-wash-kerala-monsoon"
     },
     {
@@ -65,9 +70,14 @@ const CeramicCoatingMonsoonProtection = () => {
       date: "2025-01-01",
       author: "XERA Team",
       tags: ["ceramic-coating", "kerala"],
+      coverImage: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
       image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
-      readTime: "6 min read",
+      imageAlt: "Ceramic coating for Kerala climate",
       category: "Car Care",
+      categories: ["Car Care", "Ceramic Coating"],
+      keywords: ["ceramic coating Kerala climate", "paint protection humid climate", "XERA detailing"],
+      metaTitle: "Ceramic Coating for Kerala Climate | XERA",
+      metaDescription: "Why ceramic coating is essential for cars in Kerala's tropical climate.",
       url: "/car-care-tips/ceramic-coating-kerala-climate"
     }
   ];
