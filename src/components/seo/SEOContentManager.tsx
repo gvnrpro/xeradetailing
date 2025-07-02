@@ -43,14 +43,25 @@ const SEOContentManager = ({
         'auto detailing kerala',
         'ceramic coating near me',
         'car wash ottapalam',
-        'paint protection kerala'
+        'paint protection kerala',
+        'professional car detailing palakkad district',
+        'ceramic coating shoranur',
+        'car care kerala monsoon',
+        'auto detailing near me'
       ];
     }
     
     if (pageType === 'ceramic-coating') {
       optimizedTitle = `Ceramic Coating in ${location} | 9H Protection | XERA Detailing`;
       optimizedDescription = `Professional 9H ceramic coating services in ${location} and ${locationKeywords.district}. Long-lasting paint protection, hydrophobic properties, 5+ year warranty. Book your ceramic coating today!`;
-      optimizedKeywords = generateKeywordCombinations('ceramicCoating', location);
+      optimizedKeywords = [
+        ...generateKeywordCombinations('ceramicCoating', location),
+        'ceramic coating price kerala',
+        'best ceramic coating palakkad',
+        'professional ceramic coating near me',
+        'ceramic coating shoranur',
+        'paint protection film kerala'
+      ];
     }
     
     if (pageType === 'services') {
@@ -58,7 +69,10 @@ const SEOContentManager = ({
       optimizedDescription = `Professional car detailing services in ${location}, ${locationKeywords.district} including ceramic coating, interior cleaning, paint correction, and engine bay detailing. XERA - Kerala's premium auto care specialists.`;
       optimizedKeywords = [
         ...generateKeywordCombinations('carWashDetailing', location),
-        ...generateKeywordCombinations('ceramicCoating', location).slice(0, 5)
+        ...generateKeywordCombinations('ceramicCoating', location).slice(0, 5),
+        'professional car wash kerala',
+        'auto detailing packages',
+        'car care services palakkad'
       ];
     }
     
@@ -73,7 +87,7 @@ const SEOContentManager = ({
       );
     }
     
-    // Add structured data
+    // Enhanced structured data with more aggressive local SEO
     const defaultStructuredData = [
       {
         "@context": "https://schema.org",
@@ -104,13 +118,76 @@ const SEOContentManager = ({
         "areaServed": [
           location,
           ...locationKeywords.nearby,
-          locationKeywords.district
+          locationKeywords.district,
+          "Shoranur",
+          "Pattambi", 
+          "Perinthalmanna",
+          "Thrithala",
+          "Lakkidi",
+          "Mannarkkad"
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
           "reviewCount": "47"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Car Detailing Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ceramic Coating",
+                "description": "Professional 9H ceramic coating with 5+ year warranty"
+              },
+              "price": "7999",
+              "priceCurrency": "INR"
+            },
+            {
+              "@type": "Offer", 
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Premium Car Detailing",
+                "description": "Complete interior and exterior detailing service"
+              },
+              "price": "2499",
+              "priceCurrency": "INR"
+            }
+          ]
         }
+      },
+      // FAQ Schema for better search visibility
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does ceramic coating cost in Kerala?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Professional ceramic coating at XERA starts from ₹7,999 with a 5+ year warranty. Prices may vary based on vehicle size and specific requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does ceramic coating last in Kerala climate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With proper maintenance, our ceramic coating lasts 5+ years even in Kerala's monsoon climate. The hydrophobic properties help protect against humidity and acid rain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide pickup and drop services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we offer free pickup and drop services for customers in Ottapalam, Palakkad, Shoranur, and surrounding areas."
+            }
+          }
+        ]
       }
     ];
     
@@ -122,46 +199,69 @@ const SEOContentManager = ({
   
   return (
     <Helmet>
-      {/* Additional meta tags for enhanced SEO */}
+      {/* Enhanced meta tags for aggressive SEO */}
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow" />
       <meta name="bingbot" content="index, follow" />
       
-      {/* Geo targeting */}
+      {/* Geo targeting with multiple locations */}
       <meta name="geo.region" content="IN-KL" />
       <meta name="geo.placename" content={`${location}, Kerala, India`} />
       <meta name="geo.position" content="10.980150076997278;76.37854502536776" />
       <meta name="ICBM" content="10.980150076997278, 76.37854502536776" />
       
-      {/* Business specific */}
+      {/* Business specific enhanced */}
       <meta name="rating" content="4.9" />
       <meta name="review_count" content="47" />
       <meta name="business_type" content="Auto Detailing Service" />
       <meta name="price_range" content="₹₹" />
+      <meta name="payment_methods" content="Cash, Card, UPI, Bank Transfer" />
+      <meta name="service_area" content="Ottapalam, Palakkad, Shoranur, Pattambi, Perinthalmanna" />
       
-      {/* Local SEO */}
+      {/* Local SEO enhancement */}
       <meta name="locality" content={location} />
       <meta name="region" content="Kerala" />
       <meta name="country" content="India" />
+      <meta name="zipcode" content="679103" />
       
-      {/* Enhanced Open Graph */}
+      {/* Enhanced Open Graph with more properties */}
       <meta property="og:locale" content="en_IN" />
       <meta property="og:updated_time" content={new Date().toISOString()} />
+      <meta property="og:site_name" content="XERA Car Wash & Auto Detailing" />
       <meta property="business:contact_data:street_address" content="Opp. NSS College, Palappuram" />
       <meta property="business:contact_data:locality" content={location} />
       <meta property="business:contact_data:region" content="Kerala" />
       <meta property="business:contact_data:postal_code" content="679103" />
       <meta property="business:contact_data:country_name" content="India" />
+      <meta property="business:contact_data:phone_number" content="+919605858483" />
       
-      {/* Mobile optimization */}
+      {/* Twitter Card enhanced */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@xeradetailing" />
+      <meta name="twitter:creator" content="@xeradetailing" />
+      
+      {/* Mobile optimization enhanced */}
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="format-detection" content="telephone=yes" />
       
-      {/* Performance hints */}
+      {/* Performance and loading hints */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="dns-prefetch" href="//wa.me" />
+      <link rel="dns-prefetch" href="//maps.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link rel="preload" href={imageUrl} as="image" />
+      
+      {/* Additional SEO hints */}
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="1 days" />
+      <meta name="expires" content="never" />
+      <meta name="language" content="English" />
+      <meta name="coverage" content="Worldwide" />
+      <meta name="target" content="all" />
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="MobileOptimized" content="320" />
     </Helmet>
   );
 };

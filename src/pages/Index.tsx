@@ -15,6 +15,7 @@ import SmartLeadCapture from '@/components/conversion/SmartLeadCapture';
 import SEOContentManager from '@/components/seo/SEOContentManager';
 import DynamicContentInjector from '@/components/conversion/DynamicContentInjector';
 import SocialProofSystem from '@/components/conversion/SocialProofSystem';
+import PerformanceOptimizer from '@/components/performance/PerformanceOptimizer';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
@@ -47,11 +48,33 @@ const Index = () => {
         "priceCurrency": "INR",
         "description": "Premium 9H Ceramic Coating with 5+ year warranty"
       }
+    },
+    // Enhanced Organization Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "XERA Car Wash & Auto Detailing",
+      "description": "Kerala's premier auto detailing and ceramic coating specialists",
+      "url": "https://xeradetailing.in",
+      "logo": "https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+      "sameAs": [
+        "https://www.facebook.com/xeradetailing",
+        "https://www.instagram.com/xeradetailing",
+        "https://wa.me/917559999366"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-96058-58483",
+        "contactType": "customer service",
+        "areaServed": "Kerala",
+        "availableLanguage": ["English", "Malayalam", "Hindi"]
+      }
     }
   ];
   
   return (
     <>
+      <PerformanceOptimizer />
       <SEOContentManager
         pageType="home"
         canonicalUrl="https://xeradetailing.in"
@@ -67,6 +90,15 @@ const Index = () => {
         <meta property="og:url" content="https://xeradetailing.in" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://xeradetailing.in" />
+        
+        {/* Enhanced meta keywords for aggressive SEO */}
+        <meta name="keywords" content="ceramic coating kerala, car detailing ottapalam, auto detailing palakkad, ceramic coating shoranur, car wash kerala, paint protection kerala, professional car detailing, ceramic coating near me, car care kerala monsoon, auto detailing near me" />
+        
+        {/* Additional SEO enhancements */}
+        <meta name="author" content="XERA Car Wash & Auto Detailing" />
+        <meta name="publisher" content="XERA Car Wash & Auto Detailing" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in" />
       </Helmet>
       
       <div className="min-h-screen flex flex-col">

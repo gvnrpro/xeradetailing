@@ -18,9 +18,11 @@ const LimitedOfferModalContent = ({ onDismiss }: LimitedOfferModalManagedProps) 
   const handleDismiss = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    trackEvent('limited_offer_dismissed');
     console.log('Close button clicked - dismissing modal');
-    if (onDismiss) onDismiss();
+    trackEvent('limited_offer_dismissed');
+    if (onDismiss) {
+      onDismiss();
+    }
   };
 
   return (
@@ -81,7 +83,7 @@ const LimitedOfferModalManaged = () => {
       console.log('Adding limited offer to queue');
       
       const handleDismiss = () => {
-        console.log('Dismissing limited offer modal');
+        console.log('Dismissing limited offer modal via handleDismiss');
         removeComponent(componentId);
         localStorage.setItem('xera_unified_offer_dismissed', today);
         trackEvent('limited_offer_dismissed');
@@ -95,7 +97,7 @@ const LimitedOfferModalManaged = () => {
         },
         priority: 'medium',
         position: 'bottom',
-        duration: 20000, // Auto-dismiss after 20 seconds
+        duration: 20000,
         collision_detection: true
       });
       
