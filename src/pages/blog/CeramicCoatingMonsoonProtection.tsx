@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -34,24 +33,42 @@ const CeramicCoatingMonsoonProtection = () => {
   }, []);
 
   const tableOfContents = [
-    { id: 'monsoon-challenges', title: 'Kerala Monsoon Challenges for Cars' },
-    { id: 'ceramic-coating-benefits', title: 'How Ceramic Coating Helps' },
-    { id: 'hydrophobic-properties', title: 'Hydrophobic Protection Explained' },
-    { id: 'pre-monsoon-preparation', title: 'Pre-Monsoon Car Preparation' },
-    { id: 'maintenance-tips', title: 'Monsoon Maintenance Tips' },
-    { id: 'cost-benefit-analysis', title: 'Investment vs Protection Value' }
+    { id: 'monsoon-challenges', text: 'Kerala Monsoon Challenges for Cars', level: 2 },
+    { id: 'ceramic-coating-benefits', text: 'How Ceramic Coating Helps', level: 2 },
+    { id: 'hydrophobic-properties', text: 'Hydrophobic Protection Explained', level: 2 },
+    { id: 'pre-monsoon-preparation', text: 'Pre-Monsoon Car Preparation', level: 2 },
+    { id: 'maintenance-tips', text: 'Monsoon Maintenance Tips', level: 2 },
+    { id: 'cost-benefit-analysis', text: 'Investment vs Protection Value', level: 2 }
   ];
 
   const relatedPosts = [
     {
+      id: "car-wash-kerala-monsoon",
       title: "Car Wash During Kerala Monsoon Season",
-      url: "/car-care-tips/car-wash-kerala-monsoon",
-      excerpt: "Essential tips for maintaining your car during Kerala's heavy monsoon rains."
+      slug: "car-wash-kerala-monsoon",
+      excerpt: "Essential tips for maintaining your car during Kerala's heavy monsoon rains.",
+      content: "",
+      date: "2025-01-01",
+      author: "XERA Team",
+      tags: ["monsoon", "car-wash"],
+      image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+      readTime: "5 min read",
+      category: "Car Care",
+      url: "/car-care-tips/car-wash-kerala-monsoon"
     },
     {
+      id: "ceramic-coating-kerala-climate",
       title: "Ceramic Coating for Kerala Climate",
-      url: "/car-care-tips/ceramic-coating-kerala-climate",
-      excerpt: "Why ceramic coating is essential for cars in Kerala's tropical climate."
+      slug: "ceramic-coating-kerala-climate",
+      excerpt: "Why ceramic coating is essential for cars in Kerala's tropical climate.",
+      content: "",
+      date: "2025-01-01",
+      author: "XERA Team",
+      tags: ["ceramic-coating", "kerala"],
+      image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+      readTime: "6 min read",
+      category: "Car Care",
+      url: "/car-care-tips/ceramic-coating-kerala-climate"
     }
   ];
 

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -267,13 +266,19 @@ const CeramicCoatingShoranur = () => {
           </div>
         </section>
 
-        {/* Trust Signals */}
-        <TrustSignals 
-          showReviews={true}
-          showCertifications={true}
-          showWarranty={true}
-          className="py-16 bg-xera-darkgray/30"
-        />
+        {/* Trust Signals with default variant */}
+        <section className="py-16 bg-xera-darkgray/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-12 text-gradient">Trusted by Car Owners Across Kerala</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <TrustSignals variant="review-widget" />
+                <TrustSignals variant="certification" />
+                <TrustSignals variant="customer-photos" />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Contact Section */}
         <section className="py-16">
