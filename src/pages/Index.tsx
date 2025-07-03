@@ -1,11 +1,10 @@
-
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import DynamicHeroSection from '@/components/enhanced/DynamicHeroSection';
+import InteractiveBeforeAfter from '@/components/enhanced/InteractiveBeforeAfter';
+import AnimatedStats from '@/components/enhanced/AnimatedStats';
+import EnhancedServiceGrid from '@/components/enhanced/EnhancedServiceGrid';
 import AboutSection from '@/components/AboutSection';
-import ServiceDiscovery from '@/components/mobile/ServiceDiscovery';
-import PricingPreview from '@/components/mobile/PricingPreview';
-import WhyDetailingMatters from '@/components/WhyDetailingMatters';
 import CustomerTrust from '@/components/CustomerTrust';
 import LocationSection from '@/components/LocationSection';
 import BlogPreviewSection from '@/components/BlogPreviewSection';
@@ -104,22 +103,18 @@ const Index = () => {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
-          <HeroSection />
+          <DynamicHeroSection />
+          <AnimatedStats />
+          <InteractiveBeforeAfter />
+          <EnhancedServiceGrid />
           <AboutSection />
           
           {/* Enhanced Social Proof */}
           <SocialProofSystem variant="stats" className="bg-gradient-to-b from-background to-xera-darkgray/50" />
           
-          {/* Mobile-optimized service discovery */}
-          <ServiceDiscovery />
-          
-          {/* Pricing preview for mobile users */}
-          {isMobile && <PricingPreview />}
-          
           {/* Customer testimonials with enhanced social proof */}
           <SocialProofSystem variant="testimonials" className="py-12" />
           
-          <WhyDetailingMatters />
           <CustomerTrust />
           <LocationSection />
           <BlogPreviewSection />
