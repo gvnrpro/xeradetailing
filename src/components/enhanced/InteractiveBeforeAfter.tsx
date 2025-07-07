@@ -12,24 +12,24 @@ const InteractiveBeforeAfter = () => {
   const services = [
     {
       title: "Ceramic Coating",
-      before: "/public/assets/ceramic-before.jpg",
-      after: "/public/assets/ceramic-after.jpg",
+      before: "/assets/ceramic-before.jpg",
+      after: "/assets/ceramic-after.jpg",
       icon: Shield,
       color: "from-blue-500 to-cyan-500",
       benefits: ["9H Hardness", "5+ Year Protection", "Hydrophobic Effect"]
     },
     {
       title: "Paint Correction",
-      before: "/public/assets/paint-correction-before.jpg",
-      after: "/public/assets/paint-correction-after.jpg",
+      before: "/assets/paint-correction-before.jpg",
+      after: "/assets/paint-correction-after.jpg",
       icon: Sparkles,
       color: "from-purple-500 to-pink-500",
       benefits: ["Swirl Removal", "Scratch Repair", "Gloss Enhancement"]
     },
     {
       title: "Interior Detailing",
-      before: "/public/assets/interior-before.jpg",
-      after: "/public/assets/interior-after.jpg",
+      before: "/assets/interior-before.jpg",
+      after: "/assets/interior-after.jpg",
       icon: Eye,
       color: "from-green-500 to-emerald-500",
       benefits: ["Deep Cleaning", "Stain Removal", "UV Protection"]
@@ -125,12 +125,13 @@ const InteractiveBeforeAfter = () => {
                   className="absolute top-0 bottom-0 w-1 bg-xera-red cursor-ew-resize flex items-center justify-center"
                   style={{ left: `${sliderPosition}%` }}
                   onMouseDown={(e) => {
-                    const handleMouseMove = (e: MouseEvent) => {
-                      const rect = e.currentTarget?.parentElement?.getBoundingClientRect();
-                      if (rect) {
-                        const x = ((e.clientX - rect.left) / rect.width) * 100;
-                        setSliderPosition(Math.max(10, Math.min(90, x)));
-                      }
+                    const container = e.currentTarget.parentElement;
+                    if (!container) return;
+                    
+                    const handleMouseMove = (moveEvent: MouseEvent) => {
+                      const rect = container.getBoundingClientRect();
+                      const x = ((moveEvent.clientX - rect.left) / rect.width) * 100;
+                      setSliderPosition(Math.max(10, Math.min(90, x)));
                     };
                     
                     const handleMouseUp = () => {
