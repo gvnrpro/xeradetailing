@@ -4,25 +4,22 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Star, CheckCircle, Play, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useIsMobile } from '@/hooks/use-mobile';
-import MobileOptimizedImageLoader from './MobileOptimizedImageLoader';
 
 const DynamicHeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const isMobile = useIsMobile();
-  const [particleCount, setParticleCount] = useState(isMobile ? 10 : 20);
+  const [particleCount, setParticleCount] = useState(20);
   
   const heroSlides = [
     {
       title: "Premium Ceramic Coating",
       subtitle: "9H Hardness Protection",
-      image: "/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png",
+      image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
       description: "Ultimate protection against Kerala's harsh climate"
     },
     {
       title: "Paint Protection Film",
       subtitle: "Invisible Shield Technology",
-      image: "/lovable-uploads/93e1be41-e185-4b92-9ccf-b53e4dfd75e0.png",
+      image: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
       description: "Self-healing protection for your vehicle's paint"
     },
     {
@@ -34,14 +31,11 @@ const DynamicHeroSection = () => {
   ];
 
   useEffect(() => {
-    // Adjust particle count based on device
-    setParticleCount(isMobile ? 8 : 20);
-    
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, isMobile ? 6000 : 5000); // Longer intervals on mobile for better performance
+    }, 5000);
     return () => clearInterval(timer);
-  }, [isMobile]);
+  }, []);
 
   // Floating particles animation
   const Particle = ({ delay, duration, size, x, y }: any) => (
@@ -74,21 +68,15 @@ const DynamicHeroSection = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            className="absolute inset-0"
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url(${heroSlides[currentSlide].image})`
+            }}
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: isMobile ? 0.8 : 1 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-10" />
-            <MobileOptimizedImageLoader
-              src={heroSlides[currentSlide].image}
-              alt={heroSlides[currentSlide].title}
-              className="absolute inset-0"
-              priority={currentSlide === 0}
-              sizes={isMobile ? "100vw" : "(max-width: 1200px) 100vw, 1200px"}
-            />
-          </motion.div>
+            transition={{ duration: 1 }}
+          />
         </AnimatePresence>
       </div>
 
