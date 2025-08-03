@@ -5,9 +5,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Droplets, Sparkles, Car, Zap, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { useMobilePerformance } from '@/components/mobile/MobilePerformanceProvider';
+import MobileOptimizedImageLoader from './MobileOptimizedImageLoader';
 
 const EnhancedServiceGrid = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+  const { reduceAnimations } = useMobilePerformance();
   
   const services = [
     {
@@ -17,7 +22,7 @@ const EnhancedServiceGrid = () => {
       price: "From ₹7,999",
       duration: "6-8 hours",
       icon: Shield,
-      image: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
+      image: "/lovable-uploads/5c6772f8-70d4-496c-9c31-291686cf603e.png",
       gradient: "from-blue-600 to-cyan-500",
       features: ["9H Hardness", "5+ Year Warranty", "Hydrophobic Effect", "UV Protection"],
       link: "/services/ceramic-coating"
@@ -29,7 +34,7 @@ const EnhancedServiceGrid = () => {
       price: "From ₹12,999",
       duration: "8-10 hours",
       icon: Eye,
-      image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+      image: "/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png",
       gradient: "from-purple-600 to-pink-500",
       features: ["Self-Healing", "Invisible Protection", "10+ Year Life", "Stain Resistant"],
       link: "/services"
@@ -65,7 +70,7 @@ const EnhancedServiceGrid = () => {
       price: "From ₹1,999",
       duration: "2-3 hours",
       icon: Car,
-      image: "/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png",
+      image: "/lovable-uploads/93e1be41-e185-4b92-9ccf-b53e4dfd75e0.png",
       gradient: "from-orange-600 to-red-500",
       features: ["Degreasing", "Component Care", "Corrosion Protection", "Performance Boost"],
       link: "/services/engine-bay-cleaning"
@@ -77,7 +82,7 @@ const EnhancedServiceGrid = () => {
       price: "From ₹5,999",
       duration: "6-8 hours",
       icon: Zap,
-      image: "/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png",
+      image: "/lovable-uploads/588a7319-b8dc-4e0c-99dd-909134350e51.png",
       gradient: "from-yellow-600 to-orange-500",
       features: ["Swirl Removal", "Scratch Repair", "Gloss Enhancement", "Paint Restoration"],
       link: "/services"
@@ -119,15 +124,22 @@ const EnhancedServiceGrid = () => {
                 <CardContent className="p-0 relative">
                   {/* Background Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <motion.img 
+                    <MobileOptimizedImageLoader
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
-                      animate={{
-                        scale: hoveredCard === index ? 1.1 : 1,
-                      }}
-                      transition={{ duration: 0.6 }}
+                      className="w-full h-full"
+                      lazy={index > 2} // Load first 3 images eagerly
+                      sizes={isMobile ? "100vw" : "(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px"}
                     />
+                    {!reduceAnimations && (
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          scale: hoveredCard === index ? 1.1 : 1,
+                        }}
+                        transition={{ duration: 0.6 }}
+                      />
+                    )}
                     <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60`} />
                     
                     {/* Service Icon */}
