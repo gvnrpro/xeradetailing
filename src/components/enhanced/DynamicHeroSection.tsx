@@ -4,10 +4,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Star, CheckCircle, Play, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
 const DynamicHeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [particleCount, setParticleCount] = useState(20);
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const particleCount = prefersReducedMotion ? 0 : isMobile ? 8 : 15;
   
   const heroSlides = [
     {
@@ -40,14 +44,14 @@ const DynamicHeroSection = () => {
   // Floating particles animation
   const Particle = ({ delay, duration, size, x, y }: any) => (
     <motion.div
-      className="absolute bg-xera-red/20 rounded-full blur-sm"
+      className="absolute bg-xera-red/20 rounded-full blur-sm will-change-transform"
       style={{
         width: size,
         height: size,
         left: `${x}%`,
         top: `${y}%`,
       }}
-      animate={{
+      animate={prefersReducedMotion ? {} : {
         y: [0, -30, 0],
         opacity: [0.3, 0.8, 0.3],
         scale: [1, 1.2, 1],

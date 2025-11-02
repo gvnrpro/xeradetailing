@@ -117,12 +117,13 @@ const EnhancedServiceGrid = () => {
             >
               <Card className="h-full bg-gradient-to-br from-xera-darkgray/90 to-black/90 backdrop-blur-sm border border-white/10 hover:border-xera-red/50 transition-all duration-500 overflow-hidden relative group-hover:scale-105">
                 <CardContent className="p-0 relative">
-                  {/* Background Image */}
+                   {/* Background Image */}
                   <div className="relative h-48 overflow-hidden">
                     <motion.img 
                       src={service.image}
-                      alt={service.title}
+                      alt={`${service.title} service - Professional auto detailing in Ottapalam, Kerala`}
                       className="w-full h-full object-cover"
+                      loading={index < 3 ? "eager" : "lazy"}
                       animate={{
                         scale: hoveredCard === index ? 1.1 : 1,
                       }}
