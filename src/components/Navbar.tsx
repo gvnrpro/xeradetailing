@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { trackEvent } from './tracking/AnalyticsProvider';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { LanguageToggle } from '@/components/ui/language-toggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ const Navbar = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           <Link 
             to="/" 
             className={`text-white hover:text-xera-red transition-colors ${
@@ -101,14 +102,17 @@ const Navbar = () => {
           >
             Contact Us
           </Link>
+          <LanguageToggle />
         </div>
         
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-white tap-highlight p-2 -mr-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle className="text-white" />
+          <button 
+            className="text-white tap-highlight p-2 -mr-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
           {isMenuOpen ? (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -118,7 +122,8 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           )}
-        </button>
+          </button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -130,11 +135,11 @@ const Navbar = () => {
           exit={{ opacity: 0, y: -20 }}
         >
           <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-4 mobile-tap-list">
+            <div className="flex flex-col space-y-2 mobile-tap-list">
               <Link 
                 to="/" 
-                className={`text-white hover:text-xera-red transition-colors py-3 ${
-                  location.pathname === '/' ? 'text-xera-red' : ''
+                className={`text-white hover:text-xera-red transition-colors py-4 px-4 rounded-lg min-h-[52px] flex items-center ${
+                  location.pathname === '/' ? 'bg-xera-red/20 text-xera-red' : 'hover:bg-white/5'
                 }`}
                 onClick={() => handleNavClick('home_mobile')}
               >
@@ -142,8 +147,8 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/services" 
-                className={`text-white hover:text-xera-red transition-colors py-3 ${
-                  location.pathname.includes('/services') ? 'text-xera-red' : ''
+                className={`text-white hover:text-xera-red transition-colors py-4 px-4 rounded-lg min-h-[52px] flex items-center ${
+                  location.pathname.includes('/services') ? 'bg-xera-red/20 text-xera-red' : 'hover:bg-white/5'
                 }`}
                 onClick={() => handleNavClick('services_mobile')}
               >
@@ -151,8 +156,8 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/car-care-tips" 
-                className={`text-white hover:text-xera-red transition-colors py-3 ${
-                  location.pathname.includes('/car-care-tips') ? 'text-xera-red' : ''
+                className={`text-white hover:text-xera-red transition-colors py-4 px-4 rounded-lg min-h-[52px] flex items-center ${
+                  location.pathname.includes('/car-care-tips') ? 'bg-xera-red/20 text-xera-red' : 'hover:bg-white/5'
                 }`}
                 onClick={() => handleNavClick('car_care_tips_mobile')}
               >
@@ -160,8 +165,8 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/blog" 
-                className={`text-white hover:text-xera-red transition-colors py-3 ${
-                  location.pathname.includes('/blog') ? 'text-xera-red' : ''
+                className={`text-white hover:text-xera-red transition-colors py-4 px-4 rounded-lg min-h-[52px] flex items-center ${
+                  location.pathname.includes('/blog') ? 'bg-xera-red/20 text-xera-red' : 'hover:bg-white/5'
                 }`}
                 onClick={() => handleNavClick('blog_mobile')}
               >
@@ -169,8 +174,8 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/about" 
-                className={`text-white hover:text-xera-red transition-colors py-3 ${
-                  location.pathname === '/about' ? 'text-xera-red' : ''
+                className={`text-white hover:text-xera-red transition-colors py-4 px-4 rounded-lg min-h-[52px] flex items-center ${
+                  location.pathname === '/about' ? 'bg-xera-red/20 text-xera-red' : 'hover:bg-white/5'
                 }`}
                 onClick={() => handleNavClick('about_mobile')}
               >
@@ -178,7 +183,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/contact" 
-                className="bg-xera-red hover:bg-red-700 text-white p-3 rounded transition-colors text-center font-medium"
+                className="bg-gradient-to-r from-xera-red to-red-700 hover:from-red-600 hover:to-red-800 text-white py-4 px-4 rounded-lg transition-colors text-center font-semibold min-h-[52px] flex items-center justify-center mt-2"
                 onClick={() => handleNavClick('contact_button_mobile')}
               >
                 Book Now

@@ -8,6 +8,7 @@ import AboutSection from '@/components/AboutSection';
 import CustomerTrust from '@/components/CustomerTrust';
 import LocationSection from '@/components/LocationSection';
 import BlogPreviewSection from '@/components/BlogPreviewSection';
+import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import SmartLeadCapture from '@/components/conversion/SmartLeadCapture';
@@ -15,6 +16,7 @@ import SEOContentManager from '@/components/seo/SEOContentManager';
 import DynamicContentInjector from '@/components/conversion/DynamicContentInjector';
 import SocialProofSystem from '@/components/conversion/SocialProofSystem';
 import PerformanceOptimizer from '@/components/performance/PerformanceOptimizer';
+import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
@@ -74,6 +76,7 @@ const Index = () => {
   return (
     <>
       <PerformanceOptimizer />
+      <LocalBusinessSchema />
       <SEOContentManager
         pageType="home"
         canonicalUrl="https://xeradetailing.in"
@@ -91,13 +94,18 @@ const Index = () => {
         <link rel="canonical" href="https://xeradetailing.in" />
         
         {/* Enhanced meta keywords for aggressive SEO */}
-        <meta name="keywords" content="ceramic coating kerala, car detailing ottapalam, auto detailing palakkad, ceramic coating shoranur, car wash kerala, paint protection kerala, professional car detailing, ceramic coating near me, car care kerala monsoon, auto detailing near me" />
+        <meta name="keywords" content="ceramic coating kerala, car detailing ottapalam, auto detailing palakkad, ceramic coating shoranur, car wash kerala, paint protection kerala, professional car detailing, ceramic coating near me, car care kerala monsoon, auto detailing near me, കാർ വാഷ് ഒറ്റപ്പാലം, സെറാമിക് കോട്ടിംഗ് കേരള" />
         
         {/* Additional SEO enhancements */}
         <meta name="author" content="XERA Car Wash & Auto Detailing" />
         <meta name="publisher" content="XERA Car Wash & Auto Detailing" />
+        <meta name="geo.region" content="IN-KL" />
+        <meta name="geo.placename" content="Ottapalam, Palakkad" />
+        <meta name="geo.position" content="10.7739;76.3771" />
+        <meta name="ICBM" content="10.7739, 76.3771" />
         <link rel="alternate" hrefLang="en" href="https://xeradetailing.in" />
-        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml" />
+        <link rel="alternate" hrefLang="x-default" href="https://xeradetailing.in" />
       </Helmet>
       
       <div className="min-h-screen flex flex-col">
@@ -117,6 +125,7 @@ const Index = () => {
           
           <CustomerTrust />
           <LocationSection />
+          <FAQSection />
           <BlogPreviewSection />
         </main>
         <Footer />

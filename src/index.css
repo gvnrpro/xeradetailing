@@ -72,12 +72,21 @@
     background-attachment: fixed;
   }
   
-  .mobile-tap-list a {
-    @apply min-h-[44px] flex items-center;
+  .mobile-tap-list a,
+  .mobile-tap-list button {
+    @apply min-h-[52px] flex items-center;
   }
   
   .tap-highlight {
-    -webkit-tap-highlight-color: rgba(239, 68, 68, 0.3);
+    -webkit-tap-highlight-color: rgba(230, 43, 30, 0.3);
+    touch-action: manipulation;
+  }
+  
+  /* Touch feedback */
+  button:active,
+  a:active {
+    opacity: 0.7;
+    transform: scale(0.98);
   }
   
   .safe-area-bottom {
