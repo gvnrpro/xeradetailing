@@ -17,6 +17,8 @@ import DynamicContentInjector from '@/components/conversion/DynamicContentInject
 import SocialProofSystem from '@/components/conversion/SocialProofSystem';
 import PerformanceOptimizer from '@/components/performance/PerformanceOptimizer';
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
+import EnhancedReviewWidget from '@/components/gmb/EnhancedReviewWidget';
+import ReviewSchema from '@/components/gmb/ReviewSchema';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
@@ -77,6 +79,7 @@ const Index = () => {
     <>
       <PerformanceOptimizer />
       <LocalBusinessSchema />
+      <ReviewSchema />
       <SEOContentManager
         pageType="home"
         canonicalUrl="https://xeradetailing.in"
@@ -124,6 +127,10 @@ const Index = () => {
           <SocialProofSystem variant="testimonials" className="py-12" />
           
           <CustomerTrust />
+          
+          {/* Enhanced Google Reviews Widget */}
+          <EnhancedReviewWidget />
+          
           <LocationSection />
           <FAQSection />
           <BlogPreviewSection />

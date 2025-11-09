@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LocationSection from '@/components/LocationSection';
+import ReviewQRCode from '@/components/gmb/ReviewQRCode';
+import { Card } from '@/components/ui/card';
 
 const Contact = () => {
   // Update document title for SEO
@@ -43,6 +45,21 @@ const Contact = () => {
           </div>
         </div>
         <LocationSection />
+        
+        {/* Review Collection Section */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Love Our Service?</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Help us serve you better by sharing your experience on Google. Get ₹100 off your next service!
+              </p>
+            </div>
+            <div className="max-w-md mx-auto">
+              <ReviewQRCode />
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
