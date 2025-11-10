@@ -21,6 +21,7 @@ import Contact from '@/pages/Contact';
 import NotFound from '@/pages/NotFound';
 import FAQ from '@/pages/FAQ';
 import Pricing from '@/pages/Pricing';
+import CeramicCoatingOttapalamMl from '@/pages/malayalam/CeramicCoatingOttapalam';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ComponentQueueProvider } from '@/components/mobile/ComponentQueueProvider';
@@ -69,6 +70,7 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/ml/ceramic-coating-ottapalam" element={<CeramicCoatingOttapalamMl />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 

@@ -1,87 +1,133 @@
 // Malayalam translations for Kerala-specific SEO
 export const translations = {
   en: {
-    // Hero Section
-    hero_title: "Premium Car Detailing & Ceramic Coating",
-    hero_subtitle: "Ottapalam's Trusted Auto Care Experts",
-    hero_cta: "Book Now",
-    hero_cta_secondary: "View Services",
-
-    // Services
-    services_title: "Our Services",
-    ceramic_coating: "Ceramic Coating",
-    ceramic_coating_desc: "9H protection for your car's paint",
-    interior_detailing: "Interior Detailing",
-    interior_detailing_desc: "Complete interior cleaning and restoration",
-    express_wash: "Express Wash",
-    express_wash_desc: "Quick and thorough exterior wash",
-    paint_correction: "Paint Correction",
-    paint_correction_desc: "Remove scratches and swirl marks",
-
-    // Location
-    location_title: "Visit Us or Book from Nearby",
-    contact_info: "Contact Information",
-    our_address: "Our Address",
-    working_hours: "Working Hours",
-    phone: "Phone",
-    service_areas: "We Service These Areas:",
-    connect_with_us: "Connect With Us:",
-    book_appointment: "Book An Appointment",
-
-    // Trust Signals
-    google_rating: "Google Rating",
-    satisfied_customers: "Satisfied Customers",
-    years_experience: "Years Experience",
-    certified_professionals: "Certified Professionals",
-
-    // Common
-    learn_more: "Learn More",
-    view_gallery: "View Gallery",
-    get_quote: "Get Quote",
-    call_now: "Call Now",
-    whatsapp: "WhatsApp",
+    common: {
+      bookNow: 'Book Now',
+      learnMore: 'Learn More',
+      contactUs: 'Contact Us',
+      callNow: 'Call Now',
+      viewServices: 'View Services',
+      getQuote: 'Get Free Quote',
+    },
+    home: {
+      hero: {
+        title: "Professional Car Detailing & Ceramic Coating in Kerala",
+        subtitle: "Transform your vehicle with XERA's premium auto detailing services"
+      }
+    },
+    services: {
+      ceramicCoating: 'Ceramic Coating',
+      carWash: 'Car Wash',
+      interiorCleaning: 'Interior Cleaning',
+      paintCorrection: 'Paint Correction',
+      detailing: 'Auto Detailing',
+      engineCleaning: 'Engine Bay Cleaning',
+      headlightRestoration: 'Headlight Restoration',
+    }
   },
   ml: {
-    // Hero Section
-    hero_title: "പ്രീമിയം കാർ ഡീറ്റെയിലിംഗ് & സെറാമിക് കോട്ടിംഗ്",
-    hero_subtitle: "ഒറ്റപ്പാലത്തെ വിശ്വസ്ത ഓട്ടോ കെയർ വിദഗ്ധർ",
-    hero_cta: "ബുക്ക് ചെയ്യുക",
-    hero_cta_secondary: "സേവനങ്ങൾ കാണുക",
-
-    // Services
-    services_title: "ഞങ്ങളുടെ സേവനങ്ങൾ",
-    ceramic_coating: "സെറാമിക് കോട്ടിംഗ്",
-    ceramic_coating_desc: "നിങ്ങളുടെ കാറിന്റെ പെയിന്റിന് 9H സംരക്ഷണം",
-    interior_detailing: "ഇന്റീരിയർ ഡീറ്റെയിലിംഗ്",
-    interior_detailing_desc: "സമ്പൂർണ്ണ ഇന്റീരിയർ ക്ലീനിംഗും പുനരുദ്ധാരണവും",
-    express_wash: "എക്സ്പ്രസ് വാഷ്",
-    express_wash_desc: "വേഗത്തിലും സമഗ്രമായും എക്സ്റ്റീരിയർ വാഷ്",
-    paint_correction: "പെയിന്റ് കറക്ഷൻ",
-    paint_correction_desc: "പോറലുകളും സ്വിർൾ മാർക്കുകളും നീക്കം ചെയ്യുക",
-
-    // Location
-    location_title: "ഞങ്ങളെ സന്ദർശിക്കുക അല്ലെങ്കിൽ അടുത്തുള്ളിടത്ത് നിന്ന് ബുക്ക് ചെയ്യുക",
-    contact_info: "ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ",
-    our_address: "ഞങ്ങളുടെ വിലാസം",
-    working_hours: "പ്രവൃത്തി സമയം",
-    phone: "ഫോൺ",
-    service_areas: "ഞങ്ങൾ സേവനം നൽകുന്ന പ്രദേശങ്ങൾ:",
-    connect_with_us: "ഞങ്ങളുമായി ബന്ധപ്പെടുക:",
-    book_appointment: "അപ്പോയിന്റ്‌മെന്റ് ബുക്ക് ചെയ്യുക",
-
-    // Trust Signals
-    google_rating: "ഗൂഗിൾ റേറ്റിംഗ്",
-    satisfied_customers: "സംതൃപ്തരായ ഉപഭോക്താക്കൾ",
-    years_experience: "വർഷങ്ങളുടെ പരിചയം",
-    certified_professionals: "സർട്ടിഫൈഡ് പ്രൊഫഷണലുകൾ",
-
-    // Common
-    learn_more: "കൂടുതൽ അറിയുക",
-    view_gallery: "ഗാലറി കാണുക",
-    get_quote: "ക്വോട്ട് നേടുക",
-    call_now: "ഇപ്പോൾ വിളിക്കുക",
-    whatsapp: "വാട്സ്ആപ്പ്",
-  }
+    common: {
+      bookNow: 'ബുക്ക് ചെയ്യുക',
+      learnMore: 'കൂടുതൽ അറിയുക',
+      contactUs: 'ബന്ധപ്പെടുക',
+      callNow: 'വിളിക്കുക',
+      viewServices: 'സേവനങ്ങൾ കാണുക',
+      getQuote: 'സൗജന്യ ക്വോട്ട് നേടുക',
+    },
+    home: {
+      hero: {
+        title: "കേരളത്തിലെ മികച്ച കാർ ഡീറ്റെയിലിംഗ് & സെറാമിക് കോട്ടിംഗ് സേവനം",
+        subtitle: "XERA യുടെ പ്രീമിയം ഓട്ടോ ഡീറ്റെയിലിംഗ് സേവനങ്ങളിലൂടെ നിങ്ങളുടെ വാഹനത്തെ പരിവർത്തനം ചെയ്യുക"
+      }
+    },
+    services: {
+      ceramicCoating: 'സെറാമിക് കോട്ടിംഗ്',
+      carWash: 'കാർ വാഷ്',
+      interiorCleaning: 'ഇന്റീരിയർ ക്ലീനിംഗ്',
+      paintCorrection: 'പെയിന്റ് കറക്ഷൻ',
+      detailing: 'ഓട്ടോ ഡീറ്റെയിലിംഗ്',
+      engineCleaning: 'എഞ്ചിൻ ബേ ക്ലീനിംഗ്',
+      headlightRestoration: 'ഹെഡ്ലൈറ്റ് റെസ്റ്ററേഷൻ',
+    },
+    pages: {
+      ceramicCoatingOttapalam: {
+        title: 'ഒറ്റപ്പാലത്തിലെ മികച്ച സെറാമിക് കോട്ടിംഗ് സേവനം',
+        subtitle: '9H പ്രീമിയം സെറാമിക് കോട്ടിംഗ് | 5 വർഷം വാറന്റി | മൺസൂൺ സംരക്ഷണം',
+        description: 'കേരളത്തിലെ കാലാവസ്ഥയ്ക്ക് അനുയോജ്യമായ XERA യുടെ പ്രൊഫഷണൽ സെറാമിക് കോട്ടിംഗ് സേവനം. NSS കോളേജിന് എതിർവശം, പാലപ്പുറം, ഒറ്റപ്പാലം.',
+        whyChoose: 'എന്തുകൊണ്ട് XERA തിരഞ്ഞെടുക്കണം?',
+        benefits: {
+          uvProtection: {
+            title: 'UV സംരക്ഷണം',
+            description: 'തീവ്രമായ സൂര്യപ്രകാശത്തിൽ നിന്ന് പെയിന്റ് സംരക്ഷിക്കുന്നു'
+          },
+          monsoonProtection: {
+            title: 'മൺസൂൺ സംരക്ഷണം',
+            description: 'മഴവെള്ളവും ഈർപ്പവും പൂർണ്ണമായി തടയുന്നു'
+          },
+          longLasting: {
+            title: 'ദീർഘകാല സംരക്ഷണം',
+            description: '3-5 വർഷം നിലനിൽക്കുന്ന ഗ്ലോസി ഫിനിഷ്'
+          }
+        }
+      },
+      carWashPalakkad: {
+        title: 'പാലക്കാട്ടിലെ മികച്ച കാർ വാഷ് സേവനം',
+        subtitle: 'എക്സ്പ്രസ് വാഷ് മുതൽ പ്രീമിയം ഡീറ്റെയിലിംഗ് വരെ',
+        description: 'പാലക്കാട് ജില്ലയിലെ എല്ലാ പ്രദേശങ്ങളിലും കാർ വാഷ് & ഡീറ്റെയിലിംഗ് സേവനം. Pickup & Drop സൗകര്യം ലഭ്യമാണ്.'
+      },
+      interiorCleaningShoranur: {
+        title: 'ഷൊർണൂരിലെ മികച്ച ഇന്റീരിയർ ക്ലീനിംഗ് സേവനം',
+        subtitle: 'പൂർണ്ണമായ ഇന്റീരിയർ ഡീറ്റെയിലിംഗ് & ക്ലീനിംഗ്',
+        description: 'സീറ്റ് ക്ലീനിംഗ്, ഡാഷ്ബോർഡ് പോളിഷിംഗ്, ഓഡർ റിമൂവൽ - എല്ലാം ഷൊർണൂർ പ്രദേശത്തിനായി.'
+      },
+      monsoonCarCare: {
+        title: 'കേരളത്തിലെ മൺസൂൺ കാർ കെയർ ഗൈഡ്',
+        subtitle: 'മഴക്കാലത്ത് നിങ്ങളുടെ കാർ സംരക്ഷിക്കാൻ സമ്പൂർണ്ണ ഗൈഡ്',
+        description: 'കേരള മൺസൂണിൽ വാഹനത്തിന്റെ പെയിന്റും ഇന്റീരിയറും സംരക്ഷിക്കാനുള്ള വിദഗ്ദ്ധ നുറുങ്ങുകളും സേവനങ്ങളും.'
+      },
+      pricing: {
+        title: 'സെറാമിക് കോട്ടിംഗ് വിലനിർണ്ണയം',
+        subtitle: 'സുതാര്യമായ വിലനിർണ്ണയം | മറഞ്ഞിരിക്കുന്ന ചാർജുകളില്ല',
+        description: 'കേരളത്തിലെ എല്ലാ തരം വാഹനങ്ങൾക്കും സെറാമിക് കോട്ടിംഗ് പാക്കേജുകളും വിലനിർണ്ണയവും.'
+      },
+      about: {
+        title: 'XERA യെക്കുറിച്ച്',
+        subtitle: 'കേരളത്തിലെ പ്രീമിയം ഓട്ടോ ഡീറ്റെയിലിംഗ് സ്റ്റുഡിയോ',
+        description: 'ഒറ്റപ്പാലം ആസ്ഥാനമായി പ്രവർത്തിക്കുന്ന XERA കാർ വാഷ് & ഓട്ടോ ഡീറ്റെയിലിംഗ് കേരളത്തിലെ മികച്ച കാർ കെയർ സേവനങ്ങൾ നൽകുന്നു.'
+      },
+      servicesPage: {
+        title: 'ഞങ്ങളുടെ സേവനങ്ങൾ',
+        subtitle: 'സമ്പൂർണ്ണ കാർ കെയർ സൊല്യൂഷനുകൾ',
+        description: 'സെറാമിക് കോട്ടിംഗ് മുതൽ എഞ്ചിൻ ക്ലീനിംഗ് വരെയുള്ള എല്ലാ കാർ ഡീറ്റെയിലിംഗ് സേവനങ്ങളും.'
+      },
+      contact: {
+        title: 'ബന്ധപ്പെടുക',
+        subtitle: 'ഒരു അപ്പോയിന്റ്മെന്റ് ബുക്ക് ചെയ്യുക അല്ലെങ്കിൽ ഞങ്ങളുമായി ബന്ധപ്പെടുക',
+        description: 'ഞങ്ങളെ ഫോൺ, WhatsApp അല്ലെങ്കിൽ ഞങ്ങളുടെ സ്റ്റുഡിയോയിൽ സന്ദർശിച്ച് ബന്ധപ്പെടുക.',
+        address: 'വിലാസം',
+        phone: 'ഫോൺ',
+        workingHours: 'പ്രവൃത്തി സമയം',
+        bookingForm: 'ബുക്കിംഗ് ഫോം'
+      }
+    },
+    form: {
+      name: 'പേര്',
+      phone: 'ഫോൺ നമ്പർ',
+      email: 'ഇമെയിൽ',
+      vehicle: 'വാഹന തരം',
+      service: 'സേവനം',
+      message: 'സന്ദേശം',
+      submit: 'സമർപ്പിക്കുക',
+      selectVehicle: 'വാഹനം തിരഞ്ഞെടുക്കുക',
+      selectService: 'സേവനം തിരഞ്ഞെടുക്കുക'
+    },
+    vehicles: {
+      hatchback: 'Hatchback',
+      sedan: 'Sedan',
+      suv: 'SUV',
+      luxury: 'Luxury Car'
+    }
+  },
 };
 
 export type Language = 'en' | 'ml';
