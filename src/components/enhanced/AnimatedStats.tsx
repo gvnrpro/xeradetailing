@@ -93,7 +93,7 @@ const AnimatedStats = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-xera-darkgray" ref={ref}>
+    <section className="py-20 bg-gradient-to-b from-black to-xera-darkgray relative overflow-hidden" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"

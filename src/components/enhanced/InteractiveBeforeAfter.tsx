@@ -92,7 +92,7 @@ const InteractiveBeforeAfter = () => {
         >
           <Card className="overflow-hidden bg-gradient-to-br from-xera-darkgray to-black border-2 border-xera-red/30">
             <CardContent className="p-0">
-              <div className="relative h-96 md:h-[500px] overflow-hidden">
+              <div className="relative h-96 md:h-[500px] overflow-hidden bg-xera-darkgray">
                 {/* Before Image */}
                 <div className="absolute inset-0">
                   <img 
@@ -100,6 +100,10 @@ const InteractiveBeforeAfter = () => {
                     alt={`${services[activeService].title} before auto detailing service at XERA Ottapalam, Kerala`}
                     className="w-full h-full object-cover"
                     loading="eager"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png';
+                    }}
                   />
                   <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     BEFORE
@@ -116,6 +120,10 @@ const InteractiveBeforeAfter = () => {
                     alt={`${services[activeService].title} after professional auto detailing at XERA Ottapalam, Kerala - premium results`}
                     className="w-full h-full object-cover"
                     loading="eager"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png';
+                    }}
                   />
                   <div className="absolute top-4 right-4 bg-xera-red text-white px-3 py-1 rounded-full text-sm font-semibold">
                     AFTER
