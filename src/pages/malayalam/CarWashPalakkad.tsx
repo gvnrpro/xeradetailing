@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import VoiceSearchFAQ from '@/components/seo/VoiceSearchFAQ';
-import MalayalamBookingForm from '@/components/malayalam/MalayalamBookingForm';
+import { VoiceSearchFAQ } from '@/components/seo/VoiceSearchFAQ';
+import { MalayalamBookingForm } from '@/components/malayalam/MalayalamBookingForm';
 import { setMalayalamPageMetadata, generateMalayalamLocalBusinessSchema, addMalayalamSchemaToDocument } from '@/utils/malayalamSEO';
 import { Button } from '@/components/ui/button';
 import { Droplets, Sparkles, Shield, Clock } from 'lucide-react';
@@ -14,10 +14,10 @@ const CarWashPalakkad = () => {
     setMalayalamPageMetadata({
       title: 'കാർ വാഷ് പാലക്കാട് | Best Car Wash Palakkad | XERA',
       description: 'പാലക്കാട്ടിലെ മികച്ച കാർ വാഷ് സേവനം. Express wash മുതൽ premium detailing വരെ. Professional car cleaning in Palakkad district.',
-      keywords: 'കാർ വാഷ് പാലക്കാട്, car wash palakkad, car cleaning palakkad, express car wash palakkad, best car wash near palakkad, കാർ ക്ലീനിംഗ്',
+      keywords: ['കാർ വാഷ് പാലക്കാട്', 'car wash palakkad', 'car cleaning palakkad', 'express car wash palakkad', 'best car wash near palakkad', 'കാർ ക്ലീനിംഗ്'],
       canonicalUrl: 'https://xeradetailing.in/ml/car-wash-palakkad',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-      enHreflang: 'https://xeradetailing.in/car-wash-pattambi'
+      hreflangEn: 'https://xeradetailing.in/car-wash-pattambi'
     });
 
     const schema = generateMalayalamLocalBusinessSchema(
@@ -51,8 +51,8 @@ const CarWashPalakkad = () => {
         <title>കാർ വാഷ് പാലക്കാട് | Best Car Wash Palakkad | XERA</title>
         <meta name="description" content="പാലക്കാട്ടിലെ മികച്ച കാർ വാഷ് സേവനം. Express wash മുതൽ premium detailing വരെ. Professional car cleaning in Palakkad." />
         <link rel="canonical" href="https://xeradetailing.in/ml/car-wash-palakkad" />
-        <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/car-wash-palakkad" />
-        <link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-wash-pattambi" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml/car-wash-palakkad" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in/car-wash-pattambi" />
       </Helmet>
 
       <Navbar />

@@ -12,10 +12,10 @@ const AboutMalayalam = () => {
     setMalayalamPageMetadata({
       title: 'ഞങ്ങളെക്കുറിച്ച് | About XERA | ഒറ്റപ്പാലം Car Detailing',
       description: 'XERA Car Wash & Auto Detailing - ഒറ്റപ്പാലത്തെ പ്രീമിയം കാർ ഡീറ്റെയിലിംഗ് സ്റ്റുഡിയോ. Professional ceramic coating, car wash, interior detailing. Kerala\'s trusted car care brand.',
-      keywords: 'XERA ottapalam, ഒറ്റപ്പാലം car wash, xera detailing, about xera, car detailing ottapalam',
+      keywords: ['XERA ottapalam', 'ഒറ്റപ്പാലം car wash', 'xera detailing', 'about xera', 'car detailing ottapalam'],
       canonicalUrl: 'https://xeradetailing.in/ml/about',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-      enHreflang: 'https://xeradetailing.in/about'
+      hreflangEn: 'https://xeradetailing.in/about'
     });
 
     const schema = generateMalayalamLocalBusinessSchema(
@@ -48,8 +48,8 @@ const AboutMalayalam = () => {
         <title>ഞങ്ങളെക്കുറിച്ച് | About XERA | ഒറ്റപ്പാലം Car Detailing</title>
         <meta name="description" content="XERA Car Wash & Auto Detailing - ഒറ്റപ്പാലത്തെ പ്രീമിയം കാർ ഡീറ്റെയിലിംഗ് സ്റ്റുഡിയോ." />
         <link rel="canonical" href="https://xeradetailing.in/ml/about" />
-        <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/about" />
-        <link rel="alternate" hreflang="en" href="https://xeradetailing.in/about" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml/about" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in/about" />
       </Helmet>
 
       <Navbar />

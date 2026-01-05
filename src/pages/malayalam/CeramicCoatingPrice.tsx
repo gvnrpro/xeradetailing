@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import VoiceSearchFAQ from '@/components/seo/VoiceSearchFAQ';
+import { VoiceSearchFAQ } from '@/components/seo/VoiceSearchFAQ';
 import { setMalayalamPageMetadata, generateMalayalamLocalBusinessSchema, addMalayalamSchemaToDocument } from '@/utils/malayalamSEO';
 import { Button } from '@/components/ui/button';
 import { CheckCheck, Car, Truck, Gem } from 'lucide-react';
@@ -13,7 +13,7 @@ const CeramicCoatingPrice = () => {
     setMalayalamPageMetadata({
       title: 'സെറാമിക് കോട്ടിംഗ് വില കേരളം | Ceramic Coating Price Kerala | XERA',
       description: 'കേരളത്തിൽ ceramic coating ന് എത്ര രൂപ വരും? Hatchback, Sedan, SUV, Luxury car pricing. Transparent pricing with 5+ year warranty.',
-      keywords: 'സെറാമിക് കോട്ടിംഗ് വില, ceramic coating price kerala, ceramic coating cost ottapalam, 9h ceramic coating price, ceramic coating packages kerala',
+      keywords: ['സെറാമിക് കോട്ടിംഗ് വില', 'ceramic coating price kerala', 'ceramic coating cost ottapalam', '9h ceramic coating price', 'ceramic coating packages kerala'],
       canonicalUrl: 'https://xeradetailing.in/ml/ceramic-coating-price',
       ogImage: 'https://xeradetailing.in/lovable-uploads/49381c24-91d9-49f2-a106-6853ba6c134d.png'
     });

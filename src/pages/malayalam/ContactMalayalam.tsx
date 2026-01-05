@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import MalayalamBookingForm from '@/components/malayalam/MalayalamBookingForm';
+import { MalayalamBookingForm } from '@/components/malayalam/MalayalamBookingForm';
 import { setMalayalamPageMetadata, generateMalayalamLocalBusinessSchema, addMalayalamSchemaToDocument } from '@/utils/malayalamSEO';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
@@ -13,10 +13,10 @@ const ContactMalayalam = () => {
     setMalayalamPageMetadata({
       title: 'ബന്ധപ്പെടുക | Contact XERA | Ottapalam Car Detailing',
       description: 'XERA Car Wash & Auto Detailing - ബന്ധപ്പെടുക. Phone, WhatsApp, address, working hours. Book your car service today in Ottapalam.',
-      keywords: 'xera contact, xera phone number, xera ottapalam address, car detailing booking, ബന്ധപ്പെടുക',
+      keywords: ['xera contact', 'xera phone number', 'xera ottapalam address', 'car detailing booking', 'ബന്ധപ്പെടുക'],
       canonicalUrl: 'https://xeradetailing.in/ml/contact',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-      enHreflang: 'https://xeradetailing.in/contact'
+      hreflangEn: 'https://xeradetailing.in/contact'
     });
 
     const schema = generateMalayalamLocalBusinessSchema(
@@ -41,8 +41,8 @@ const ContactMalayalam = () => {
         <title>ബന്ധപ്പെടുക | Contact XERA | Ottapalam Car Detailing</title>
         <meta name="description" content="XERA Car Wash & Auto Detailing - ബന്ധപ്പെടുക. Phone, WhatsApp, address, working hours." />
         <link rel="canonical" href="https://xeradetailing.in/ml/contact" />
-        <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/contact" />
-        <link rel="alternate" hreflang="en" href="https://xeradetailing.in/contact" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml/contact" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in/contact" />
       </Helmet>
 
       <Navbar />
