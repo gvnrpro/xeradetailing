@@ -13,10 +13,10 @@ const ServicesMalayalam = () => {
     setMalayalamPageMetadata({
       title: 'സേവനങ്ങൾ | XERA Services | Car Detailing Ottapalam',
       description: 'XERA യുടെ എല്ലാ car care services - Ceramic coating, car wash, interior detailing, paint correction, headlight restoration, engine bay cleaning. Complete list.',
-      keywords: 'xera services, car detailing services ottapalam, ceramic coating, car wash, interior cleaning, സേവനങ്ങൾ',
+      keywords: ['xera services', 'car detailing services ottapalam', 'ceramic coating', 'car wash', 'interior cleaning', 'സേവനങ്ങൾ'],
       canonicalUrl: 'https://xeradetailing.in/ml/services',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-      enHreflang: 'https://xeradetailing.in/services'
+      hreflangEn: 'https://xeradetailing.in/services'
     });
 
     const schema = generateMalayalamLocalBusinessSchema(
@@ -102,8 +102,8 @@ const ServicesMalayalam = () => {
         <title>സേവനങ്ങൾ | XERA Services | Car Detailing Ottapalam</title>
         <meta name="description" content="XERA യുടെ എല്ലാ car care services - Ceramic coating, car wash, interior detailing, paint correction." />
         <link rel="canonical" href="https://xeradetailing.in/ml/services" />
-        <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/services" />
-        <link rel="alternate" hreflang="en" href="https://xeradetailing.in/services" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml/services" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in/services" />
       </Helmet>
 
       <Navbar />

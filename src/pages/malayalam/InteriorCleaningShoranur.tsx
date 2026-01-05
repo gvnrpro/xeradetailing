@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import VoiceSearchFAQ from '@/components/seo/VoiceSearchFAQ';
-import MalayalamBookingForm from '@/components/malayalam/MalayalamBookingForm';
+import { VoiceSearchFAQ } from '@/components/seo/VoiceSearchFAQ';
+import { MalayalamBookingForm } from '@/components/malayalam/MalayalamBookingForm';
 import { setMalayalamPageMetadata, generateMalayalamLocalBusinessSchema, addMalayalamSchemaToDocument } from '@/utils/malayalamSEO';
 import { Button } from '@/components/ui/button';
 import { Sofa, Wind, Sparkles, Bug } from 'lucide-react';
@@ -14,10 +14,10 @@ const InteriorCleaningShoranur = () => {
     setMalayalamPageMetadata({
       title: 'ഇന്റീരിയർ ക്ലീനിംഗ് ഷൊർണൂർ | Interior Cleaning Shoranur | XERA',
       description: 'ഷൊർണൂരിലെ മികച്ച കാർ ഇന്റീരിയർ ക്ലീനിംഗ് സേവനം. Seat cleaning, dashboard detailing, odor removal. Professional interior detailing near Shoranur Railway Station.',
-      keywords: 'ഇന്റീരിയർ ക്ലീനിംഗ് ഷൊർണൂർ, interior cleaning shoranur, seat cleaning shoranur, car interior detailing shoranur, dashboard cleaning',
+      keywords: ['ഇന്റീരിയർ ക്ലീനിംഗ് ഷൊർണൂർ', 'interior cleaning shoranur', 'seat cleaning shoranur', 'car interior detailing shoranur', 'dashboard cleaning'],
       canonicalUrl: 'https://xeradetailing.in/ml/interior-cleaning-shoranur',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png',
-      enHreflang: 'https://xeradetailing.in/car-detailing-shoranur'
+      hreflangEn: 'https://xeradetailing.in/car-detailing-shoranur'
     });
 
     const schema = generateMalayalamLocalBusinessSchema(
@@ -49,8 +49,8 @@ const InteriorCleaningShoranur = () => {
         <title>ഇന്റീരിയർ ക്ലീനിംഗ് ഷൊർണൂർ | Interior Cleaning Shoranur | XERA</title>
         <meta name="description" content="ഷൊർണൂരിലെ മികച്ച കാർ ഇന്റീരിയർ ക്ലീനിംഗ് സേവനം. Seat cleaning, dashboard detailing, odor removal." />
         <link rel="canonical" href="https://xeradetailing.in/ml/interior-cleaning-shoranur" />
-        <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/interior-cleaning-shoranur" />
-        <link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-detailing-shoranur" />
+        <link rel="alternate" hrefLang="ml" href="https://xeradetailing.in/ml/interior-cleaning-shoranur" />
+        <link rel="alternate" hrefLang="en" href="https://xeradetailing.in/car-detailing-shoranur" />
       </Helmet>
 
       <Navbar />

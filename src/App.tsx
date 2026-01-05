@@ -8,6 +8,12 @@ import ExpressWash from '@/pages/services/ExpressWash';
 import EngineBayCleaning from '@/pages/services/EngineBayCleaning';
 import CeramicCoatingPalakkad from '@/pages/locations/CeramicCoatingPalakkad';
 import CeramicCoatingShoranur from '@/pages/locations/CeramicCoatingShoranur';
+import CarDetailingShoranur from '@/pages/locations/CarDetailingShoranur';
+import CarWashPattambi from '@/pages/locations/CarWashPattambi';
+import PaintProtectionPerinthalmanna from '@/pages/locations/PaintProtectionPerinthalmanna';
+import InteriorCleaningMannarkkad from '@/pages/locations/InteriorCleaningMannarkkad';
+import CeramicCoatingThrissur from '@/pages/locations/CeramicCoatingThrissur';
+import CarDetailingCherpulassery from '@/pages/locations/CarDetailingCherpulassery';
 import CarCareTips from '@/pages/CarCareTips';
 import CeramicCoatingKeralaClimate from '@/pages/car-care-tips/CeramicCoatingKeralaClimate';
 import CarWashKeralaMonsoon from '@/pages/car-care-tips/CarWashKeralaMonsoon';
@@ -22,6 +28,13 @@ import NotFound from '@/pages/NotFound';
 import FAQ from '@/pages/FAQ';
 import Pricing from '@/pages/Pricing';
 import CeramicCoatingOttapalamMl from '@/pages/malayalam/CeramicCoatingOttapalam';
+import CarWashPalakkadMl from '@/pages/malayalam/CarWashPalakkad';
+import InteriorCleaningShoranurMl from '@/pages/malayalam/InteriorCleaningShoranur';
+import MonsoonCarCareKeralaMl from '@/pages/malayalam/MonsoonCarCareKerala';
+import CeramicCoatingPriceMl from '@/pages/malayalam/CeramicCoatingPrice';
+import AboutMalayalam from '@/pages/malayalam/AboutMalayalam';
+import ServicesMalayalam from '@/pages/malayalam/ServicesMalayalam';
+import ContactMalayalam from '@/pages/malayalam/ContactMalayalam';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ComponentQueueProvider } from '@/components/mobile/ComponentQueueProvider';
@@ -70,7 +83,25 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/pricing" element={<Pricing />} />
+                  
+                  {/* New Location Pages */}
+                  <Route path="/car-detailing-shoranur" element={<CarDetailingShoranur />} />
+                  <Route path="/car-wash-pattambi" element={<CarWashPattambi />} />
+                  <Route path="/paint-protection-perinthalmanna" element={<PaintProtectionPerinthalmanna />} />
+                  <Route path="/interior-cleaning-mannarkkad" element={<InteriorCleaningMannarkkad />} />
+                  <Route path="/ceramic-coating-thrissur" element={<CeramicCoatingThrissur />} />
+                  <Route path="/car-detailing-cherpulassery" element={<CarDetailingCherpulassery />} />
+                  
+                  {/* Malayalam Pages */}
                   <Route path="/ml/ceramic-coating-ottapalam" element={<CeramicCoatingOttapalamMl />} />
+                  <Route path="/ml/car-wash-palakkad" element={<CarWashPalakkadMl />} />
+                  <Route path="/ml/interior-cleaning-shoranur" element={<InteriorCleaningShoranurMl />} />
+                  <Route path="/ml/monsoon-car-care-kerala" element={<MonsoonCarCareKeralaMl />} />
+                  <Route path="/ml/ceramic-coating-price" element={<CeramicCoatingPriceMl />} />
+                  <Route path="/ml/about" element={<AboutMalayalam />} />
+                  <Route path="/ml/services" element={<ServicesMalayalam />} />
+                  <Route path="/ml/contact" element={<ContactMalayalam />} />
+                  
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 

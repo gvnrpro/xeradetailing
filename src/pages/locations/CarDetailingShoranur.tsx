@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import BreadcrumbNav from '@/components/ui/breadcrumb-nav';
 import EnhancedCTA from '@/components/enhanced/EnhancedCTA';
-import VoiceSearchFAQ from '@/components/seo/VoiceSearchFAQ';
+import { VoiceSearchFAQ } from '@/components/seo/VoiceSearchFAQ';
 import { setPageMetadata } from '@/utils/seoHelper';
 import { trackEvent } from '@/components/tracking/AnalyticsProvider';
 import { motion } from 'framer-motion';

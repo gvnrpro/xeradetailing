@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import VoiceSearchFAQ from '@/components/seo/VoiceSearchFAQ';
-import MalayalamBookingForm from '@/components/malayalam/MalayalamBookingForm';
+import { VoiceSearchFAQ } from '@/components/seo/VoiceSearchFAQ';
+import { MalayalamBookingForm } from '@/components/malayalam/MalayalamBookingForm';
 import { setMalayalamPageMetadata, generateMalayalamLocalBusinessSchema, addMalayalamSchemaToDocument } from '@/utils/malayalamSEO';
 import { Button } from '@/components/ui/button';
 import { CloudRain, Shield, Droplets, Bug, Car, Sparkles } from 'lucide-react';
@@ -14,7 +14,7 @@ const MonsoonCarCareKerala = () => {
     setMalayalamPageMetadata({
       title: 'മൺസൂൺ കാർ കെയർ കേരളം | Monsoon Car Care Kerala | XERA',
       description: 'കേരളത്തിലെ മഴക്കാലത്ത് നിങ്ങളുടെ കാർ എങ്ങനെ സംരക്ഷിക്കാം? Monsoon car care tips, rust protection, water damage prevention. Professional monsoon car service in Kerala.',
-      keywords: 'മൺസൂൺ കാർ കെയർ, monsoon car care kerala, മഴക്കാല കാർ പരിപാലനം, rain protection car kerala, rust protection kerala',
+      keywords: ['മൺസൂൺ കാർ കെയർ', 'monsoon car care kerala', 'മഴക്കാല കാർ പരിപാലനം', 'rain protection car kerala', 'rust protection kerala'],
       canonicalUrl: 'https://xeradetailing.in/ml/monsoon-car-care-kerala',
       ogImage: 'https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png'
     });
