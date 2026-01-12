@@ -40,14 +40,14 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
     latitude: 10.7739,
     longitude: 76.3771
   },
-  phone = "+91-96058-58483",
+  phone = "+91-7559999366",
   email = "info@xeradetailing.in",
   url = "https://xeradetailing.in",
   priceRange = "₹₹",
   openingHours = ["Mo-Su 09:00-19:00"],
   aggregateRating = {
     ratingValue: 4.9,
-    reviewCount: 120
+    reviewCount: 127
   }
 }) => {
   const localBusinessSchema = {
@@ -151,9 +151,11 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
       ]
     },
     "sameAs": [
-      "https://www.facebook.com/xeradetailing",
-      "https://www.instagram.com/xeradetailing",
-      "https://wa.me/919605858483"
+      "https://www.facebook.com/xeraautodetailing/",
+      "https://www.instagram.com/xera_auto_detailing/",
+      "https://share.google/lvFNI6D3uS5HLSRrA",
+      "https://wa.me/917559999366",
+      "https://www.justdial.com/Ottapalam/Xera-Car-Wash-Auto-Detailing"
     ],
     "logo": `${url}/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png`,
     "image": [
