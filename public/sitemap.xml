@@ -1,255 +1,683 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Homepage -->
+<!--
+  ============================================================
+  XERA Auto Detailing — XML Sitemap (Aggressive SEO Edition)
+  Generated: 2025-03-03
+  Submit to: https://search.google.com/search-console
+  robots.txt entry: Sitemap: https://xeradetailing.in/sitemap.xml
+  ============================================================
+
+  SEO STRATEGY NOTES:
+  ─────────────────────────────────────────────────────────────
+  • Priority 1.00 = homepage only (Google treats all highs equally
+    but this signals crawler entry point)
+  • Priority 0.95–0.98 = highest-value transactional service pages
+    (ceramic coating — the #1 revenue + search-volume driver)
+  • Priority 0.90–0.94 = core location landing pages (local SEO pack)
+  • Priority 0.85–0.89 = secondary services + blog/content pages
+  • Priority 0.80–0.84 = supporting informational + Malayalam pages
+  • lastmod = today's date to signal freshness to Googlebot
+  • All URLs are canonical, absolute, HTTPS, no trailing slash conflicts
+  • hreflang alternates on all ML pages signal bilingual targeting
+  • Image tags on high-value pages improve Google Image indexing
+    and help local pack rich results
+  ─────────────────────────────────────────────────────────────
+
+  NEW PAGES ADDED vs OLD SITEMAP (require content to be built):
+  • /services/paint-correction          (was missing — high volume)
+  • /services/interior-detailing        (was missing — high volume)
+  • /services/headlight-restoration     (was missing)
+  • /services/underbody-coating         (was missing)
+  • /graphene-coating-ottapalam         (emerging high-growth keyword)
+  • /ppf-coating-ottapalam              (PPF = high-intent buyer)
+  • /car-detailing-ottapalam            (primary local keyword page)
+  • /car-wash-ottapalam                 (high-volume near-me searches)
+  • /car-detailing-palakkad             (broader district targeting)
+  • /car-wash-shoranur                  (Shoranur gap in old sitemap)
+  • /bike-detailing-ottapalam           (bikes = significant Kerala market)
+  • /car-care-tips/graphene-vs-ceramic  (informational — captures research phase)
+  • /car-care-tips/ppf-vs-ceramic       (high-intent comparison keyword)
+  • /car-care-tips/how-long-ceramic-coating-lasts (FAQ target)
+  • /car-care-tips/ceramic-coating-price-guide    (price intent = high conv.)
+  • /ml/index                           (Malayalam homepage — missing before)
+  • /ml/graphene-coating-ottapalam      (Malayalam graphene — untapped)
+  • /ml/ppf-coating-ottapalam           (Malayalam PPF — untapped)
+  ─────────────────────────────────────────────────────────────
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 1 — HOMEPAGE
+       ═══════════════════════════════════════════════════════ -->
+
   <url>
     <loc>https://xeradetailing.in/</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
     <image:image>
       <image:loc>https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png</image:loc>
-      <image:title>XERA Premium Ceramic Coating Services in Ottapalam Kerala</image:title>
+      <image:title>XERA Auto Detailing — Kerala's #1 Ceramic Coating Studio in Ottapalam</image:title>
+      <image:caption>Premium ceramic coating, paint correction and car wash services in Ottapalam, Palakkad, Kerala</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
+      <image:title>XERA Ceramic Coating Before After Results Ottapalam Kerala</image:title>
     </image:image>
   </url>
-  
-  <!-- Core Pages -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 2 — CORE SITE PAGES
+       ═══════════════════════════════════════════════════════ -->
+
   <url>
     <loc>https://xeradetailing.in/services</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
-  <url>
-    <loc>https://xeradetailing.in/about</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.85</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://xeradetailing.in/contact</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/pricing</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.94</priority>
     <changefreq>weekly</changefreq>
+    <!-- Price pages get crawled more often — pricing changes affect CTR -->
   </url>
-  
+
+  <url>
+    <loc>https://xeradetailing.in/contact</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/about</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png</image:loc>
+      <image:title>XERA Auto Detailing Team Ottapalam Kerala</image:title>
+    </image:image>
+  </url>
+
   <url>
     <loc>https://xeradetailing.in/faq</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
-  <!-- Service Detail Pages -->
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 3 — SERVICE DETAIL PAGES
+       Highest commercial intent — every service needs its own URL
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- #1 Revenue driver — highest priority on the entire site after homepage -->
   <url>
     <loc>https://xeradetailing.in/services/ceramic-coating</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.98</priority>
     <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
+      <image:title>9H Ceramic Coating Service Ottapalam Kerala — XERA Auto Detailing</image:title>
+      <image:caption>Professional 9H hardness ceramic coating with 5+ year warranty in Ottapalam, Palakkad</image:caption>
+    </image:image>
   </url>
-  
+
+  <!-- NEW: Paint correction — high search volume, missing from old sitemap -->
+  <url>
+    <loc>https://xeradetailing.in/services/paint-correction</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.93</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/6554b31e-7ba5-48d8-8f31-2ac905a4f88f.png</image:loc>
+      <image:title>Paint Correction Service Ottapalam Kerala — Swirl Mark Removal XERA</image:title>
+    </image:image>
+  </url>
+
+  <!-- NEW: Interior detailing — high conversion, missing from old sitemap -->
+  <url>
+    <loc>https://xeradetailing.in/services/interior-detailing</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <url>
     <loc>https://xeradetailing.in/services/express-wash</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/services/engine-bay-cleaning</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.88</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
-  <!-- Location Pages (English) -->
+
+  <!-- NEW: Headlight restoration — steady local search volume -->
+  <url>
+    <loc>https://xeradetailing.in/services/headlight-restoration</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Underbody coating — important for Kerala roads/monsoon context -->
+  <url>
+    <loc>https://xeradetailing.in/services/underbody-coating</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Graphene coating — fast-growing competitor keyword in Kerala market -->
+  <url>
+    <loc>https://xeradetailing.in/services/graphene-coating</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.92</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/b6128b34-f51e-46bf-aafb-23fdc89086b6.png</image:loc>
+      <image:title>Graphene Coating Service Ottapalam Kerala — XERA Auto Detailing</image:title>
+    </image:image>
+  </url>
+
+  <!-- NEW: PPF — high-ticket, high-intent buyer keyword -->
+  <url>
+    <loc>https://xeradetailing.in/services/paint-protection-film</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.91</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 4 — LOCAL LANDING PAGES (ENGLISH)
+       One URL per service × location combination.
+       These are the pages that rank in Google Maps local pack.
+       Pattern: /[service]-[city]  (2 levels max — ideal for local SEO)
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- PRIMARY LOCATION: Ottapalam (home base) -->
+  <!-- NEW: Added car-detailing-ottapalam — the #1 local search term -->
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.98</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png</image:loc>
+      <image:title>Best Car Detailing Ottapalam — XERA Auto Detailing Studio</image:title>
+      <image:caption>Professional auto detailing services at XERA, Opp. NSS College, Ottapalam, Kerala 679103</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.97</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
+      <image:title>Ceramic Coating Ottapalam — 9H Protection XERA Detailing</image:title>
+    </image:image>
+  </url>
+
+  <!-- NEW: Car wash Ottapalam — very high "near me" search volume -->
+  <url>
+    <loc>https://xeradetailing.in/car-wash-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.94</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- NEW: Graphene coating Ottapalam — growing keyword, less competition -->
+  <url>
+    <loc>https://xeradetailing.in/graphene-coating-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.93</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: PPF Ottapalam — high-ticket buyer intent -->
+  <url>
+    <loc>https://xeradetailing.in/ppf-coating-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.91</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Bike detailing Ottapalam — Kerala has massive two-wheeler market -->
+  <url>
+    <loc>https://xeradetailing.in/bike-detailing-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.89</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- SECONDARY LOCATION: Palakkad (district capital — largest search volume) -->
   <url>
     <loc>https://xeradetailing.in/ceramic-coating-palakkad</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.95</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.96</priority>
+    <changefreq>weekly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
+      <image:title>Ceramic Coating Palakkad Kerala — XERA Premium Auto Detailing</image:title>
+    </image:image>
+  </url>
+
+  <!-- NEW: Car detailing Palakkad — high district-level search term -->
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-palakkad</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.94</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- SHORANUR -->
   <url>
     <loc>https://xeradetailing.in/ceramic-coating-shoranur</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.92</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/car-detailing-shoranur</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.92</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.91</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- NEW: Car wash Shoranur — gap in old sitemap -->
+  <url>
+    <loc>https://xeradetailing.in/car-wash-shoranur</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.89</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- PATTAMBI -->
   <url>
     <loc>https://xeradetailing.in/car-wash-pattambi</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- NEW: Ceramic coating Pattambi — specific service + location combo -->
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-pattambi</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.89</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- PERINTHALMANNA -->
   <url>
     <loc>https://xeradetailing.in/paint-protection-perinthalmanna</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.90</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- NEW: Car detailing Perinthalmanna — broader service + location -->
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-perinthalmanna</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- MANNARKKAD -->
   <url>
     <loc>https://xeradetailing.in/interior-cleaning-mannarkkad</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.88</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- NEW: Ceramic coating Mannarkkad -->
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-mannarkkad</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- THRISSUR (neighbouring district — high population, worth targeting) -->
   <url>
     <loc>https://xeradetailing.in/ceramic-coating-thrissur</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.88</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
+  <!-- NEW: Car detailing Thrissur -->
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-thrissur</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- CHERPULASSERY -->
   <url>
     <loc>https://xeradetailing.in/car-detailing-cherpulassery</loc>
-    <lastmod>2025-12-06</lastmod>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
-  <!-- Malayalam Pages -->
+
+  <!-- NEW: Ceramic coating Cherpulassery -->
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-cherpulassery</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.84</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Koduvayur — nearby town, low competition -->
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-koduvayur</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.83</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Kongad — on the Ottapalam–Palakkad corridor -->
+  <url>
+    <loc>https://xeradetailing.in/car-detailing-kongad</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.82</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Shornur (alt spelling used by many searchers) -->
+  <url>
+    <loc>https://xeradetailing.in/ceramic-coating-shornur</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+    <!-- Note: this is the alt spelling of Shoranur — captures both variants -->
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 5 — CAR CARE TIPS (CONTENT / INFORMATIONAL SEO)
+       Informational content builds topical authority and captures
+       the research phase of the buyer journey — often ranks faster
+       than service pages due to lower competition.
+       ═══════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-kerala-climate</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/car-wash-kerala-monsoon</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-mistakes</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Graphene vs ceramic — top comparison keyword in Kerala market -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/graphene-vs-ceramic-coating</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: PPF vs ceramic — high buyer-intent comparison page -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/ppf-vs-ceramic-coating</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: How long does ceramic coating last — very high FAQ search volume -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/how-long-does-ceramic-coating-last</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Ceramic coating price guide Kerala — transactional intent, high CTR -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-price-kerala</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Car care during Kerala monsoon — strong seasonal search spike Jun–Sep -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/car-care-kerala-monsoon</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Paint correction guide — supports the service page with topical authority -->
+  <url>
+    <loc>https://xeradetailing.in/car-care-tips/paint-correction-guide</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.84</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 6 — BLOG
+       Blog posts should be keyword-specific and kept evergreen.
+       ═══════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://xeradetailing.in/blog</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.90</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://xeradetailing.in/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png</image:loc>
+      <image:title>Ceramic Coating Ottapalam — Complete Car Protection Guide XERA</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://xeradetailing.in/blog/ceramic-coating-monsoon-protection</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Why ceramic coating is worth it in Kerala — informational, high volume -->
+  <url>
+    <loc>https://xeradetailing.in/blog/why-ceramic-coating-worth-it-kerala</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Best car detailing Ottapalam — targets review/discovery search intent -->
+  <url>
+    <loc>https://xeradetailing.in/blog/best-car-detailing-ottapalam</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Graphene coating guide — targets growing keyword cluster -->
+  <url>
+    <loc>https://xeradetailing.in/blog/graphene-coating-kerala-guide</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- NEW: Paint correction before ceramic coating — FAQ / pre-purchase intent -->
+  <url>
+    <loc>https://xeradetailing.in/blog/paint-correction-before-ceramic-coating</loc>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.84</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIER 7 — MALAYALAM PAGES (BILINGUAL LOCAL SEO)
+       Malayalam pages target the large segment of Kerala searchers
+       who search in their native language. These face near-zero
+       English-language competition and can rank very quickly.
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- NEW: Malayalam homepage — was completely missing from old sitemap -->
+  <url>
+    <loc>https://xeradetailing.in/ml</loc>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <url>
     <loc>https://xeradetailing.in/ml/ceramic-coating-ottapalam</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/ceramic-coating-ottapalam"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/services/ceramic-coating"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/ceramic-coating-ottapalam"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.93</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/car-wash-palakkad</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/car-wash-palakkad"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-wash-pattambi"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.92</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.91</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/interior-cleaning-shoranur</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/interior-cleaning-shoranur"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-detailing-shoranur"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.89</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/monsoon-car-care-kerala</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
-    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/monsoon-car-care-kerala"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-care-tips/car-care-kerala-monsoon"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.89</priority>
+    <changefreq>monthly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/ceramic-coating-price</loc>
-    <lastmod>2025-12-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/ceramic-coating-price"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-care-tips/ceramic-coating-price-kerala"/>
+    <lastmod>2025-03-03</lastmod>
     <priority>0.92</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/about</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/about"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.85</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.82</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/services</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/services"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/services"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.88</priority>
     <changefreq>weekly</changefreq>
   </url>
-  
+
   <url>
     <loc>https://xeradetailing.in/ml/contact</loc>
     <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/contact"/>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.88</priority>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
-  <!-- Car Care Tips -->
+
+  <!-- NEW: Malayalam graphene coating — untapped keyword with very low competition -->
   <url>
-    <loc>https://xeradetailing.in/car-care-tips</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.93</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-kerala-climate</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
+    <loc>https://xeradetailing.in/ml/graphene-coating-ottapalam</loc>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/graphene-coating-ottapalam"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/graphene-coating-ottapalam"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.87</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
+
+  <!-- NEW: Malayalam PPF coating — untapped keyword -->
   <url>
-    <loc>https://xeradetailing.in/car-care-tips/car-wash-kerala-monsoon</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.88</priority>
+    <loc>https://xeradetailing.in/ml/ppf-coating-ottapalam</loc>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/ppf-coating-ottapalam"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/ppf-coating-ottapalam"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.86</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
+
+  <!-- NEW: Malayalam car detailing guide — broad informational, low competition -->
   <url>
-    <loc>https://xeradetailing.in/car-care-tips/ceramic-coating-mistakes</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.85</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  
-  <!-- Blog -->
-  <url>
-    <loc>https://xeradetailing.in/blog</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.90</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://xeradetailing.in/blog/ceramic-coating-ottapalam-car-protection</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.92</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  
-  <url>
-    <loc>https://xeradetailing.in/blog/ceramic-coating-monsoon-protection</loc>
-    <lastmod>2025-12-06</lastmod>
-    <priority>0.88</priority>
+    <loc>https://xeradetailing.in/ml/car-detailing-guide-kerala</loc>
+    <xhtml:link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml/car-detailing-guide-kerala"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xeradetailing.in/car-care-tips"/>
+    <lastmod>2025-03-03</lastmod>
+    <priority>0.84</priority>
     <changefreq>monthly</changefreq>
   </url>
 
