@@ -1,97 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <meta name="description" content="Kerala's premier ceramic coating and auto detailing studio in Ottapalam. Professional paint protection, interior detailing, and 9H ceramic coating services." />
-    <meta name="keywords" content="ceramic coating ottapalam, car detailing palakkad, auto detailing kerala, paint protection" />
-    
-    <!-- Preconnect to origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#E62B1E" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="XERA Detailing" />
-    
-    <!-- iOS icons -->
-    <link rel="apple-touch-icon" href="/favicon.svg" />
-    <link rel="apple-touch-startup-image" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
-    
-    <!-- Media queries for responsive startup images on iOS -->
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px)" href="/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
-    
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    
     <title>XERA Car Wash & Auto Detailing | Ceramic Coating in Ottapalam</title>
+    <meta name="description" content="Experience the best car wash and auto detailing in Ottapalam. XERA offers expert ceramic coating, interior cleaning, and paint protection in Kerala." />
+    <meta name="author" content="XERA Car Wash & Auto Detailing" />
+    <meta name="keywords" content="ceramic coating kerala, car detailing ottapalam, auto detailing palakkad, ceramic coating shoranur, car wash kerala, paint protection kerala, professional car detailing" />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://xeradetailing.in/" />
+
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="en" href="https://xeradetailing.in/" />
+    <link rel="alternate" hreflang="ml" href="https://xeradetailing.in/ml" />
+    <link rel="alternate" hreflang="x-default" href="https://xeradetailing.in/" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Ottapalam, Palakkad, Kerala" />
+    <meta name="geo.position" content="10.7739;76.3771" />
+    <meta name="ICBM" content="10.7739, 76.3771" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="XERA Car Wash & Auto Detailing | Ceramic Coating in Ottapalam" />
+    <meta property="og:description" content="Experience the best car wash and auto detailing in Ottapalam. XERA offers expert ceramic coating, interior cleaning, and paint protection in Kerala." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
+    <meta property="og:url" content="https://xeradetailing.in/" />
+    <meta property="og:site_name" content="XERA Auto Detailing" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@xeradetailing" />
+    <meta name="twitter:title" content="XERA Car Wash & Auto Detailing" />
+    <meta name="twitter:description" content="Kerala's #1 auto detailing studio for ceramic coating, foam wash & full-service car care." />
+    <meta name="twitter:image" content="https://xeradetailing.in/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png" />
+
+    <!-- ✅ Single font load via <link> (removed duplicate @import in index.css).
+          preconnect hints go first so DNS + TLS is done before the stylesheet. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Preload the first hero slide image so it's ready before CSS paints.
+          This eliminates the flash-of-black-background on first visit.
+          Update this path if you change the first heroSlide image in DynamicHeroSection. -->
+    <link rel="preload" as="image" href="/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png" />
+
+    <!-- DNS prefetch for external services -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
   </head>
+
   <body>
     <div id="root"></div>
+    <!-- IMPORTANT: GPT Engineer script tag must be before the main script -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- PWA Service Worker Registration -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(error => {
-              console.log('ServiceWorker registration failed: ', error);
-            });
-        });
-      }
-    </script>
-    
-    <!-- Improved A2HS (Add to Home Screen) Prompt -->
-    <script>
-      let deferredPrompt;
-      
-      window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        // Stash the event so it can be triggered later
-        deferredPrompt = e;
-        
-        // Update UI to notify the user they can add to home screen
-        setTimeout(() => {
-          if (deferredPrompt) {
-            const installBanner = document.createElement('div');
-            installBanner.id = 'install-banner';
-            installBanner.className = 'fixed bottom-24 sm:bottom-20 left-0 right-0 mx-auto w-[90%] sm:w-11/12 max-w-sm p-3 sm:p-4 bg-black/90 backdrop-blur-lg border border-xera-red/30 rounded-lg shadow-lg z-50 flex flex-col items-center';
-            installBanner.innerHTML = `
-              <p class="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">Add XERA to your home screen for quick access!</p>
-              <div class="flex gap-2">
-                <button id="install-btn" class="bg-xera-red text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded hover:bg-red-700 transition-colors">Install App</button>
-                <button id="dismiss-btn" class="border border-white/30 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded hover:bg-white/10 transition-colors">Later</button>
-              </div>
-            `;
-            document.body.appendChild(installBanner);
-            
-            document.getElementById('install-btn').addEventListener('click', async () => {
-              if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                console.log(`User ${outcome} the A2HS prompt`);
-                deferredPrompt = null;
-                document.getElementById('install-banner').remove();
-              }
-            });
-            
-            document.getElementById('dismiss-btn').addEventListener('click', () => {
-              document.getElementById('install-banner').remove();
-            });
-          }
-        }, 10000); // Show after 10 seconds
-      });
-    </script>
   </body>
 </html>
