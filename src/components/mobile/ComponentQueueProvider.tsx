@@ -1,5 +1,4 @@
-
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useComponentQueue as useComponentQueueHook, QueuedComponent } from '@/hooks/use-component-queue';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -24,17 +23,24 @@ export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = (
   const { addToQueue, removeFromQueue, clearQueue, activeComponent, isVisible } = useComponentQueueHook();
   const isMobile = useIsMobile();
 
+  // ─── FIX: Keep a live ref to the current props so the rendered component
+  // always receives fresh callbacks (e.g. onDismiss) even after re-renders.
+  // The old code baked props into the queued object at registration time,
+  // so any closure created after that point (like a new removeComponent) was
+  // never seen by the rendered component — causing the X button to silently fail.
+  const livePropRef = useRef<Record<string, any>>(activeComponent?.props ?? {});
+  useEffect(() => {
+    livePropRef.current = activeComponent?.props ?? {};
+  }, [activeComponent?.props]);
+
   const getPositionStyles = (position: string) => {
-    if (!isMobile) return "fixed bottom-6 right-6 z-50";
-    
+    if (!isMobile) return 'fixed bottom-6 right-6 z-50';
+
     switch (position) {
-      case 'top':
-        return "fixed top-20 left-4 right-4 z-[60]";
-      case 'center':
-        return "fixed top-1/2 left-4 right-4 z-[70] -translate-y-1/2";
+      case 'top':    return 'fixed top-20 left-4 right-4 z-[60]';
+      case 'center': return 'fixed top-1/2 left-4 right-4 z-[70] -translate-y-1/2';
       case 'bottom':
-      default:
-        return "fixed bottom-20 left-4 right-4 z-[60] mb-2";
+      default:       return 'fixed bottom-20 left-4 right-4 z-[60] mb-2';
     }
   };
 
@@ -43,34 +49,45 @@ export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = (
       case 'top':
         return {
           initial: { opacity: 0, y: -50, scale: 0.9 },
-          animate: { opacity: 1, y: 0, scale: 1 },
-          exit: { opacity: 0, y: -50, scale: 0.9 }
+          animate: { opacity: 1, y: 0,   scale: 1   },
+          exit:    { opacity: 0, y: -50, scale: 0.9 },
         };
       case 'center':
         return {
           initial: { opacity: 0, scale: 0.8 },
-          animate: { opacity: 1, scale: 1 },
-          exit: { opacity: 0, scale: 0.8 }
+          animate: { opacity: 1, scale: 1   },
+          exit:    { opacity: 0, scale: 0.8 },
         };
       case 'bottom':
       default:
         return {
-          initial: { opacity: 0, y: 20, scale: 0.9 },
-          animate: { opacity: 1, y: 0, scale: 1 },
-          exit: { opacity: 0, y: 20, scale: 0.9 }
+          initial: { opacity: 0, y: 20,  scale: 0.9 },
+          animate: { opacity: 1, y: 0,   scale: 1   },
+          exit:    { opacity: 0, y: 20,  scale: 0.9 },
         };
     }
   };
 
+  // A thin wrapper that reads from the live ref on every render, so the
+  // component always has access to the freshest props without needing the
+  // queue to be updated.
+  const LivePropsWrapper = ({ Component, staticProps }: { Component: React.ComponentType<any>; staticProps: Record<string, any> }) => {
+    // Merge static props with whatever is currently in the live ref.
+    // Live ref wins on any key conflict so callbacks stay fresh.
+    const merged = { ...staticProps, ...livePropRef.current };
+    return <Component {...merged} />;
+  };
+
   return (
-    <ComponentQueueContext.Provider value={{ 
-      addComponent: addToQueue, 
-      removeComponent: removeFromQueue, 
-      clearAll: clearQueue 
-    }}>
+    <ComponentQueueContext.Provider
+      value={{
+        addComponent: addToQueue,
+        removeComponent: removeFromQueue,
+        clearAll: clearQueue,
+      }}
+    >
       {children}
-      
-      {/* Render active component with enhanced positioning and animations */}
+
       <AnimatePresence mode="wait">
         {isVisible && activeComponent && (
           <div className={getPositionStyles(activeComponent.position)}>
@@ -80,14 +97,17 @@ export const ComponentQueueProvider: React.FC<{ children: React.ReactNode }> = (
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ 
-                duration: 0.3, 
-                ease: "easeOut",
-                scale: { type: "spring", stiffness: 300, damping: 30 }
+              transition={{
+                duration: 0.3,
+                ease: 'easeOut',
+                scale: { type: 'spring', stiffness: 300, damping: 30 },
               }}
               className="pointer-events-auto"
             >
-              <activeComponent.component {...(activeComponent.props || {})} />
+              <LivePropsWrapper
+                Component={activeComponent.component}
+                staticProps={activeComponent.props ?? {}}
+              />
             </motion.div>
           </div>
         )}
