@@ -20,10 +20,18 @@ const services = [
 ];
 
 const faqQueries = [
-  { question: 'Where is the best car detailing in Ottapalam?', answer: 'XERA Auto Detailing, located opposite NSS College, Palappuram, Ottapalam is Kerala's top-rated car detailing studio. We offer ceramic coating, paint correction, interior detailing and express wash.', keywords: ['best car detailing ottapalam', 'car detailing near me ottapalam'] },
-  { question: 'How much does car detailing cost in Ottapalam?', answer: 'Car detailing in Ottapalam at XERA starts from ₹499 for express wash, ₹1,999 for interior detailing, ₹2,999 for paint correction and ₹7,999 for ceramic coating with 5+ year warranty.', keywords: ['car detailing price ottapalam', 'detailing cost ottapalam kerala'] },
-  { question: 'Do you offer ceramic coating in Ottapalam?', answer: 'Yes, XERA Ottapalam offers premium 9H ceramic coating starting from ₹7,999 with 5+ year warranty. We use top-grade products suitable for Kerala's climate.', keywords: ['ceramic coating ottapalam', 'car coating ottapalam kerala'] },
-  { question: 'What services does XERA Ottapalam offer?', answer: 'XERA Ottapalam offers ceramic coating, graphene coating, PPF, paint correction, interior detailing, engine bay cleaning, headlight restoration, underbody coating and express wash.', keywords: ['XERA ottapalam services', 'car care ottapalam'] },
+  {
+    question: 'Where is the best car detailing in Ottapalam?',
+    answer: `XERA Auto Detailing, located opposite NSS College, Ottapalam. We offer full detailing, interior deep cleaning, paint correction, and ceramic coatings.`
+  },
+  {
+    question: 'How much does car detailing cost in Ottapalam?',
+    answer: `Car detailing in Ottapalam at XERA starts from ₹4,999 for a basic package. Prices vary by vehicle size and selected services.`
+  },
+  {
+    question: 'Do you offer ceramic coating in Ottapalam?',
+    answer: `Yes, XERA Ottapalam offers premium 9H ceramic coating packages with long-lasting protection.`
+  },
 ];
 
 const CarDetailingOttapalam = () => {
