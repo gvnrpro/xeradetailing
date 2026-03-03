@@ -1,5 +1,9 @@
+/* ─── Fonts ──────────────────────────────────────────────────────────────────
+   Inter and Rajdhani are already loaded via <link> tags in index.html with
+   proper preconnect hints. Importing them again here via @import creates a
+   second render-blocking request. Removed.
+   ──────────────────────────────────────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,7 +45,7 @@
     --xera-success: 142 76% 36%;
     --xera-warning: 38 92% 50%;
     --xera-info: 217 91% 60%;
-    
+
     /* Modal and Popup Z-index management */
     --z-modal-backdrop: 40;
     --z-modal-content: 50;
@@ -56,6 +60,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Inter is loaded via index.html <link>; system-ui is the fallback */
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
@@ -65,48 +70,50 @@
   .text-gradient {
     @apply bg-gradient-to-r from-white via-white to-xera-red bg-clip-text text-transparent;
   }
-  
+
+  /* ✅ hero-bg: removed background-attachment: fixed (causes jank on iOS/Android).
+        The DynamicHeroSection handles its own background via inline style + framer-motion,
+        so this class is now a lightweight fallback only. */
   .hero-bg {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), 
-                url('/lovable-uploads/87afb816-e5f6-4de8-a0e4-bc33d80b3cd1.png') no-repeat center center/cover;
-    background-attachment: fixed;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%),
+                url('/lovable-uploads/cc7ff58c-370a-4c28-affe-248f3bce2fb5.png') no-repeat center center / cover;
   }
-  
+
   .mobile-tap-list a,
   .mobile-tap-list button {
     @apply min-h-[52px] flex items-center;
   }
-  
+
   .tap-highlight {
     -webkit-tap-highlight-color: rgba(230, 43, 30, 0.3);
     touch-action: manipulation;
   }
-  
+
   /* Touch feedback */
   button:active,
   a:active {
-    opacity: 0.7;
+    opacity: 0.85;
     transform: scale(0.98);
   }
-  
+
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
-  
+
   /* Enhanced modal and popup styles */
   .modal-backdrop {
     @apply bg-black/50 backdrop-blur-sm;
   }
-  
+
   .popup-container {
     @apply pointer-events-none;
   }
-  
+
   .popup-content {
     @apply pointer-events-auto;
   }
 
-  /* New Enhanced Visual Effects */
+  /* Glass card */
   .glass-card {
     @apply bg-white/5 backdrop-blur-sm border border-white/10;
   }
@@ -155,17 +162,18 @@
   }
 
   @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0%   { left: -100%; }
+    100% { left: 100%;  }
   }
 
+  /* CSS-only floating animation used by hero particles (no JS loop) */
   .floating-animation {
-    animation: floating 3s ease-in-out infinite;
+    animation: floating 4s ease-in-out infinite;
   }
 
   @keyframes floating {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px);   }
+    50%       { transform: translateY(-12px); }
   }
 
   .pulse-glow {
@@ -174,7 +182,7 @@
 
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 20px rgba(230, 43, 30, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(230, 43, 30, 0.6); }
+    50%       { box-shadow: 0 0 40px rgba(230, 43, 30, 0.6); }
   }
 }
 
@@ -183,16 +191,16 @@
   .hero-cta {
     @apply transform-gpu will-change-transform;
   }
-  
+
   .animate-car-move {
     animation: carMove 15s linear infinite;
   }
-  
+
   @keyframes carMove {
-    0% { transform: translateX(-100px); }
+    0%   { transform: translateX(-100px); }
     100% { transform: translateX(calc(100vw + 100px)); }
   }
-  
+
   /* Smooth countdown transitions */
   .countdown-digit {
     @apply transition-all duration-300 ease-in-out;
@@ -203,13 +211,8 @@
     transition: transform 0.2s ease-out;
   }
 
-  .interactive-scale:hover {
-    transform: scale(1.05);
-  }
-
-  .interactive-scale:active {
-    transform: scale(0.98);
-  }
+  .interactive-scale:hover  { transform: scale(1.05); }
+  .interactive-scale:active { transform: scale(0.98); }
 
   .gradient-text {
     background: linear-gradient(135deg, #ffffff 0%, #e62b1e 100%);
@@ -218,13 +221,17 @@
     background-clip: text;
   }
 
+  /* ✅ card-hover-effect: 3D tilt is now wrapped in @media (hover: hover) so it
+        never triggers on touch devices where :hover is sticky after a tap. */
   .card-hover-effect {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .card-hover-effect:hover {
-    transform: translateY(-8px) rotateX(5deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  @media (hover: hover) {
+    .card-hover-effect:hover {
+      transform: translateY(-8px) rotateX(5deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .text-shadow-glow {
@@ -234,29 +241,23 @@
 
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
-  .hero-bg {
-    background-attachment: scroll; /* Better mobile performance */
-  }
-  
   /* Improved mobile modal positioning */
   .mobile-modal {
     @apply max-h-[80vh] overflow-y-auto;
   }
-
+  /* Reduce card lift on mobile */
   .card-hover-effect:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: none;
+    box-shadow: none;
   }
 }
 
 /* iOS specific fixes */
-.ios-device {
-  .safe-area-bottom {
-    padding-bottom: max(env(safe-area-inset-bottom), 20px);
-  }
+.ios-device .safe-area-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 20px);
 }
 
-/* Component queue positioning improvements */
+/* Component queue positioning */
 .component-queue-overlay {
   @apply pointer-events-none;
 }
@@ -271,22 +272,10 @@
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #e62b1e;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #d32f2f;
-}
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #e62b1e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #d32f2f; }
 
 /* Enhanced loading states */
 .skeleton-loading {
@@ -296,6 +285,6 @@
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
+  0%   { background-position:  200% 0; }
   100% { background-position: -200% 0; }
 }
