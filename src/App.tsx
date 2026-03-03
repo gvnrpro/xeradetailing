@@ -6,6 +6,10 @@ import Services from '@/pages/Services';
 import CeramicCoating from '@/pages/services/CeramicCoating';
 import ExpressWash from '@/pages/services/ExpressWash';
 import EngineBayCleaning from '@/pages/services/EngineBayCleaning';
+import InteriorDetailing from '@/pages/services/InteriorDetailing';
+import PaintCorrection from '@/pages/services/PaintCorrection';
+import HeadlightRestoration from '@/pages/services/HeadlightRestoration';
+import UnderbodyCoating from '@/pages/services/UnderbodyCoating';
 import CeramicCoatingPalakkad from '@/pages/locations/CeramicCoatingPalakkad';
 import CeramicCoatingShoranur from '@/pages/locations/CeramicCoatingShoranur';
 import CarDetailingShoranur from '@/pages/locations/CarDetailingShoranur';
@@ -35,6 +39,7 @@ import CeramicCoatingPriceMl from '@/pages/malayalam/CeramicCoatingPrice';
 import AboutMalayalam from '@/pages/malayalam/AboutMalayalam';
 import ServicesMalayalam from '@/pages/malayalam/ServicesMalayalam';
 import ContactMalayalam from '@/pages/malayalam/ContactMalayalam';
+import IndexMalayalam from '@/pages/malayalam/IndexMalayalam';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ComponentQueueProvider } from '@/components/mobile/ComponentQueueProvider';
@@ -69,6 +74,10 @@ function App() {
                   <Route path="/services/ceramic-coating" element={<CeramicCoating />} />
                   <Route path="/services/express-wash" element={<ExpressWash />} />
                   <Route path="/services/engine-bay-cleaning" element={<EngineBayCleaning />} />
+                  <Route path="/services/interior-detailing" element={<InteriorDetailing />} />
+                  <Route path="/services/paint-correction" element={<PaintCorrection />} />
+                  <Route path="/services/headlight-restoration" element={<HeadlightRestoration />} />
+                  <Route path="/services/underbody-coating" element={<UnderbodyCoating />} />
                   <Route path="/ceramic-coating-palakkad" element={<CeramicCoatingPalakkad />} />
                   <Route path="/ceramic-coating-shoranur" element={<CeramicCoatingShoranur />} />
                   <Route path="/car-care-tips" element={<CarCareTips />} />
@@ -93,6 +102,7 @@ function App() {
                   <Route path="/car-detailing-cherpulassery" element={<CarDetailingCherpulassery />} />
                   
                   {/* Malayalam Pages */}
+                  <Route path="/ml" element={<IndexMalayalam />} />
                   <Route path="/ml/ceramic-coating-ottapalam" element={<CeramicCoatingOttapalamMl />} />
                   <Route path="/ml/car-wash-palakkad" element={<CarWashPalakkadMl />} />
                   <Route path="/ml/interior-cleaning-shoranur" element={<InteriorCleaningShoranurMl />} />
