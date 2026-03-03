@@ -5,52 +5,58 @@ import { Button } from '@/components/ui/button';
 const services = [
   {
     icon: Shield,
-    title: "Ceramic Coating",
-    description: "Premium 9H ceramic protection with 5+ years warranty. Hydrophobic coating that protects against UV, scratches, and chemical stains.",
-    price: "From ₹7,999",
-    link: "/services/ceramic-coating",
-    features: ["9H Hardness", "5+ Years Protection", "Hydrophobic"]
+    title: 'Ceramic Coating',
+    description:
+      'Premium 9H ceramic protection with 5+ years warranty. Hydrophobic coating that protects against UV, scratches, and chemical stains.',
+    price: 'From ₹7,999',
+    link: '/services/ceramic-coating',        // ✅ specific page
+    features: ['9H Hardness', '5+ Years Protection', 'Hydrophobic'],
   },
   {
     icon: Sparkles,
-    title: "Paint Correction",
-    description: "Professional multi-stage paint correction to remove swirl marks, scratches, and oxidation. Restore your car's showroom finish.",
-    price: "From ₹4,999",
-    link: "/services",
-    features: ["Swirl Removal", "Scratch Repair", "Mirror Finish"]
+    title: 'Paint Correction',
+    description:
+      'Professional multi-stage paint correction to remove swirl marks, scratches, and oxidation. Restore your car\'s showroom finish.',
+    price: 'From ₹4,999',
+    link: '/services/paint-correction',       // ✅ was /services
+    features: ['Swirl Removal', 'Scratch Repair', 'Mirror Finish'],
   },
   {
     icon: Car,
-    title: "Interior Detailing",
-    description: "Deep cleaning and sanitization of your car's interior. Steam cleaning, leather conditioning, and odor elimination.",
-    price: "From ₹2,499",
-    link: "/services",
-    features: ["Steam Cleaning", "Leather Care", "Sanitization"]
+    title: 'Interior Detailing',
+    description:
+      'Deep cleaning and sanitization of your car\'s interior. Steam cleaning, leather conditioning, and odor elimination.',
+    price: 'From ₹2,499',
+    link: '/services/interior-detailing',     // ✅ was /services
+    features: ['Steam Cleaning', 'Leather Care', 'Sanitization'],
   },
   {
     icon: Droplets,
-    title: "Express Wash",
-    description: "Quick yet thorough exterior wash with premium products. Perfect for regular maintenance between full details.",
-    price: "From ₹499",
-    link: "/services/express-wash",
-    features: ["30 Minutes", "Foam Wash", "Tire Shine"]
+    title: 'Express Wash',
+    description:
+      'Quick yet thorough exterior wash with premium products. Perfect for regular maintenance between full details.',
+    price: 'From ₹499',
+    link: '/services/express-wash',           // ✅ already correct
+    features: ['30 Minutes', 'Foam Wash', 'Tire Shine'],
   },
   {
     icon: Wrench,
-    title: "Engine Bay Cleaning",
-    description: "Professional engine bay detailing to remove grease, dirt, and grime. Improve engine cooling and spot leaks early.",
-    price: "From ₹1,499",
-    link: "/services/engine-bay-cleaning",
-    features: ["Degreasing", "Protection", "Inspection"]
+    title: 'Engine Bay Cleaning',
+    description:
+      'Professional engine bay detailing to remove grease, dirt, and grime. Improve engine cooling and spot leaks early.',
+    price: 'From ₹1,499',
+    link: '/services/engine-bay-cleaning',    // ✅ already correct
+    features: ['Degreasing', 'Protection', 'Inspection'],
   },
   {
     icon: Sun,
-    title: "Headlight Restoration",
-    description: "Restore cloudy, yellowed headlights to crystal clear condition. Improve visibility and vehicle appearance.",
-    price: "From ₹999",
-    link: "/services",
-    features: ["UV Coating", "Clear Vision", "Like New"]
-  }
+    title: 'Headlight Restoration',
+    description:
+      'Restore cloudy, yellowed headlights to crystal clear condition. Improve visibility and vehicle appearance.',
+    price: 'From ₹999',
+    link: '/services/headlight-restoration',  // ✅ was /services
+    features: ['UV Coating', 'Clear Vision', 'Like New'],
+  },
 ];
 
 const SimpleServiceGrid = () => {
@@ -62,7 +68,8 @@ const SimpleServiceGrid = () => {
             Our <span className="text-xera-red">Premium</span> Services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Professional auto detailing services in Ottapalam, Palakkad. We use only premium products and techniques.
+            Professional auto detailing services in Ottapalam, Palakkad. We use only premium
+            products and techniques.
           </p>
         </div>
 
@@ -70,7 +77,7 @@ const SimpleServiceGrid = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-xl p-6 hover:border-xera-red/50 transition-all duration-300 hover:shadow-lg hover:shadow-xera-red/10 group"
+              className="bg-card border border-border rounded-xl p-6 hover:border-xera-red/50 transition-all duration-300 hover:shadow-lg hover:shadow-xera-red/10 group flex flex-col"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-xera-red/10 flex items-center justify-center flex-shrink-0 group-hover:bg-xera-red/20 transition-colors">
@@ -81,8 +88,8 @@ const SimpleServiceGrid = () => {
                   <span className="text-xera-red font-semibold text-sm">{service.price}</span>
                 </div>
               </div>
-              
-              <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+
+              <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-1">
                 {service.description}
               </p>
 
@@ -97,22 +104,39 @@ const SimpleServiceGrid = () => {
                 ))}
               </div>
 
-              <Link to={service.link}>
-                <Button 
-                  variant="outline" 
-                  className="w-full border-xera-red/50 text-xera-red hover:bg-xera-red hover:text-white"
-                >
-                  Learn More
-                </Button>
-              </Link>
+              {/* Two action buttons per card */}
+              <div className="flex gap-2 mt-auto">
+                <Link to={service.link} className="flex-1">
+                  <Button
+                    variant="outline"
+                    className="w-full border-xera-red/50 text-xera-red hover:bg-xera-red hover:text-white"
+                  >
+                    Learn More
+                  </Button>
+                </Link>
+                <Link to="/pricing">
+                  <Button
+                    variant="ghost"
+                    className="text-muted-foreground hover:text-xera-red hover:bg-xera-red/10 px-3"
+                    title="See pricing"
+                  >
+                    ₹
+                  </Button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/services">
             <Button size="lg" className="bg-xera-red hover:bg-xera-red/90 text-white">
               View All Services
+            </Button>
+          </Link>
+          <Link to="/pricing">
+            <Button size="lg" variant="outline" className="border-xera-red/50 text-xera-red hover:bg-xera-red hover:text-white">
+              See Full Pricing
             </Button>
           </Link>
         </div>
