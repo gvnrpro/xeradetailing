@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,26 +9,46 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+const routeMapping: Record<string, string> = {
+  '/': '/ml',
+  '/about': '/ml/about',
+  '/services': '/ml/services',
+  '/contact': '/ml/contact',
+  '/services/ceramic-coating': '/ml/ceramic-coating-ottapalam',
+};
+
+const reverseRouteMapping: Record<string, string> = Object.fromEntries(
+  Object.entries(routeMapping).map(([en, ml]) => [ml, en])
+);
+
 interface LanguageToggleProps {
   className?: string;
 }
 
 export const LanguageToggle: React.FC<LanguageToggleProps> = ({ className = '' }) => {
-  const [currentLang, setCurrentLang] = useState<'en' | 'ml'>('en');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isMalayalam = location.pathname.startsWith('/ml');
 
   const languages = {
     en: { name: 'English', flag: '🇬🇧' },
     ml: { name: 'മലയാളം', flag: '🇮🇳' }
   };
 
+  const currentLang = isMalayalam ? 'ml' : 'en';
+
   const handleLanguageChange = (lang: 'en' | 'ml') => {
-    setCurrentLang(lang);
-    // Store preference in localStorage
+    if (lang === currentLang) return;
+
     localStorage.setItem('preferred-language', lang);
-    // Add hreflang tag dynamically
-    const existingLink = document.querySelector('link[rel="alternate"][hreflang]');
-    if (existingLink) {
-      existingLink.setAttribute('hreflang', lang);
+
+    if (lang === 'ml') {
+      const mlRoute = routeMapping[location.pathname] || '/ml';
+      navigate(mlRoute);
+    } else {
+      const enRoute = reverseRouteMapping[location.pathname] || '/';
+      navigate(enRoute);
     }
   };
 

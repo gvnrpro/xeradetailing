@@ -57,8 +57,10 @@ const Footer = () => {
               <Link to="/services/ceramic-coating" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Ceramic Coating</Link>
               <Link to="/services/express-wash" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Express Wash</Link>
               <Link to="/services/engine-bay-cleaning" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Engine Bay Cleaning</Link>
-              <Link to="/services" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Interior Detailing</Link>
-              <Link to="/services" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Paint Correction</Link>
+              <Link to="/services/interior-detailing" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Interior Detailing</Link>
+              <Link to="/services/paint-correction" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Paint Correction</Link>
+              <Link to="/services/headlight-restoration" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Headlight Restoration</Link>
+              <Link to="/services/underbody-coating" className="block text-white/70 hover:text-xera-red transition-colors text-sm">Underbody Coating</Link>
             </div>
           </div>
           
